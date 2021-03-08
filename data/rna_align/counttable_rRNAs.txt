@@ -1,0 +1,24 @@
+# Program:featureCounts v2.0.1; Command:"featureCounts" "-T" "5" "-t" "rRNA" "-g" "gene" "-a" "../data/reference_sequences/oligos_cds.gff" "-o" "../data/rna_align/counttable_rRNAs.txt" "../data/rna_align/01_no_PNA.bam" "../data/rna_align/02_PNA15_5000pM.bam" "../data/rna_align/03_PNA15_500pM.bam" "../data/rna_align/04_PNA15_100pM.bam" "../data/rna_align/05_PNA15_10pM.bam" "../data/rna_align/06_PNA14_5000pM.bam" "../data/rna_align/07_no_PNA.bam" "../data/rna_align/08_PNA15_5000pM.bam" "../data/rna_align/09_PNA15_500pM.bam" "../data/rna_align/10_PNA15_100pM.bam" "../data/rna_align/11_PNA15_10pM.bam" "../data/rna_align/12_PNA14_5000pM.bam" "../data/rna_align/13_no_PNA.bam" "../data/rna_align/14_PNA15_5000pM.bam" "../data/rna_align/15_PNA15_500pM.bam" "../data/rna_align/16_PNA15_100pM.bam" "../data/rna_align/17_PNA15_10pM.bam" "../data/rna_align/18_PNA14_5000pM.bam" "../data/rna_align/73_RNA_input_control.bam" 
+Geneid	Chr	Start	End	Strand	Length	../data/rna_align/01_no_PNA.bam	../data/rna_align/02_PNA15_5000pM.bam	../data/rna_align/03_PNA15_500pM.bam	../data/rna_align/04_PNA15_100pM.bam	../data/rna_align/05_PNA15_10pM.bam	../data/rna_align/06_PNA14_5000pM.bam	../data/rna_align/07_no_PNA.bam	../data/rna_align/08_PNA15_5000pM.bam	../data/rna_align/09_PNA15_500pM.bam	../data/rna_align/10_PNA15_100pM.bam	../data/rna_align/11_PNA15_10pM.bam	../data/rna_align/12_PNA14_5000pM.bam	../data/rna_align/13_no_PNA.bam	../data/rna_align/14_PNA15_5000pM.bam	../data/rna_align/15_PNA15_500pM.bam	../data/rna_align/16_PNA15_100pM.bam	../data/rna_align/17_PNA15_10pM.bam	../data/rna_align/18_PNA14_5000pM.bam	../data/rna_align/73_RNA_input_control.bam
+rrsH	NC_000913.3:223770-225312	1	1542	+	1542	6234	5240	6719	11484	6669	5685	8049	4634	5777	4549	13842	6155	8248	9884	6245	7158	6424	7187	2
+rrlH	NC_000913.3:225758-228662	1	2904	+	2904	24691	25787	31947	25327	29358	23001	34109	23102	25072	23152	23082	28796	21500	21488	20985	25872	23924	20448	5
+rrfH	NC_000913.3:228755-228875	1	120	+	120	144	86	116	98	88	55	82	61	66	55	123	91	92	77	93	148	94	127	0
+rrfG	NC_000913.3:2726068-2726188	1	120	-	120	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0
+rrlG	NC_000913.3:2726280-2729184	1	2904	-	2904	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	2	0	0	0
+rrsG	NC_000913.3:2729615-2731157	1	1542	-	1542	10330	8147	10464	12667	8989	8575	13195	8264	10182	9514	20823	10204	13624	15437	8887	10525	9134	9770	1
+rrfF	NC_000913.3:3423422-3423542	1	120	-	120	81	88	95	140	118	86	161	82	94	77	120	107	105	129	108	127	114	87	0
+rrfD	NC_000913.3:3423667-3423787	1	120	-	120	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rrlD	NC_000913.3:3423879-3426783	1	2904	-	2904	3693	3868	5591	3817	4370	3595	5053	4040	4144	3234	2832	4143	3175	3447	3399	4276	3392	3306	0
+rrsD	NC_000913.3:3427220-3428762	1	1542	-	1542	2	5	3	6	3	1	5	5	5	1	13	1	4	4	5	8	11	4	0
+rrsC	NC_000913.3:3941807-3943349	1	1542	+	1542	36	32	42	76	101	66	142	65	22	16	91	79	30	44	42	66	74	68	0
+rrlC	NC_000913.3:3943703-3946607	1	2904	+	2904	1301	1497	1644	1622	1691	1208	1676	1130	1217	922	1467	1581	1337	1703	1701	1736	1498	1757	1
+rrfC	NC_000913.3:3946699-3946819	1	120	+	120	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rrsA	NC_000913.3:4035530-4037072	1	1542	+	1542	7	9	8	18	8	6	19	3	10	12	31	12	22	11	8	11	15	13	0
+rrlA	NC_000913.3:4037518-4040423	1	2905	+	2905	1102	775	787	1208	853	664	1203	531	923	663	2858	828	933	900	641	679	662	715	6
+rrfA	NC_000913.3:4040516-4040636	1	120	+	120	2	1	2	2	2	8	1	2	1	0	2	5	2	2	4	2	2	1	0
+rrsB	NC_000913.3:4166658-4168200	1	1542	+	1542	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rrlB	NC_000913.3:4168640-4171544	1	2904	+	2904	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rrfB	NC_000913.3:4171636-4171756	1	120	+	120	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+rrsE	NC_000913.3:4208146-4209688	1	1542	+	1542	7	0	2	1	1	1	1	1	1	1	3	1	1	1	0	2	0	3	0
+rrlE	NC_000913.3:4210042-4212946	1	2904	+	2904	157	101	184	86	113	127	186	190	208	245	140	145	214	128	108	127	123	111	0
+rrfE	NC_000913.3:4213039-4213159	1	120	+	120	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0

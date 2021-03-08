@@ -839,3 +839,2002 @@ Cleared Memory:    	1.552 seconds.
 Processing reads in single-ended mode.
 Started read stream.
 Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	24825268	(747919748 bases)
+
+Mapping:          	64.814 seconds.
+Reads/sec:       	383022.31
+kBases/sec:      	11539.45
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 84.8871% 	 21073442 	 80.0062% 	   598382308
+unambiguous:     	 42.8771% 	 10644343 	 42.0689% 	   314641714
+ambiguous:       	 42.0100% 	 10429099 	 37.9373% 	   283740594
+low-Q discards:  	  0.0015% 	      375 	  0.0008% 	        6281
+
+perfect best site:	 36.3544% 	  9025081 	 34.8948% 	   260985282
+semiperfect site:	 36.5055% 	  9062576 	 35.1542% 	   262925411
+
+Match Rate:      	      NA 	       NA 	 98.1859% 	   310214247
+Error Rate:      	  7.2207% 	  1578507 	  1.5793% 	     4989680
+Sub Rate:        	  6.5130% 	  1423799 	  1.0785% 	     3407383
+Del Rate:        	  0.7579% 	   165672 	  0.4128% 	     1304204
+Ins Rate:        	  0.4818% 	   105318 	  0.0880% 	      278093
+N Rate:          	  0.2638% 	    57658 	  0.2348% 	      741991
+
+Total time:     	70.823 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/04_PNA15_100pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/04_PNA15_100pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246873m -Xms246873m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/05_PNA15_10pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/05_PNA15_10pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/05_PNA15_10pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/05_PNA15_10pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.141 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.243 seconds.
+Analyzed Index:   	3.153 seconds.
+Started output stream:	0.040 seconds.
+Cleared Memory:    	0.879 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	24772997	(791355715 bases)
+
+Mapping:          	83.024 seconds.
+Reads/sec:       	298381.79
+kBases/sec:      	9531.59
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 82.6755% 	 20481187 	 76.1133% 	   602327096
+unambiguous:     	 43.2641% 	 10717822 	 40.5007% 	   320504328
+ambiguous:       	 39.4113% 	  9763365 	 35.6127% 	   281822768
+low-Q discards:  	  0.0013% 	      331 	  0.0007% 	        5837
+
+perfect best site:	 36.7765% 	  9110649 	 33.6884% 	   266594827
+semiperfect site:	 36.9829% 	  9161773 	 34.0332% 	   269324001
+
+Match Rate:      	      NA 	       NA 	 98.1599% 	   315943871
+Error Rate:      	  7.1565% 	  1552641 	  1.4908% 	     4798417
+Sub Rate:        	  6.3846% 	  1385189 	  0.9759% 	     3140942
+Del Rate:        	  0.8421% 	   182692 	  0.4233% 	     1362332
+Ins Rate:        	  0.4699% 	   101947 	  0.0917% 	      295143
+N Rate:          	  0.3512% 	    76195 	  0.3493% 	     1124372
+
+Total time:     	88.623 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/05_PNA15_10pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/05_PNA15_10pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246787m -Xms246787m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/06_PNA14_5000pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/06_PNA14_5000pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/06_PNA14_5000pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/06_PNA14_5000pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.144 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.162 seconds.
+Analyzed Index:   	2.975 seconds.
+Started output stream:	0.037 seconds.
+Cleared Memory:    	1.470 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	23446748	(741781142 bases)
+
+Mapping:          	68.848 seconds.
+Reads/sec:       	340560.59
+kBases/sec:      	10774.26
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.6043% 	 20071413 	 80.9827% 	   600714194
+unambiguous:     	 45.0646% 	 10566175 	 43.0534% 	   319362256
+ambiguous:       	 40.5397% 	  9505238 	 37.9292% 	   281351938
+low-Q discards:  	  0.0009% 	      222 	  0.0005% 	        3993
+
+perfect best site:	 38.4899% 	  9024628 	 36.1330% 	   268027568
+semiperfect site:	 38.6359% 	  9058855 	 36.3698% 	   269784600
+
+Match Rate:      	      NA 	       NA 	 98.4002% 	   315400704
+Error Rate:      	  7.2056% 	  1504082 	  1.3836% 	     4434676
+Sub Rate:        	  6.4280% 	  1341781 	  0.9413% 	     3017171
+Del Rate:        	  0.8100% 	   169073 	  0.3639% 	     1166359
+Ins Rate:        	  0.4608% 	    96191 	  0.0784% 	      251146
+N Rate:          	  0.2601% 	    54290 	  0.2163% 	      693235
+
+Total time:     	74.760 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/06_PNA14_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/06_PNA14_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246906m -Xms246906m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/07_no_PNA_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/07_no_PNA.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/07_no_PNA_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/07_no_PNA.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.143 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.153 seconds.
+Analyzed Index:   	2.984 seconds.
+Started output stream:	0.035 seconds.
+Cleared Memory:    	1.470 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	27717902	(842337994 bases)
+
+Mapping:          	87.224 seconds.
+Reads/sec:       	317777.81
+kBases/sec:      	9657.16
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 84.2389% 	 23349245 	 79.4863% 	   669543067
+unambiguous:     	 36.0587% 	  9994719 	 35.4417% 	   298538889
+ambiguous:       	 48.1801% 	 13354526 	 44.0446% 	   371004178
+low-Q discards:  	  0.0016% 	      444 	  0.0009% 	        7461
+
+perfect best site:	 30.3611% 	  8415457 	 29.1415% 	   245470268
+semiperfect site:	 30.4713% 	  8446007 	 29.3241% 	   247008323
+
+Match Rate:      	      NA 	       NA 	 98.0893% 	   294195177
+Error Rate:      	  6.4003% 	  1545664 	  1.7146% 	     5142637
+Sub Rate:        	  5.7430% 	  1386937 	  1.1526% 	     3456967
+Del Rate:        	  0.7325% 	   176893 	  0.4625% 	     1387072
+Ins Rate:        	  0.4467% 	   107876 	  0.0996% 	      298598
+N Rate:          	  0.2035% 	    49138 	  0.1961% 	      588147
+
+Total time:     	93.147 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/07_no_PNA.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/07_no_PNA.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246959m -Xms246959m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/08_PNA15_5000pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/08_PNA15_5000pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/08_PNA15_5000pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/08_PNA15_5000pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.153 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.320 seconds.
+Analyzed Index:   	2.967 seconds.
+Started output stream:	0.038 seconds.
+Cleared Memory:    	1.442 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	17373290	(545461087 bases)
+
+Mapping:          	67.385 seconds.
+Reads/sec:       	257819.47
+kBases/sec:      	8094.64
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 83.6285% 	 14529030 	 79.3361% 	   432747377
+unambiguous:     	 36.8146% 	  6395903 	 35.4610% 	   193425943
+ambiguous:       	 46.8140% 	  8133127 	 43.8751% 	   239321434
+low-Q discards:  	  0.0018% 	      318 	  0.0010% 	        5283
+
+perfect best site:	 30.8787% 	  5364644 	 29.0669% 	   158548565
+semiperfect site:	 31.0182% 	  5388889 	 29.2972% 	   159804601
+
+Match Rate:      	      NA 	       NA 	 98.0775% 	   190623353
+Error Rate:      	  6.6618% 	  1005148 	  1.6586% 	     3223586
+Sub Rate:        	  5.8948% 	   889430 	  1.0691% 	     2077907
+Del Rate:        	  0.8765% 	   132254 	  0.4806% 	      934002
+Ins Rate:        	  0.4478% 	    67559 	  0.1089% 	      211677
+N Rate:          	  0.2554% 	    38528 	  0.2639% 	      513006
+
+Total time:     	73.486 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/08_PNA15_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/08_PNA15_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246881m -Xms246881m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/09_PNA15_500pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/09_PNA15_500pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/09_PNA15_500pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/09_PNA15_500pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.193 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.143 seconds.
+Analyzed Index:   	2.998 seconds.
+Started output stream:	0.037 seconds.
+Cleared Memory:    	1.439 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	23869971	(751403104 bases)
+
+Mapping:          	100.148 seconds.
+Reads/sec:       	238348.01
+kBases/sec:      	7502.96
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.3810% 	 20380427 	 80.3444% 	   603710039
+unambiguous:     	 41.3032% 	  9859068 	 39.8648% 	   299545127
+ambiguous:       	 44.0778% 	 10521359 	 40.4796% 	   304164912
+low-Q discards:  	  0.0012% 	      295 	  0.0007% 	        5084
+
+perfect best site:	 34.8460% 	  8317728 	 32.9773% 	   247792624
+semiperfect site:	 34.9538% 	  8343461 	 33.1536% 	   249117473
+
+Match Rate:      	      NA 	       NA 	 98.2540% 	   295602119
+Error Rate:      	  7.1425% 	  1512678 	  1.5719% 	     4729058
+Sub Rate:        	  6.3600% 	  1346963 	  1.0488% 	     3155242
+Del Rate:        	  0.8524% 	   180522 	  0.4354% 	     1309981
+Ins Rate:        	  0.4708% 	    99718 	  0.0877% 	      263835
+N Rate:          	  0.1982% 	    41980 	  0.1741% 	      523931
+
+Total time:     	106.158 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/09_PNA15_500pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/09_PNA15_500pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx114836m -Xms114836m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/10_PNA15_100pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/10_PNA15_100pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/10_PNA15_100pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/10_PNA15_100pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.126 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.951 seconds.
+Analyzed Index:   	2.632 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.612 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	20367256	(647636966 bases)
+
+Mapping:          	149.553 seconds.
+Reads/sec:       	136187.44
+kBases/sec:      	4330.48
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.2706% 	 17367272 	 80.4120% 	   520777966
+unambiguous:     	 34.0175% 	  6928433 	 32.1608% 	   208284915
+ambiguous:       	 51.2530% 	 10438839 	 48.2513% 	   312493051
+low-Q discards:  	  0.0015% 	      305 	  0.0008% 	        5309
+
+perfect best site:	 28.5165% 	  5808028 	 26.3807% 	   170851481
+semiperfect site:	 28.6208% 	  5829276 	 26.5510% 	   171954339
+
+Match Rate:      	      NA 	       NA 	 98.0931% 	   205336113
+Error Rate:      	  6.0738% 	  1097112 	  1.6918% 	     3541362
+Sub Rate:        	  5.3507% 	   966506 	  1.0993% 	     2301181
+Del Rate:        	  0.8171% 	   147592 	  0.4982% 	     1042791
+Ins Rate:        	  0.4000% 	    72256 	  0.0943% 	      197390
+N Rate:          	  0.1882% 	    33997 	  0.2151% 	      450231
+
+Total time:     	154.007 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/10_PNA15_100pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/10_PNA15_100pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx114918m -Xms114918m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/11_PNA15_10pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/11_PNA15_10pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/11_PNA15_10pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/11_PNA15_10pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.134 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.944 seconds.
+Analyzed Index:   	2.579 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.807 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	20718277	(621470932 bases)
+
+Mapping:          	103.707 seconds.
+Reads/sec:       	199777.98
+kBases/sec:      	5992.59
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 84.2799% 	 17461347 	 79.4317% 	   493644972
+unambiguous:     	 34.1166% 	  7068367 	 33.5994% 	   208810287
+ambiguous:       	 50.1633% 	 10392980 	 45.8323% 	   284834685
+low-Q discards:  	  0.0022% 	      455 	  0.0012% 	        7232
+
+perfect best site:	 28.9013% 	  5987852 	 27.8250% 	   172924230
+semiperfect site:	 29.0049% 	  6009320 	 28.0003% 	   174013750
+
+Match Rate:      	      NA 	       NA 	 98.1465% 	   205920929
+Error Rate:      	  5.8383% 	  1056990 	  1.6371% 	     3434746
+Sub Rate:        	  5.2085% 	   942974 	  1.0650% 	     2234472
+Del Rate:        	  0.7057% 	   127759 	  0.4764% 	      999556
+Ins Rate:        	  0.3906% 	    70713 	  0.0957% 	      200718
+N Rate:          	  0.1987% 	    35970 	  0.2165% 	      454168
+
+Total time:     	108.302 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/11_PNA15_10pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/11_PNA15_10pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80449m -Xms80449m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/12_PNA14_5000pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/12_PNA14_5000pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/12_PNA14_5000pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/12_PNA14_5000pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.129 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.915 seconds.
+Analyzed Index:   	2.626 seconds.
+Started output stream:	0.032 seconds.
+Cleared Memory:    	0.571 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	26112428	(788931683 bases)
+
+Mapping:          	137.928 seconds.
+Reads/sec:       	189319.87
+kBases/sec:      	5719.90
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.9675% 	 22448212 	 80.8313% 	   637703630
+unambiguous:     	 37.6135% 	  9821796 	 36.0944% 	   284760248
+ambiguous:       	 48.3540% 	 12626416 	 44.7369% 	   352943382
+low-Q discards:  	  0.0015% 	      383 	  0.0009% 	        6719
+
+perfect best site:	 31.9898% 	  8353311 	 30.0386% 	   236984301
+semiperfect site:	 32.0757% 	  8375739 	 30.1827% 	   238120901
+
+Match Rate:      	      NA 	       NA 	 98.1816% 	   280921860
+Error Rate:      	  6.1966% 	  1443103 	  1.6495% 	     4719705
+Sub Rate:        	  5.5321% 	  1288354 	  1.0846% 	     3103364
+Del Rate:        	  0.7328% 	   170663 	  0.4769% 	     1364475
+Ins Rate:        	  0.4097% 	    95425 	  0.0880% 	      251866
+N Rate:          	  0.1661% 	    38675 	  0.1689% 	      483158
+
+Total time:     	142.330 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/12_PNA14_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/12_PNA14_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80348m -Xms80348m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/13_no_PNA_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/13_no_PNA.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/13_no_PNA_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/13_no_PNA.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.123 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.905 seconds.
+Analyzed Index:   	2.636 seconds.
+Started output stream:	0.030 seconds.
+Cleared Memory:    	0.566 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	22941671	(727841350 bases)
+
+Mapping:          	122.041 seconds.
+Reads/sec:       	187983.97
+kBases/sec:      	5963.93
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.2513% 	 19558082 	 79.8393% 	   581103519
+unambiguous:     	 41.1372% 	  9437560 	 39.2556% 	   285718730
+ambiguous:       	 44.1141% 	 10120522 	 40.5837% 	   295384789
+low-Q discards:  	  0.0015% 	      350 	  0.0008% 	        5872
+
+perfect best site:	 34.7809% 	  7979327 	 32.4024% 	   235838032
+semiperfect site:	 34.9664% 	  8021882 	 32.7109% 	   238083583
+
+Match Rate:      	      NA 	       NA 	 98.0245% 	   281378079
+Error Rate:      	  6.9039% 	  1412829 	  1.6638% 	     4775877
+Sub Rate:        	  6.1676% 	  1262153 	  1.0976% 	     3150510
+Del Rate:        	  0.8270% 	   169230 	  0.4633% 	     1330013
+Ins Rate:        	  0.5004% 	   102411 	  0.1029% 	      295354
+N Rate:          	  0.3137% 	    64187 	  0.3117% 	      894787
+
+Total time:     	126.408 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/13_no_PNA.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/13_no_PNA.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80425m -Xms80425m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/14_PNA15_5000pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/14_PNA15_5000pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/14_PNA15_5000pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/14_PNA15_5000pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.122 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.901 seconds.
+Analyzed Index:   	2.616 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.679 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	25725394	(777903028 bases)
+
+Mapping:          	100.368 seconds.
+Reads/sec:       	256309.74
+kBases/sec:      	7750.48
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 79.7496% 	 20515901 	 75.2018% 	   584997065
+unambiguous:     	 39.9428% 	 10275432 	 38.6224% 	   300445008
+ambiguous:       	 39.8068% 	 10240469 	 36.5794% 	   284552057
+low-Q discards:  	  0.0016% 	      418 	  0.0009% 	        7119
+
+perfect best site:	 34.0078% 	  8748651 	 32.1822% 	   250346216
+semiperfect site:	 34.1570% 	  8787031 	 32.4377% 	   252333914
+
+Match Rate:      	      NA 	       NA 	 98.1947% 	   296233946
+Error Rate:      	  6.9460% 	  1485362 	  1.5418% 	     4651367
+Sub Rate:        	  6.2480% 	  1336108 	  1.0405% 	     3139102
+Del Rate:        	  0.7699% 	   164642 	  0.4094% 	     1235097
+Ins Rate:        	  0.4555% 	    97404 	  0.0919% 	      277168
+N Rate:          	  0.2806% 	    60015 	  0.2635% 	      794792
+
+Total time:     	104.823 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/14_PNA15_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/14_PNA15_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80429m -Xms80429m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/15_PNA15_500pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/15_PNA15_500pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/15_PNA15_500pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/15_PNA15_500pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.120 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.895 seconds.
+Analyzed Index:   	2.621 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.585 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	24477813	(737325515 bases)
+
+Mapping:          	97.354 seconds.
+Reads/sec:       	251430.86
+kBases/sec:      	7573.65
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.6890% 	 20974783 	 80.8627% 	   596221556
+unambiguous:     	 46.3690% 	 11350126 	 45.2336% 	   333518662
+ambiguous:       	 39.3199% 	  9624657 	 35.6292% 	   262702894
+low-Q discards:  	  0.0015% 	      368 	  0.0008% 	        6128
+
+perfect best site:	 39.7703% 	  9734911 	 38.0546% 	   280586001
+semiperfect site:	 39.9302% 	  9774036 	 38.3284% 	   282604755
+
+Match Rate:      	      NA 	       NA 	 98.4125% 	   329377331
+Error Rate:      	  7.2272% 	  1572584 	  1.3560% 	     4538461
+Sub Rate:        	  6.4657% 	  1406897 	  0.9271% 	     3102942
+Del Rate:        	  0.7907% 	   172061 	  0.3502% 	     1171990
+Ins Rate:        	  0.4562% 	    99272 	  0.0787% 	      263529
+N Rate:          	  0.2767% 	    60199 	  0.2315% 	      774860
+
+Total time:     	101.707 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/15_PNA15_500pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/15_PNA15_500pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80236m -Xms80236m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/16_PNA15_100pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/16_PNA15_100pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/16_PNA15_100pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/16_PNA15_100pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.126 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.922 seconds.
+Analyzed Index:   	2.622 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.554 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	25688455	(790182824 bases)
+
+Mapping:          	113.764 seconds.
+Reads/sec:       	225805.73
+kBases/sec:      	6945.84
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 82.8951% 	 21294482 	 77.3269% 	   611023878
+unambiguous:     	 41.8686% 	 10755403 	 40.4403% 	   319552524
+ambiguous:       	 41.0265% 	 10539079 	 36.8866% 	   291471354
+low-Q discards:  	  0.0018% 	      462 	  0.0010% 	        7579
+
+perfect best site:	 35.3657% 	  9084906 	 33.2982% 	   263116610
+semiperfect site:	 35.5799% 	  9139920 	 33.6610% 	   265983305
+
+Match Rate:      	      NA 	       NA 	 97.9737% 	   314524395
+Error Rate:      	  7.2198% 	  1612220 	  1.6659% 	     5347995
+Sub Rate:        	  6.4508% 	  1440495 	  1.1050% 	     3547528
+Del Rate:        	  0.8756% 	   195530 	  0.4600% 	     1476894
+Ins Rate:        	  0.5018% 	   112047 	  0.1008% 	      323573
+N Rate:          	  0.3718% 	    83033 	  0.3604% 	     1157028
+
+Total time:     	118.126 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/16_PNA15_100pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/16_PNA15_100pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80413m -Xms80413m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/17_PNA15_10pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/17_PNA15_10pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/17_PNA15_10pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/17_PNA15_10pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.131 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.907 seconds.
+Analyzed Index:   	2.659 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.552 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	27030276	(836644316 bases)
+
+Mapping:          	101.216 seconds.
+Reads/sec:       	267054.61
+kBases/sec:      	8265.91
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 84.7300% 	 22902758 	 78.6324% 	   657873130
+unambiguous:     	 40.7638% 	 11018579 	 39.1115% 	   327224169
+ambiguous:       	 43.9662% 	 11884179 	 39.5209% 	   330648961
+low-Q discards:  	  0.0016% 	      434 	  0.0009% 	        7352
+
+perfect best site:	 34.6931% 	  9377640 	 32.5790% 	   272570394
+semiperfect site:	 34.8692% 	  9425231 	 32.8739% 	   275037412
+
+Match Rate:      	      NA 	       NA 	 98.2378% 	   322675813
+Error Rate:      	  6.7024% 	  1590012 	  1.4716% 	     4833590
+Sub Rate:        	  6.0351% 	  1431709 	  1.0117% 	     3323228
+Del Rate:        	  0.7153% 	   169697 	  0.3774% 	     1239705
+Ins Rate:        	  0.4266% 	   101207 	  0.0824% 	      270657
+N Rate:          	  0.3112% 	    73832 	  0.2906% 	      954471
+
+Total time:     	105.598 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/17_PNA15_10pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/17_PNA15_10pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80387m -Xms80387m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/18_PNA14_5000pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/18_PNA14_5000pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/18_PNA14_5000pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/18_PNA14_5000pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.114 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.888 seconds.
+Analyzed Index:   	2.536 seconds.
+Started output stream:	0.030 seconds.
+Cleared Memory:    	0.521 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	23759312	(746252127 bases)
+
+Mapping:          	97.682 seconds.
+Reads/sec:       	243230.09
+kBases/sec:      	7639.57
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 83.8245% 	 19916119 	 77.8859% 	   581225276
+unambiguous:     	 42.3666% 	 10066016 	 40.0527% 	   298894417
+ambiguous:       	 41.4579% 	  9850103 	 37.8332% 	   282330859
+low-Q discards:  	  0.0017% 	      399 	  0.0009% 	        6651
+
+perfect best site:	 35.6643% 	  8473582 	 32.7881% 	   244681659
+semiperfect site:	 35.8509% 	  8517923 	 33.0925% 	   246953170
+
+Match Rate:      	      NA 	       NA 	 97.8857% 	   293983245
+Error Rate:      	  7.3991% 	  1545011 	  1.7742% 	     5328528
+Sub Rate:        	  6.6859% 	  1396083 	  1.1916% 	     3578788
+Del Rate:        	  0.8191% 	   171045 	  0.4790% 	     1438655
+Ins Rate:        	  0.5253% 	   109686 	  0.1036% 	      311085
+N Rate:          	  0.3722% 	    77715 	  0.3401% 	     1021299
+
+Total time:     	101.873 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/18_PNA14_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/18_PNA14_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx80329m -Xms80329m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/73_RNA_input_control_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/73_RNA_input_control.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/73_RNA_input_control_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/73_RNA_input_control.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.126 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.904 seconds.
+Analyzed Index:   	2.634 seconds.
+Started output stream:	0.031 seconds.
+Cleared Memory:    	0.598 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	13027103	(872478724 bases)
+
+Mapping:          	242.302 seconds.
+Reads/sec:       	53763.83
+kBases/sec:      	3600.79
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 85.2922% 	 11111108 	 91.6327% 	   799475842
+unambiguous:     	 81.0958% 	 10564431 	 88.0199% 	   767954512
+ambiguous:       	  4.1965% 	   546677 	  3.6128% 	    31521330
+low-Q discards:  	  0.0004% 	       50 	  0.0001% 	         738
+
+perfect best site:	 50.0631% 	  6521775 	 54.7393% 	   477588470
+semiperfect site:	 51.8768% 	  6758040 	 56.6049% 	   493865476
+
+Match Rate:      	      NA 	       NA 	 95.5361% 	   750815235
+Error Rate:      	 32.9169% 	  3802421 	  3.9869% 	    31332518
+Sub Rate:        	 28.7867% 	  3325318 	  1.4778% 	    11614087
+Del Rate:        	  6.0826% 	   702639 	  2.2830% 	    17942052
+Ins Rate:        	  4.2287% 	   488482 	  0.2260% 	     1776379
+N Rate:          	  4.2408% 	   489880 	  0.4770% 	     3748811
+
+Total time:     	246.699 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/73_RNA_input_control.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/73_RNA_input_control.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 19 BAM files                                     ||
+||                           o 01_no_PNA.bam                                  ||
+||                           o 02_PNA15_5000pM.bam                            ||
+||                           o 03_PNA15_500pM.bam                             ||
+||                           o 04_PNA15_100pM.bam                             ||
+||                           o 05_PNA15_10pM.bam                              ||
+||                           o 06_PNA14_5000pM.bam                            ||
+||                           o 07_no_PNA.bam                                  ||
+||                           o 08_PNA15_5000pM.bam                            ||
+||                           o 09_PNA15_500pM.bam                             ||
+||                           o 10_PNA15_100pM.bam                             ||
+||                           o 11_PNA15_10pM.bam                              ||
+||                           o 12_PNA14_5000pM.bam                            ||
+||                           o 13_no_PNA.bam                                  ||
+||                           o 14_PNA15_5000pM.bam                            ||
+||                           o 15_PNA15_500pM.bam                             ||
+||                           o 16_PNA15_100pM.bam                             ||
+||                           o 17_PNA15_10pM.bam                              ||
+||                           o 18_PNA14_5000pM.bam                            ||
+||                           o 73_RNA_input_control.bam                       ||
+||                                                                            ||
+||             Output file : counttable.txt                                   ||
+||                 Summary : counttable.txt.summary                           ||
+||              Annotation : oligos_cds.gff (GTF)                             ||
+||      Dir for temp files : ../data/rna_align                                ||
+||                                                                            ||
+||                 Threads : 5                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : no                                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file oligos_cds.gff ...                                    ||
+ERROR: no features were loaded in format GTF. The annotation format can be specified by the '-F' option, and the required feature type can be specified by the '-t' option..
+The porgram has to terminate.
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 19 BAM files                                     ||
+||                           o 01_no_PNA.bam                                  ||
+||                           o 02_PNA15_5000pM.bam                            ||
+||                           o 03_PNA15_500pM.bam                             ||
+||                           o 04_PNA15_100pM.bam                             ||
+||                           o 05_PNA15_10pM.bam                              ||
+||                           o 06_PNA14_5000pM.bam                            ||
+||                           o 07_no_PNA.bam                                  ||
+||                           o 08_PNA15_5000pM.bam                            ||
+||                           o 09_PNA15_500pM.bam                             ||
+||                           o 10_PNA15_100pM.bam                             ||
+||                           o 11_PNA15_10pM.bam                              ||
+||                           o 12_PNA14_5000pM.bam                            ||
+||                           o 13_no_PNA.bam                                  ||
+||                           o 14_PNA15_5000pM.bam                            ||
+||                           o 15_PNA15_500pM.bam                             ||
+||                           o 16_PNA15_100pM.bam                             ||
+||                           o 17_PNA15_10pM.bam                              ||
+||                           o 18_PNA14_5000pM.bam                            ||
+||                           o 73_RNA_input_control.bam                       ||
+||                                                                            ||
+||             Output file : counttable_rRNAs.txt                             ||
+||                 Summary : counttable_rRNAs.txt.summary                     ||
+||              Annotation : oligos_cds.gff (GTF)                             ||
+||      Dir for temp files : ../data/rna_align                                ||
+||                                                                            ||
+||                 Threads : 5                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : no                                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file oligos_cds.gff ...                                    ||
+||    Features : 22                                                           ||
+||    Meta-features : 22                                                      ||
+||    Chromosomes/contigs : 22                                                ||
+||                                                                            ||
+|| Process BAM file 01_no_PNA.bam...                                          ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 8254379                                              ||
+||    Successfully assigned alignments : 47787 (0.6%)                         ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 02_PNA15_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 11523786                                             ||
+||    Successfully assigned alignments : 45636 (0.4%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 03_PNA15_500pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10562863                                             ||
+||    Successfully assigned alignments : 57604 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 04_PNA15_100pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10644343                                             ||
+||    Successfully assigned alignments : 56552 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 05_PNA15_10pM.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10717822                                             ||
+||    Successfully assigned alignments : 52364 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 06_PNA14_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10566175                                             ||
+||    Successfully assigned alignments : 43079 (0.4%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 07_no_PNA.bam...                                          ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9994719                                              ||
+||    Successfully assigned alignments : 63882 (0.6%)                         ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 08_PNA15_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 6395903                                              ||
+||    Successfully assigned alignments : 42110 (0.7%)                         ||
+||    Running time : 0.02 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 09_PNA15_500pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9859068                                              ||
+||    Successfully assigned alignments : 47722 (0.5%)                         ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 10_PNA15_100pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 6928433                                              ||
+||    Successfully assigned alignments : 42441 (0.6%)                         ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 11_PNA15_10pM.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 7068367                                              ||
+||    Successfully assigned alignments : 65427 (0.9%)                         ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 12_PNA14_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9821796                                              ||
+||    Successfully assigned alignments : 52148 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 13_no_PNA.bam...                                          ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9437560                                              ||
+||    Successfully assigned alignments : 49287 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 14_PNA15_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10275432                                             ||
+||    Successfully assigned alignments : 53255 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 15_PNA15_500pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 11350126                                             ||
+||    Successfully assigned alignments : 42227 (0.4%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 16_PNA15_100pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10755403                                             ||
+||    Successfully assigned alignments : 50739 (0.5%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 17_PNA15_10pM.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 11018579                                             ||
+||    Successfully assigned alignments : 45467 (0.4%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 18_PNA14_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10066016                                             ||
+||    Successfully assigned alignments : 43598 (0.4%)                         ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 73_RNA_input_control.bam...                               ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10564431                                             ||
+||    Successfully assigned alignments : 15 (0.0%)                            ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "../data/rna_align/count  ||
+|| table_rRNAs.txt.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.1
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 19 BAM files                                     ||
+||                           o 01_no_PNA.bam                                  ||
+||                           o 02_PNA15_5000pM.bam                            ||
+||                           o 03_PNA15_500pM.bam                             ||
+||                           o 04_PNA15_100pM.bam                             ||
+||                           o 05_PNA15_10pM.bam                              ||
+||                           o 06_PNA14_5000pM.bam                            ||
+||                           o 07_no_PNA.bam                                  ||
+||                           o 08_PNA15_5000pM.bam                            ||
+||                           o 09_PNA15_500pM.bam                             ||
+||                           o 10_PNA15_100pM.bam                             ||
+||                           o 11_PNA15_10pM.bam                              ||
+||                           o 12_PNA14_5000pM.bam                            ||
+||                           o 13_no_PNA.bam                                  ||
+||                           o 14_PNA15_5000pM.bam                            ||
+||                           o 15_PNA15_500pM.bam                             ||
+||                           o 16_PNA15_100pM.bam                             ||
+||                           o 17_PNA15_10pM.bam                              ||
+||                           o 18_PNA14_5000pM.bam                            ||
+||                           o 73_RNA_input_control.bam                       ||
+||                                                                            ||
+||             Output file : counttable_tRNAs.txt                             ||
+||                 Summary : counttable_tRNAs.txt.summary                     ||
+||              Annotation : oligos_cds.gff (GTF)                             ||
+||      Dir for temp files : ../data/rna_align                                ||
+||                                                                            ||
+||                 Threads : 5                                                ||
+||                   Level : meta-feature level                               ||
+||              Paired-end : no                                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file oligos_cds.gff ...                                    ||
+||    Features : 89                                                           ||
+||    Meta-features : 89                                                      ||
+||    Chromosomes/contigs : 89                                                ||
+||                                                                            ||
+|| Process BAM file 01_no_PNA.bam...                                          ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 8254379                                              ||
+||    Successfully assigned alignments : 891223 (10.8%)                       ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 02_PNA15_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 11523786                                             ||
+||    Successfully assigned alignments : 1287867 (11.2%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 03_PNA15_500pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10562863                                             ||
+||    Successfully assigned alignments : 1494436 (14.1%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 04_PNA15_100pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10644343                                             ||
+||    Successfully assigned alignments : 1238731 (11.6%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 05_PNA15_10pM.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10717822                                             ||
+||    Successfully assigned alignments : 1378268 (12.9%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 06_PNA14_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10566175                                             ||
+||    Successfully assigned alignments : 1333403 (12.6%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 07_no_PNA.bam...                                          ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9994719                                              ||
+||    Successfully assigned alignments : 1067554 (10.7%)                      ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 08_PNA15_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 6395903                                              ||
+||    Successfully assigned alignments : 742032 (11.6%)                       ||
+||    Running time : 0.02 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 09_PNA15_500pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9859068                                              ||
+||    Successfully assigned alignments : 882861 (9.0%)                        ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 10_PNA15_100pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 6928433                                              ||
+||    Successfully assigned alignments : 655752 (9.5%)                        ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 11_PNA15_10pM.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 7068367                                              ||
+||    Successfully assigned alignments : 744601 (10.5%)                       ||
+||    Running time : 0.03 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 12_PNA14_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9821796                                              ||
+||    Successfully assigned alignments : 841361 (8.6%)                        ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 13_no_PNA.bam...                                          ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 9437560                                              ||
+||    Successfully assigned alignments : 1112321 (11.8%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 14_PNA15_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10275432                                             ||
+||    Successfully assigned alignments : 1265992 (12.3%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 15_PNA15_500pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 11350126                                             ||
+||    Successfully assigned alignments : 1351143 (11.9%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 16_PNA15_100pM.bam...                                     ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10755403                                             ||
+||    Successfully assigned alignments : 1481724 (13.8%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 17_PNA15_10pM.bam...                                      ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 11018579                                             ||
+||    Successfully assigned alignments : 1625157 (14.7%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 18_PNA14_5000pM.bam...                                    ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10066016                                             ||
+||    Successfully assigned alignments : 1456795 (14.5%)                      ||
+||    Running time : 0.04 minutes                                             ||
+||                                                                            ||
+|| Process BAM file 73_RNA_input_control.bam...                               ||
+||    Single-end reads are included.                                          ||
+||    Total alignments : 10564431                                             ||
+||    Successfully assigned alignments : 134 (0.0%)                           ||
+||    Running time : 0.05 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "../data/rna_align/count  ||
+|| table_tRNAs.txt.summary"                                                   ||
+||                                                                            ||
+\\============================================================================//
+
