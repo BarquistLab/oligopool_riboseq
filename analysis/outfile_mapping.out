@@ -1,0 +1,44 @@
+Start trimming
+../data/fastq/01_no_PNA.fq.gz starts trimming nowwwwwww
+01_no_PNA_trimmed.fq.gz
+../data/fastq/02_PNA15_5000pM.fq.gz starts trimming nowwwwwww
+02_PNA15_5000pM_trimmed.fq.gz
+../data/fastq/03_PNA15_500pM.fq.gz starts trimming nowwwwwww
+03_PNA15_500pM_trimmed.fq.gz
+../data/fastq/04_PNA15_100pM.fq.gz starts trimming nowwwwwww
+04_PNA15_100pM_trimmed.fq.gz
+../data/fastq/05_PNA15_10pM.fq.gz starts trimming nowwwwwww
+05_PNA15_10pM_trimmed.fq.gz
+../data/fastq/06_PNA14_5000pM.fq.gz starts trimming nowwwwwww
+06_PNA14_5000pM_trimmed.fq.gz
+../data/fastq/07_no_PNA.fq.gz starts trimming nowwwwwww
+07_no_PNA_trimmed.fq.gz
+../data/fastq/08_PNA15_5000pM.fq.gz starts trimming nowwwwwww
+08_PNA15_5000pM_trimmed.fq.gz
+../data/fastq/09_PNA15_500pM.fq.gz starts trimming nowwwwwww
+09_PNA15_500pM_trimmed.fq.gz
+../data/fastq/10_PNA15_100pM.fq.gz starts trimming nowwwwwww
+10_PNA15_100pM_trimmed.fq.gz
+../data/fastq/11_PNA15_10pM.fq.gz starts trimming nowwwwwww
+11_PNA15_10pM_trimmed.fq.gz
+../data/fastq/12_PNA14_5000pM.fq.gz starts trimming nowwwwwww
+12_PNA14_5000pM_trimmed.fq.gz
+../data/fastq/13_no_PNA.fq.gz starts trimming nowwwwwww
+13_no_PNA_trimmed.fq.gz
+../data/fastq/14_PNA15_5000pM.fq.gz starts trimming nowwwwwww
+14_PNA15_5000pM_trimmed.fq.gz
+../data/fastq/15_PNA15_500pM.fq.gz starts trimming nowwwwwww
+15_PNA15_500pM_trimmed.fq.gz
+../data/fastq/16_PNA15_100pM.fq.gz starts trimming nowwwwwww
+16_PNA15_100pM_trimmed.fq.gz
+../data/fastq/17_PNA15_10pM.fq.gz starts trimming nowwwwwww
+17_PNA15_10pM_trimmed.fq.gz
+../data/fastq/18_PNA14_5000pM.fq.gz starts trimming nowwwwwww
+18_PNA14_5000pM_trimmed.fq.gz
+../data/fastq/73_RNA_input_control.fq.gz starts trimming nowwwwwww
+73_RNA_input_control_trimmed.fq.gz
+Trimming done. Start maopping
+Starting mapping for sample: 01_no_PNA
+Starting mapping for sample: 02_PNA15_5000pM
+Starting mapping for sample: 03_PNA15_500pM
+Starting mapping for sample: 04_PNA15_100pM

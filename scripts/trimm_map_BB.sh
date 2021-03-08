@@ -30,11 +30,11 @@ main(){
 
 rename_trim_rna_libs(){
     mkdir -pv $PROJECT/libs
-    for NAME in $(ls $PROJECT/fastq/*.fastq.gz)
+    for NAME in $(ls $PROJECT/fastq/*.fq.gz)
     do
         echo "$NAME starts trimming nowwwwwww"
         NEWNAME=${NAME##*/}
-        NEWNAME=${NEWNAME%.fastq.gz}_trimmed.fastq.gz
+        NEWNAME=${NEWNAME%.fq.gz}_trimmed.fq.gz
         echo $NEWNAME
        # bbduk trims low quality bases and removes adapters:
         ~/bin/bbmap/bbduk.sh -Xmx1g in=$NAME \
@@ -50,10 +50,10 @@ rename_trim_rna_libs(){
 align_rna_reads_genome(){
     mkdir -pv $PROJECT/rna_align
     DIR=$PROJECT/rna_align
-    for i in $(ls $PROJECT/libs/*.fastq.gz)
+    for i in $(ls $PROJECT/libs/*.fq.gz)
     do
         NAME=${i##*/}
-        NAME=${NAME%_trimmed.fastq.gz}
+        NAME=${NAME%_trimmed.fq.gz}
         echo "Starting mapping for sample: $NAME"
         ~/bin/bbmap/bbmap.sh in=$i trimreaddescription=t  t=20 \
 			     ref=$PROJECT/reference_sequences/oligos_cds.fasta \

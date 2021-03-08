@@ -1,0 +1,841 @@
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/01_no_PNA.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/01_no_PNA_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/01_no_PNA.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/01_no_PNA_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.047 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=984m, used=45m
+
+Added 219105 kmers; time: 	0.243 seconds.
+Memory: max=1029m, total=1029m, free=947m, used=82m
+
+Input is being processed as unpaired
+Started output streams:	0.172 seconds.
+Processing time:   		29.563 seconds.
+
+Input:                  	21171043 reads 		1608999268 bases.
+QTrimmed:               	4218 reads (0.02%) 	75603 bases (0.00%)
+KTrimmed:               	19877304 reads (93.89%) 	948193668 bases (58.93%)
+Total Removed:          	266545 reads (1.26%) 	948269271 bases (58.94%)
+Result:                 	20904498 reads (98.74%) 	660729997 bases (41.06%)
+
+Time:                         	29.984 seconds.
+Reads Processed:      21171k 	706.08k reads/sec
+Bases Processed:       1608m 	53.66m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/02_PNA15_5000pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/02_PNA15_5000pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/02_PNA15_5000pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/02_PNA15_5000pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.026 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=995m, used=34m
+
+Added 219105 kmers; time: 	0.118 seconds.
+Memory: max=1029m, total=1029m, free=941m, used=88m
+
+Input is being processed as unpaired
+Started output streams:	0.083 seconds.
+Processing time:   		34.873 seconds.
+
+Input:                  	25142767 reads 		1910850292 bases.
+QTrimmed:               	4501 reads (0.02%) 	82213 bases (0.00%)
+KTrimmed:               	23952022 reads (95.26%) 	1139031142 bases (59.61%)
+Total Removed:          	250324 reads (1.00%) 	1139113355 bases (59.61%)
+Result:                 	24892443 reads (99.00%) 	771736937 bases (40.39%)
+
+Time:                         	35.077 seconds.
+Reads Processed:      25142k 	716.80k reads/sec
+Bases Processed:       1910m 	54.48m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/03_PNA15_500pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/03_PNA15_500pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/03_PNA15_500pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/03_PNA15_500pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.027 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.126 seconds.
+Memory: max=1029m, total=1029m, free=947m, used=82m
+
+Input is being processed as unpaired
+Started output streams:	0.101 seconds.
+Processing time:   		36.206 seconds.
+
+Input:                  	26280424 reads 		1997312224 bases.
+QTrimmed:               	5407 reads (0.02%) 	98925 bases (0.00%)
+KTrimmed:               	24660638 reads (93.84%) 	1161221907 bases (58.14%)
+Total Removed:          	262709 reads (1.00%) 	1161320832 bases (58.14%)
+Result:                 	26017715 reads (99.00%) 	835991392 bases (41.86%)
+
+Time:                         	36.438 seconds.
+Reads Processed:      26280k 	721.23k reads/sec
+Bases Processed:       1997m 	54.81m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/04_PNA15_100pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/04_PNA15_100pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/04_PNA15_100pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/04_PNA15_100pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.031 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.081 seconds.
+Memory: max=1029m, total=1029m, free=941m, used=88m
+
+Input is being processed as unpaired
+Started output streams:	0.089 seconds.
+Processing time:   		35.110 seconds.
+
+Input:                  	25101651 reads 		1907725476 bases.
+QTrimmed:               	3821 reads (0.02%) 	69656 bases (0.00%)
+KTrimmed:               	24031159 reads (95.74%) 	1159736072 bases (60.79%)
+Total Removed:          	276383 reads (1.10%) 	1159805728 bases (60.80%)
+Result:                 	24825268 reads (98.90%) 	747919748 bases (39.20%)
+
+Time:                         	35.284 seconds.
+Reads Processed:      25101k 	711.42k reads/sec
+Bases Processed:       1907m 	54.07m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/05_PNA15_10pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/05_PNA15_10pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/05_PNA15_10pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/05_PNA15_10pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.024 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=995m, used=34m
+
+Added 219105 kmers; time: 	0.112 seconds.
+Memory: max=1029m, total=1029m, free=952m, used=77m
+
+Input is being processed as unpaired
+Started output streams:	0.108 seconds.
+Processing time:   		36.485 seconds.
+
+Input:                  	25079234 reads 		1906021784 bases.
+QTrimmed:               	4817 reads (0.02%) 	88391 bases (0.00%)
+KTrimmed:               	23631109 reads (94.23%) 	1114577678 bases (58.48%)
+Total Removed:          	306237 reads (1.22%) 	1114666069 bases (58.48%)
+Result:                 	24772997 reads (98.78%) 	791355715 bases (41.52%)
+
+Time:                         	36.709 seconds.
+Reads Processed:      25079k 	683.18k reads/sec
+Bases Processed:       1906m 	51.92m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/06_PNA14_5000pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/06_PNA14_5000pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/06_PNA14_5000pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/06_PNA14_5000pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.016 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=984m, used=45m
+
+Added 219105 kmers; time: 	0.141 seconds.
+Memory: max=1029m, total=1029m, free=936m, used=93m
+
+Input is being processed as unpaired
+Started output streams:	0.107 seconds.
+Processing time:   		33.263 seconds.
+
+Input:                  	23711065 reads 		1802040940 bases.
+QTrimmed:               	4276 reads (0.02%) 	79368 bases (0.00%)
+KTrimmed:               	22658013 reads (95.56%) 	1060180430 bases (58.83%)
+Total Removed:          	264317 reads (1.11%) 	1060259798 bases (58.84%)
+Result:                 	23446748 reads (98.89%) 	741781142 bases (41.16%)
+
+Time:                         	33.515 seconds.
+Reads Processed:      23711k 	707.47k reads/sec
+Bases Processed:       1802m 	53.77m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/07_no_PNA.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/07_no_PNA_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/07_no_PNA.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/07_no_PNA_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.025 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=984m, used=45m
+
+Added 219105 kmers; time: 	0.221 seconds.
+Memory: max=1029m, total=1029m, free=941m, used=88m
+
+Input is being processed as unpaired
+Started output streams:	0.086 seconds.
+Processing time:   		37.620 seconds.
+
+Input:                  	28086592 reads 		2134580992 bases.
+QTrimmed:               	5004 reads (0.02%) 	91223 bases (0.00%)
+KTrimmed:               	26804219 reads (95.43%) 	1292151775 bases (60.53%)
+Total Removed:          	368690 reads (1.31%) 	1292242998 bases (60.54%)
+Result:                 	27717902 reads (98.69%) 	842337994 bases (39.46%)
+
+Time:                         	37.931 seconds.
+Reads Processed:      28086k 	740.46k reads/sec
+Bases Processed:       2134m 	56.27m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/08_PNA15_5000pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/08_PNA15_5000pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/08_PNA15_5000pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/08_PNA15_5000pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.031 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=995m, used=34m
+
+Added 219105 kmers; time: 	0.222 seconds.
+Memory: max=1029m, total=1029m, free=936m, used=93m
+
+Input is being processed as unpaired
+Started output streams:	0.091 seconds.
+Processing time:   		23.959 seconds.
+
+Input:                  	17603579 reads 		1337872004 bases.
+QTrimmed:               	3630 reads (0.02%) 	66204 bases (0.00%)
+KTrimmed:               	16776473 reads (95.30%) 	792344713 bases (59.22%)
+Total Removed:          	230289 reads (1.31%) 	792410917 bases (59.23%)
+Result:                 	17373290 reads (98.69%) 	545461087 bases (40.77%)
+
+Time:                         	24.277 seconds.
+Reads Processed:      17603k 	725.13k reads/sec
+Bases Processed:       1337m 	55.11m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/09_PNA15_500pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/09_PNA15_500pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/09_PNA15_500pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/09_PNA15_500pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.023 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.102 seconds.
+Memory: max=1029m, total=1029m, free=941m, used=88m
+
+Input is being processed as unpaired
+Started output streams:	0.103 seconds.
+Processing time:   		31.999 seconds.
+
+Input:                  	24126748 reads 		1833632848 bases.
+QTrimmed:               	4629 reads (0.02%) 	85891 bases (0.00%)
+KTrimmed:               	22967163 reads (95.19%) 	1082143853 bases (59.02%)
+Total Removed:          	256777 reads (1.06%) 	1082229744 bases (59.02%)
+Result:                 	23869971 reads (98.94%) 	751403104 bases (40.98%)
+
+Time:                         	32.206 seconds.
+Reads Processed:      24126k 	749.14k reads/sec
+Bases Processed:       1833m 	56.93m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/10_PNA15_100pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/10_PNA15_100pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/10_PNA15_100pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/10_PNA15_100pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.031 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.221 seconds.
+Memory: max=1029m, total=1029m, free=947m, used=82m
+
+Input is being processed as unpaired
+Started output streams:	0.087 seconds.
+Processing time:   		27.528 seconds.
+
+Input:                  	20584632 reads 		1564432032 bases.
+QTrimmed:               	4290 reads (0.02%) 	78698 bases (0.01%)
+KTrimmed:               	19488939 reads (94.68%) 	916716368 bases (58.60%)
+Total Removed:          	217376 reads (1.06%) 	916795066 bases (58.60%)
+Result:                 	20367256 reads (98.94%) 	647636966 bases (41.40%)
+
+Time:                         	27.842 seconds.
+Reads Processed:      20584k 	739.34k reads/sec
+Bases Processed:       1564m 	56.19m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/11_PNA15_10pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/11_PNA15_10pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/11_PNA15_10pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/11_PNA15_10pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.029 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.218 seconds.
+Memory: max=1029m, total=1029m, free=941m, used=88m
+
+Input is being processed as unpaired
+Started output streams:	0.085 seconds.
+Processing time:   		28.424 seconds.
+
+Input:                  	20958869 reads 		1592874044 bases.
+QTrimmed:               	3617 reads (0.02%) 	65002 bases (0.00%)
+KTrimmed:               	20021130 reads (95.53%) 	971338110 bases (60.98%)
+Total Removed:          	240592 reads (1.15%) 	971403112 bases (60.98%)
+Result:                 	20718277 reads (98.85%) 	621470932 bases (39.02%)
+
+Time:                         	28.731 seconds.
+Reads Processed:      20958k 	729.47k reads/sec
+Bases Processed:       1592m 	55.44m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/12_PNA14_5000pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/12_PNA14_5000pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/12_PNA14_5000pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/12_PNA14_5000pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.024 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=995m, used=34m
+
+Added 219105 kmers; time: 	0.217 seconds.
+Memory: max=1029m, total=1029m, free=963m, used=66m
+
+Input is being processed as unpaired
+Started output streams:	0.097 seconds.
+Processing time:   		35.451 seconds.
+
+Input:                  	26379065 reads 		2004808940 bases.
+QTrimmed:               	4189 reads (0.02%) 	76633 bases (0.00%)
+KTrimmed:               	25251376 reads (95.73%) 	1215800624 bases (60.64%)
+Total Removed:          	266637 reads (1.01%) 	1215877257 bases (60.65%)
+Result:                 	26112428 reads (98.99%) 	788931683 bases (39.35%)
+
+Time:                         	35.769 seconds.
+Reads Processed:      26379k 	737.49k reads/sec
+Bases Processed:       2004m 	56.05m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/13_no_PNA.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/13_no_PNA_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/13_no_PNA.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/13_no_PNA_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.019 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=984m, used=45m
+
+Added 219105 kmers; time: 	0.220 seconds.
+Memory: max=1029m, total=1029m, free=947m, used=82m
+
+Input is being processed as unpaired
+Started output streams:	0.086 seconds.
+Processing time:   		32.107 seconds.
+
+Input:                  	23194461 reads 		1762779036 bases.
+QTrimmed:               	4578 reads (0.02%) 	84496 bases (0.00%)
+KTrimmed:               	21970520 reads (94.72%) 	1034853190 bases (58.71%)
+Total Removed:          	252790 reads (1.09%) 	1034937686 bases (58.71%)
+Result:                 	22941671 reads (98.91%) 	727841350 bases (41.29%)
+
+Time:                         	32.419 seconds.
+Reads Processed:      23194k 	715.46k reads/sec
+Bases Processed:       1762m 	54.38m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/14_PNA15_5000pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/14_PNA15_5000pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/14_PNA15_5000pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/14_PNA15_5000pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.022 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.225 seconds.
+Memory: max=1029m, total=1029m, free=936m, used=93m
+
+Input is being processed as unpaired
+Started output streams:	0.099 seconds.
+Processing time:   		35.886 seconds.
+
+Input:                  	26250650 reads 		1995049400 bases.
+QTrimmed:               	4523 reads (0.02%) 	81712 bases (0.00%)
+KTrimmed:               	24965557 reads (95.10%) 	1217064660 bases (61.00%)
+Total Removed:          	525256 reads (2.00%) 	1217146372 bases (61.01%)
+Result:                 	25725394 reads (98.00%) 	777903028 bases (38.99%)
+
+Time:                         	36.214 seconds.
+Reads Processed:      26250k 	724.87k reads/sec
+Bases Processed:       1995m 	55.09m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/15_PNA15_500pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/15_PNA15_500pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/15_PNA15_500pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/15_PNA15_500pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.020 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=989m, used=40m
+
+Added 219105 kmers; time: 	0.222 seconds.
+Memory: max=1029m, total=1029m, free=941m, used=88m
+
+Input is being processed as unpaired
+Started output streams:	0.098 seconds.
+Processing time:   		33.653 seconds.
+
+Input:                  	24792554 reads 		1884234104 bases.
+QTrimmed:               	4104 reads (0.02%) 	74537 bases (0.00%)
+KTrimmed:               	23716194 reads (95.66%) 	1146834052 bases (60.86%)
+Total Removed:          	314741 reads (1.27%) 	1146908589 bases (60.87%)
+Result:                 	24477813 reads (98.73%) 	737325515 bases (39.13%)
+
+Time:                         	33.977 seconds.
+Reads Processed:      24792k 	729.68k reads/sec
+Bases Processed:       1884m 	55.46m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/16_PNA15_100pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/16_PNA15_100pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/16_PNA15_100pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/16_PNA15_100pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.025 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=984m, used=45m
+
+Added 219105 kmers; time: 	0.223 seconds.
+Memory: max=1029m, total=1029m, free=952m, used=77m
+
+Input is being processed as unpaired
+Started output streams:	0.084 seconds.
+Processing time:   		35.647 seconds.
+
+Input:                  	26045452 reads 		1979454352 bases.
+QTrimmed:               	4773 reads (0.02%) 	86529 bases (0.00%)
+KTrimmed:               	24711965 reads (94.88%) 	1189184999 bases (60.08%)
+Total Removed:          	356997 reads (1.37%) 	1189271528 bases (60.08%)
+Result:                 	25688455 reads (98.63%) 	790182824 bases (39.92%)
+
+Time:                         	35.957 seconds.
+Reads Processed:      26045k 	724.35k reads/sec
+Bases Processed:       1979m 	55.05m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/17_PNA15_10pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/17_PNA15_10pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/17_PNA15_10pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/17_PNA15_10pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.026 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=995m, used=34m
+
+Added 219105 kmers; time: 	0.097 seconds.
+Memory: max=1029m, total=1029m, free=947m, used=82m
+
+Input is being processed as unpaired
+Started output streams:	0.096 seconds.
+Processing time:   		37.220 seconds.
+
+Input:                  	27329947 reads 		2077075972 bases.
+QTrimmed:               	4881 reads (0.02%) 	89254 bases (0.00%)
+KTrimmed:               	25782810 reads (94.34%) 	1240342402 bases (59.72%)
+Total Removed:          	299671 reads (1.10%) 	1240431656 bases (59.72%)
+Result:                 	27030276 reads (98.90%) 	836644316 bases (40.28%)
+
+Time:                         	37.418 seconds.
+Reads Processed:      27329k 	730.39k reads/sec
+Bases Processed:       2077m 	55.51m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/18_PNA14_5000pM.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/18_PNA14_5000pM_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/18_PNA14_5000pM.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/18_PNA14_5000pM_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.030 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=1000m, used=29m
+
+Added 219105 kmers; time: 	0.224 seconds.
+Memory: max=1029m, total=1029m, free=957m, used=72m
+
+Input is being processed as unpaired
+Started output streams:	0.089 seconds.
+Processing time:   		32.734 seconds.
+
+Input:                  	24036631 reads 		1826783956 bases.
+QTrimmed:               	4700 reads (0.02%) 	85659 bases (0.00%)
+KTrimmed:               	22662584 reads (94.28%) 	1080446170 bases (59.14%)
+Total Removed:          	277319 reads (1.15%) 	1080531829 bases (59.15%)
+Result:                 	23759312 reads (98.85%) 	746252127 bases (40.85%)
+
+Time:                         	33.049 seconds.
+Reads Processed:      24036k 	727.29k reads/sec
+Bases Processed:       1826m 	55.27m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx1g -Xms1g -cp /home/jakob/bin/bbmap/current/ jgi.BBDuk -Xmx1g in=../data/fastq/73_RNA_input_control.fq.gz ref=~/bin/bbmap/resources/adapters.fa t=20 out=../data/libs/73_RNA_input_control_trimmed.fq.gz ktrim=r k=23 mink=11 hdist=1 qtrim=r trimq=10
+Executing jgi.BBDuk [-Xmx1g, in=../data/fastq/73_RNA_input_control.fq.gz, ref=/home/jakob/bin/bbmap/resources/adapters.fa, t=20, out=../data/libs/73_RNA_input_control_trimmed.fq.gz, ktrim=r, k=23, mink=11, hdist=1, qtrim=r, trimq=10]
+Version 38.79
+
+Set threads to 20
+maskMiddle was disabled because useShortKmers=true
+0.027 seconds.
+Initial:
+Memory: max=1029m, total=1029m, free=984m, used=45m
+
+Added 219105 kmers; time: 	0.223 seconds.
+Memory: max=1029m, total=1029m, free=952m, used=77m
+
+Input is being processed as unpaired
+Started output streams:	0.089 seconds.
+Processing time:   		27.769 seconds.
+
+Input:                  	14902260 reads 		1132571760 bases.
+QTrimmed:               	8387 reads (0.06%) 	157584 bases (0.01%)
+KTrimmed:               	4332403 reads (29.07%) 	259935452 bases (22.95%)
+Total Removed:          	1875157 reads (12.58%) 	260093036 bases (22.96%)
+Result:                 	13027103 reads (87.42%) 	872478724 bases (77.04%)
+
+Time:                         	28.083 seconds.
+Reads Processed:      14902k 	530.65k reads/sec
+Bases Processed:       1132m 	40.33m bases/sec
+trimm_map_BB.sh: 45: trimm_map_BB.sh: fastqc: not found
+java -ea -Xmx247220m -Xms247220m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/01_no_PNA_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/01_no_PNA.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/01_no_PNA_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/01_no_PNA.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+Writing reference.
+Executing dna.FastaToChromArrays2 [../data/reference_sequences/oligos_cds.fasta, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=true, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=false]
+
+Set genScaffoldInfo=true
+Writing chunk 1
+Set genome to 1
+
+Loaded Reference:	0.129 seconds.
+Loading index for chunk 1-1, build 1
+No index available; generating from reference genome: /home/jakob/oligopool_riboseq/scripts/ref/index/1/chr1_index_k13_c9_b1.block
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	2.170 seconds.
+Analyzed Index:   	2.938 seconds.
+Started output stream:	0.159 seconds.
+Cleared Memory:    	1.450 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	20904498	(660729997 bases)
+
+Mapping:          	90.820 seconds.
+Reads/sec:       	230175.92
+kBases/sec:      	7275.19
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 83.0733% 	 17366062 	 76.3090% 	   504196315
+unambiguous:     	 39.4861% 	  8254379 	 38.0786% 	   251596742
+ambiguous:       	 43.5872% 	  9111683 	 38.2304% 	   252599573
+low-Q discards:  	  0.0023% 	      483 	  0.0011% 	        7424
+
+perfect best site:	 33.1143% 	  6922380 	 31.0042% 	   204853874
+semiperfect site:	 33.3203% 	  6965440 	 31.3459% 	   207111807
+
+Match Rate:      	      NA 	       NA 	 97.6950% 	   247289171
+Error Rate:      	  6.9788% 	  1286612 	  1.9602% 	     4961645
+Sub Rate:        	  6.2483% 	  1151939 	  1.2401% 	     3139080
+Del Rate:        	  0.8906% 	   164197 	  0.6033% 	     1527016
+Ins Rate:        	  0.5454% 	   100556 	  0.1168% 	      295549
+N Rate:          	  0.3365% 	    62032 	  0.3449% 	      872942
+
+Total time:     	98.140 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/01_no_PNA.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/01_no_PNA.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246159m -Xms246159m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/02_PNA15_5000pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/02_PNA15_5000pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/02_PNA15_5000pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/02_PNA15_5000pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.152 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.858 seconds.
+Analyzed Index:   	2.941 seconds.
+Started output stream:	0.036 seconds.
+Cleared Memory:    	1.181 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	24892443	(771736937 bases)
+
+Mapping:          	72.881 seconds.
+Reads/sec:       	341550.14
+kBases/sec:      	10589.03
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 84.7890% 	 21106047 	 79.1988% 	   611206665
+unambiguous:     	 46.2943% 	 11523786 	 44.5747% 	   343999654
+ambiguous:       	 38.4947% 	  9582261 	 34.6241% 	   267207011
+low-Q discards:  	  0.0015% 	      363 	  0.0008% 	        6052
+
+perfect best site:	 39.3069% 	  9784441 	 36.9969% 	   285518574
+semiperfect site:	 39.4973% 	  9831853 	 37.3215% 	   288023503
+
+Match Rate:      	      NA 	       NA 	 98.1480% 	   339073901
+Error Rate:      	  7.6389% 	  1688445 	  1.5718% 	     5430056
+Sub Rate:        	  6.8607% 	  1516427 	  1.0528% 	     3637020
+Del Rate:        	  0.8513% 	   188154 	  0.4262% 	     1472352
+Ins Rate:        	  0.5225% 	   115495 	  0.0928% 	      320684
+N Rate:          	  0.3164% 	    69941 	  0.2802% 	      968049
+
+Total time:     	78.178 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/02_PNA15_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/02_PNA15_5000pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246790m -Xms246790m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/03_PNA15_500pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/03_PNA15_500pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/03_PNA15_500pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/03_PNA15_500pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.154 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.101 seconds.
+Analyzed Index:   	2.942 seconds.
+Started output stream:	0.036 seconds.
+Cleared Memory:    	0.854 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	26017715	(835991392 bases)
+
+Mapping:          	91.830 seconds.
+Reads/sec:       	283326.14
+kBases/sec:      	9103.73
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 81.7933% 	 21280742 	 75.2946% 	   629456565
+unambiguous:     	 40.5987% 	 10562863 	 38.3954% 	   320981930
+ambiguous:       	 41.1945% 	 10717879 	 36.8993% 	   308474635
+low-Q discards:  	  0.0015% 	      380 	  0.0008% 	        6323
+
+perfect best site:	 34.1545% 	  8886211 	 31.4847% 	   263209678
+semiperfect site:	 34.4161% 	  8954280 	 31.9244% 	   266884985
+
+Match Rate:      	      NA 	       NA 	 97.8784% 	   315715315
+Error Rate:      	  7.1297% 	  1605322 	  1.6740% 	     5399508
+Sub Rate:        	  6.3608% 	  1432210 	  1.0815% 	     3488556
+Del Rate:        	  0.8832% 	   198867 	  0.4888% 	     1576700
+Ins Rate:        	  0.4962% 	   111731 	  0.1036% 	      334252
+N Rate:          	  0.4234% 	    95339 	  0.4476% 	     1443807
+
+Total time:     	97.096 seconds.
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/03_PNA15_500pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['../data/rna_align/03_PNA15_500pM.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+java -ea -Xmx246870m -Xms246870m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=../data/libs/04_PNA15_100pM_trimmed.fq.gz trimreaddescription=t t=20 ref=../data/reference_sequences/oligos_cds.fasta k=13 ambig=toss outm=../data/rna_align/04_PNA15_100pM.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=../data/libs/04_PNA15_100pM_trimmed.fq.gz, trimreaddescription=t, t=20, ref=../data/reference_sequences/oligos_cds.fasta, k=13, ambig=toss, outm=../data/rna_align/04_PNA15_100pM.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.144 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.165 seconds.
+Analyzed Index:   	2.961 seconds.
+Started output stream:	0.041 seconds.
+Cleared Memory:    	1.552 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.

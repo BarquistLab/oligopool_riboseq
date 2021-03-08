@@ -1,0 +1,13 @@
+#Summary
+#Generated on	Mon Mar 08 13:03:48 CET 2021
+#Version	5
+chroms	1
+bases	2465151
+defined	1100351
+undefined	1364800
+contigs	4497
+scaffolds	4497
+interpad	300
+source	/home/jakob/oligopool_riboseq/data/reference_sequences/oligos_cds.fasta
+bytes	1201332
+last modified	1614855932000
