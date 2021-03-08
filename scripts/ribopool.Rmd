@@ -174,7 +174,7 @@ tt.norm.pca %>%
 
 Now we test for differential expression:
 ```{r}
-tt %>% test_differential_abundance( ~ cond, action = "only")
+  tt %>% test_differential_abundance( ~ cond, action = "only")
 ```
 
 
