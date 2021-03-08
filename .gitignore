@@ -1,5 +1,8 @@
 *~
 \#*\#
 *.fastq
+*.fastq.gz
 *.sam
 *.bam
+*.fq.gz
+*.fq
