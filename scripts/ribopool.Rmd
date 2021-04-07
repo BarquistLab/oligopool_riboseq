@@ -29,34 +29,49 @@ library(ggpubr)
 
 
 
-# Maping statistics
+# Mapping statistics
 
 ## percentages of mapped read types
 Here I show the distribution of different reads (oligos, rRNA, tRNA) to get an idea on how the rRNA depletion worked out.
 First I import total counts per rRNA, mRNA and tRNA and look at the total counts of our ologos:
 ```{r}
-oligos_totcounts <- unlist(read.delim("../../pna_retseq_11_2020/data/rna_align/count_table_genenames.txt.summary", 
+oligos_totcounts <- unlist(read.delim("../data/rna_align/counttable.txt.summary", 
                                       row.names = 1)[1,])
-rrna_totcounts <- unlist(read.delim("../../pna_retseq_11_2020/data/rna_align/count_table_genenames.txt.summary", 
+rrna_totcounts <- unlist(read.delim("../data/rna_align/counttable_rRNAs.txt.summary", 
+                                    row.names = 1)[1,])
+trna_totcounts <- unlist(read.delim("../data/rna_align/counttable_tRNAs.txt.summary", 
                                     row.names = 1)[1,])
 oligos_totcounts
 ```
 
 Now I create a dataframe and plot a stacked barplot of the data: 
 ```{r}
-df_rnatypes <- data.frame(rna_type = c(rep("rRNA", length(rrna_totcounts)), rep("mRNA", length(rrna_totcounts))),
-                          counts = c(rrna_totcounts, rrna_totcounts), samples = rep(names(rrna_totcounts), 2))
+df_rnatypes <- data.frame(rna_type = c(rep("rRNA", length(rrna_totcounts)), rep("tRNA", length(trna_totcounts)),
+                          rep("mRNA", length(oligos_totcounts))),
+                          counts = c(rrna_totcounts,  trna_totcounts, oligos_totcounts), samples = rep(names(rrna_totcounts), 3))
 
+df_rnatypes$samples <- gsub(".*.rna_align\\.(\\d\\d)_(.+_.+).bam", "\\2_\\1" , df_rnatypes$samples)
+df_rnatypes$conditions <- gsub("\\d\\d_(.+_.+)", "\\1" , df_rnatypes$samples)
+df_rnatypes <- df_rnatypes[order(df_rnatypes$conditions),]
+rownames(df_rnatypes) <- c()
+```
+
+```{r}
 g <- ggplot(df_rnatypes) + aes(x=samples, y=counts, fill = rna_type) + 
-  geom_bar(stat = "identity") + theme_ipsum_pub() + scale_fill_viridis(discrete = T)
+  geom_bar(stat = "identity", position = "stack") + # facet_grid(~ conditions)+
+  scale_fill_viridis(discrete = T) + theme_pubr() 
+  theme(axis.text.x = element_text(angle = 90))
 g
+#svg("../oligopool_03_21/rRNA_tRNA_content.svg")
+#print(g)
+#dev.off()
 ```
 
 
 
 ## read length distribution
 ```{r}
-path = "~/Documents/riboseq_experiments/pna_retseq_11_2020/analysis/readlengths/readlengths_after/"
+path = "../analysis/readlengths/"
 file.names <- dir(path, pattern =".txt")
 file.names.tot <- paste(path, file.names, sep = "")
 
@@ -84,7 +99,7 @@ I start with importing count data (genewisecounts):
 ```{r}
 # import:
 GenewiseCounts <- read.delim(
-    "../../../pna_rnaseq_experiments/pna_rnaseq_11_20/data/rna_align/counttable.txt",
+    "../data/rna_align/counttable.txt",
     sep = "\t", header = T, comment.char = "#")
 dim(GenewiseCounts)
 head(GenewiseCounts)
@@ -92,26 +107,131 @@ head(GenewiseCounts)
 
 I move on with adding sample names etc.:
 ```{r}
-gwc <- GenewiseCounts[,c(1,8:length(GenewiseCounts[1,])-1)]
-pnapat <- ".*\\.(later|beginning)\\.(ctrl|[0-9]*nM)?.*\\.bam"
-colnames (gwc) <- gsub(pnapat,"\\1\\2", colnames(gwc))
-colnames (gwc) <- gsub(".*(Undetermined).*","\\1", colnames(gwc))
-#gwc <- gwc[,-1]
-test <- factor(colnames(gwc))
-# just for testing purposes!!
-gwc <- gwc[, c(1,2,12,22,3,13,23,4,14,24)] 
-colnames(gwc) <- c("transcript", "sample1_R1", "sample1_R2", "sample1_R3", "sample2_R1", "sample2_R2", 
-                   "sample2_R3", "sample3_R1", "sample3_R2", "sample3_R3")
+gwc <- GenewiseCounts[,c(1,7:length(GenewiseCounts[1,]))]
+pnapat <- ".*.rna_align\\.(\\d\\d_.+_.+).bam"
+colnames (gwc) <- gsub(pnapat,"\\1", colnames(gwc))
+
 head(gwc)
+rownames(gwc) <- gwc$Geneid
+```
+## edgeR normal DE analysis:
+
+```{r}
+test <- gsub("\\d\\d_(.*)", "\\1", colnames (gwc)[-1])
+test <- as.factor(test)
+test
 ```
 
+Now that I have the read count dataframe with sample names, I import them into the edgeR environment:
+```{r}
+y <- DGEList(gwc[,-1], group = test, genes = gwc[,1,drop=FALSE])
+options(digits = 3)
+head(y$samples)
+```
+
+Now I filter out Genes which have very low counts across all libraries. 
+I do this by creating a cutoff $$\frac {10} {L} $$
+where L is the minimum library size in millions. We delete genes that are below the cutoff in at least 2 libraries:
+```{r}
+L <- min(y$samples$lib.size) / 1000000
+cutoff <- 10/L
+keep <- rowSums(cpm(y) > cutoff) >= 2 
+table(keep)
+```
+I retain only the unfiltered genes,and delete 519 genes below the threshold:
+```{r}
+y <- y[keep, , keep.lib.sizes=FALSE]
+```
+
+
+I create a design matrix for the samples:
+```{r}
+design <- model.matrix(~0+test)
+colnames(design) <- levels(test)
+rownames(design) <- colnames(y$counts)
+design[1:5,]
+```
+
+
+I check how the standard TMM normalization of edgeR performs. I start with calculating normalization factors:
+```{r, error=FALSE}
+y <- calcNormFactors(y)
+y <- estimateDisp(y, design, robust = T)
+```
+
+
+```{r}
+cols = rep(c("white", "green","darkblue","blue","red","blue","red"), 3)
+testpca = rep(c(21,22,23,24,25,26), 3)
+
+plotPCA(cpm(y[,1:dim(y)[2]-1]),col="black", bg=cols,pch = 21, labels=F,  cex=3)
+legend("bottomright", legend = levels(test)[-length(levels(test))],
+       cex=1.2, col="black",   pt.cex = 2, pt.bg = cols, pch =21)
+plotRLE(cpm(y)[,1:length(y)-1], outline=FALSE)
+```
+
+
+Next, I perform differential expression analysis using TMM-normalized dataset:
+```{r}
+# make a contrast:
+con <- makeContrasts(PNA15_10pM = PNA15_10pM - no_PNA,
+                     PNA15_100pM = PNA15_100pM - no_PNA,
+                     PNA15_500pM = PNA15_500pM - no_PNA, 
+                     PNA15_5000pM = PNA15_5000pM - no_PNA,
+                     PNA14_5000pM = PNA14_5000pM - no_PNA,
+                     PNA15_14 = PNA15_5000pM - PNA14_5000pM,
+                     levels = design)
+
+fit <- glmQLFit(y, design, robust = TRUE)
+
+res <- list(PNA15_10pM = glmQLFTest(fit, contrast = con[,1]), 
+            PNA15_100pM = glmQLFTest(fit, contrast = con[,2]),
+            PNA15_500pM = glmQLFTest(fit, contrast = con[,3]),
+            PNA15_5000pM = glmQLFTest(fit, contrast = con[,4]),
+            PNA14_5000pM = glmQLFTest(fit, contrast = con[,5]),
+            PNA15_14 = glmQLFTest(fit, contrast = con[,6])
+            )
+```
+
+```{r}
+names_mapping <- read.delim("../data/link_lt_gn.tab", header = F)
+rownames(names_mapping) <- names_mapping$V2
+gn <- rownames(res$PNA15_100pM$table)
+genenames <- ifelse(gn %in% names_mapping$V2,
+                    names_mapping[gn,]$V1, gn )
+
+
+for (i in names(res)) {
+  res[[i]]$table$FDR <- "> 0.5"
+  res[[i]]$table <- cbind(genenames, res[[i]]$table)
+  res[[i]]$table <- res[[i]]$table[order(res[[i]]$table$PValue),]
+  write.csv(res[[i]]$table, paste("../oligopool_03_21/edgeR_DE/", i, "_vs_control.csv"))
+  print(res[[i]]$table)
+}
+res$PNA15_10pM
+
+```
+
+
+```{r}
+res$PNA15_500pM$table %>% ggplot() + geom_density(aes(x = PValue))
+```
+
+
+
+
+
+
+
+
+## tidybulk
 combine dataframes to tidybulk tibble:
 ```{r}
 colnames(gwc)[1] <- "transcript"
 
 # create raw counts and add condition variable:
 raw_counts <- pivot_longer(gwc, cols = c(2:length(gwc[1,])), names_to = "sample", values_to = "counts") 
-raw_counts$cond <- gsub("(sample\\d+).*", "\\1" ,  raw_counts$sample )
+raw_counts$cond <- gsub("\\d\\d_(.+_.+)", "\\1" , raw_counts$sample)
 
 # create tidybulk tibble (only add samples, transcripts and counts!):
 tt <- raw_counts %>% tidybulk(sample, transcript, counts)
@@ -127,21 +247,32 @@ tt.aggr
 
 Now I normalize the counts using TMM (automaticaly ignores lowly abundant transcripts):
 ```{r}
-tt.norm <- tt.aggr %>%  scale_abundance(method = "TMM", factor_of_interest = cond) 
+tt.norm <- tt.aggr %>%  scale_abundance(method = "TMM")#, factor_of_interest = cond) 
 ```
 Now I create  a plot of count distributions:
 ```{r}
-tt.norm %>%
+g <- tt.norm %>%
   pivot_longer(         
     c(counts, counts_scaled),         
     values_to="count",          
     names_to="Normalisation"
     ) %>%     
-  ggplot(aes(count + 1, group=cond, color=cond)) +     
-  facet_grid(~Normalisation) +     
-  geom_density() +     
-  scale_x_log10() + theme_ipsum_pub()
+  ggplot() 
 
+g <- g + facet_grid(~Normalisation) +     
+  geom_density(aes(count + 1, group=factor(cond), color=cond), size=1) +     
+  scale_x_log10() + 
+  scale_color_manual(values=c("red", "green","darkblue","blue","red","blue","black", "brown", "lightblue")) + 
+  theme_pubr() 
+g
+# displays as you require
+require(scales)
+options(scipen=100)
+g
+
+svg("../oligopool_03_21/read_distribution/readcountdistr.svg")
+print(g)
+dev.off()
 ```
 
 ## Dimensionality reduction
@@ -151,39 +282,92 @@ tt.norm.mds <- tt.norm %>% reduce_dimensions(.abundance = counts_scaled, method=
 
 tt.norm.mds %>%
   pivot_sample() %>%
-  GGally::ggpairs(columns = 6:7, ggplot2::aes(colour=cond)) + theme_ipsum_pub()
+  GGally::ggpairs(columns = 6:7, ggplot2::aes(colour=cond)) #+ theme_ipsum_pub()
 
 tt.norm.mds %>%
   pivot_sample() %>%
   ggplot(aes(x=Dim1, y=Dim2, size = 1, color=cond)) + geom_point() + theme_ipsum_pub()
 ```
 
+
 Do PCA:
 ```{r}
 tt.norm.pca <- tt.norm %>% reduce_dimensions(.abundance = counts_scaled, method="PCA", .dims = 3)
 
 tt.norm.pca %>%
-  pivot_sample() %>%
-  GGally::ggpairs(columns = 6:7, ggplot2::aes(colour=cond)) + theme_ipsum_pub()
+    pivot_sample() %>% filter(cond != "RNA_input_control") %>%
+    ggplot( aes(x = PC1, y = PC2, color = cond)) + geom_point(size=5) + scale_fill_viridis(discrete = T)
 
 tt.norm.pca %>%
   pivot_sample() %>%
-  ggplot(aes(x=PC1, y=PC2, size = 1, color=cond)) + geom_point() + theme_pubr()
+  ggplot( aes(x = PC1, y = PC2)) + geom_point()
+  #GGally::ggpairs(columns = 6:7, ggplot2::aes(colour=cond)) + theme_ipsum_pub()
+
+tt.norm.pca %>%
+  pivot_sample() %>%
+  ggplot(aes(x=PC1, y=PC2, size = 1, color=cond)) + geom_point() + theme_pubr() 
 ```
 
 
 Now we test for differential expression:
 ```{r}
-  tt %>% test_differential_abundance( ~ cond, action = "only")
+tt %>% test_differential_abundance( ~ cond, action = "get")
 ```
 
 
+```{r}
+tt.norm$cond <- factor(tt.norm$cond,levels = c("no_PNA", "PNA15_10pM","PNA15_100pM", "PNA15_500pM", 
+                                                   "PNA15_5000pM", "PNA14_5000pM","RNA_input_control"))
+
+g <- tt.norm %>% filter(transcript == "b1094") %>%
+  ggplot() + geom_bar(aes(x=cond, y=counts_scaled), position="dodge",stat = "summary", fill="steelblue")+
+  geom_point(aes(x=cond, y=counts_scaled)) + scale_fill_viridis(discrete = T) + theme_pubr() +
+  theme(axis.text.x = element_text(angle = 90)) + ggtitle("acpP")
+g
+
+svg("~/Dropbox/HIRI/presentations/annual_meeting_1/acpP_level.svg")
+print(g)
+dev.off()
+
+```
 
 
+```{r}
+norm_counts <- tt.norm %>% select(transcript, sample, counts_scaled)%>%
+  spread(key = sample, value = counts_scaled) %>% 
+  mutate_if(is.numeric, round, digits = 3) 
+  
+
+raw_counts <- tt.norm %>% select(transcript, sample, counts)%>%
+  spread(key = sample, value = counts)
+
+#%>%write_csv("../oligopool_03_21/raw_data/raw_counts.csv")
+```
+
+generate file with genenames using bash:
+```{bash}
+grep -P "(\tgene\t)|(\tpseudogene\t)|(\rRNA\t)|(\ttRNA\t)|(\tsRNA\t)" ../data/reference_sequences/oligos_cds.gff |\
+cut -f9 | \
+sed -r 's/^.*Name=([^;]+).*locus_tag=([^; ]+).*$/\1\t\2/' | \
+grep -v "gene" | uniq  > ../data/link_lt_gn.tab
+```
+
+add preffered names to table:
+```{r}
+names_mapping <- read.delim("../data/link_lt_gn.tab", header = F)
+rownames(names_mapping) <- names_mapping$V2
+genenames <- ifelse(raw_counts$transcript %in% names_mapping$V2,names_mapping[raw_counts$transcript,]$V1, raw_counts$transcript )
+raw_counts <- cbind(genenames, raw_counts)
+norm_counts <- cbind(genenames, norm_counts)
 
 
+write.csv(raw_counts, "../oligopool_03_21/raw_data/raw_counts.csv")
+write.csv(norm_counts, "../oligopool_03_21/raw_data/norm_counts.csv")
+```
 
+```{r}
 
+```
 
 
 

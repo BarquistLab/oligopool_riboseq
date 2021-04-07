@@ -1,0 +1,13 @@
+#Summary
+#Generated on	Wed Apr 07 12:37:25 CEST 2021
+#Version	5
+chroms	1
+bases	4657652
+defined	4641652
+undefined	16000
+contigs	1
+scaffolds	1
+interpad	300
+source	/home/jj/Documents/riboseq_experiments/oligopool_02_2021/data/reference_sequences/NC_000913.3.fasta
+bytes	4708035
+last modified	1591777512732
