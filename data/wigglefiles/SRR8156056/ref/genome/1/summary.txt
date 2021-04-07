@@ -1,13 +1,13 @@
 #Summary
-#Generated on	Wed Apr 07 15:44:16 CEST 2021
+#Generated on	Wed Apr 07 16:33:04 CEST 2021
 #Version	5
 chroms	1
-bases	4647469
-defined	4631469
+bases	4657652
+defined	4641652
 undefined	16000
 contigs	1
 scaffolds	1
 interpad	300
-source	/home/jakob/oligopool_riboseq/data/reference_sequences/ecolibw25113.fasta
-bytes	4697714
-last modified	1617801334000
+source	/home/jakob/oligopool_riboseq/data/reference_sequences/NC_000913.3.fasta
+bytes	4708035
+last modified	1617799189000

@@ -5,13 +5,13 @@
 #			     out=SRR8156056_trimmed.fastq ktrim=r k=23 mink=11\
 #			     hdist=1 qtrim=r trimq=10
 
-#~/bin/bbmap/bbmap.sh in=SRR8156056_trimmed.fastq trimreaddescription=t  t=20 \
-#			     ref=../../reference_sequences/NC_000913.3.fasta \
-#			     k=13 ambig=toss outm=SRR8156056.sam
-
 ~/bin/bbmap/bbmap.sh in=SRR8156056_trimmed.fastq trimreaddescription=t  t=20 \
-			     ref=../../reference_sequences/ecolibw25113.fasta \
+			     ref=../../reference_sequences/NC_000913.3.fasta \
 			     k=13 ambig=toss outm=SRR8156056.sam
+
+#~/bin/bbmap/bbmap.sh in=SRR8156056_trimmed.fastq trimreaddescription=t  t=20 \
+#			     ref=../../reference_sequences/ecolibw25113.fasta \
+#			     k=13 ambig=toss outm=SRR8156056_test.sam
 
 
 # sort sam file, create BAM file:
