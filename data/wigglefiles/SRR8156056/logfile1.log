@@ -1,0 +1,102 @@
+java -ea -Xmx307231m -Xms307231m -cp /home/jakob/bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=SRR8156056_trimmed.fastq trimreaddescription=t t=20 ref=../../reference_sequences/ecolibw25113.fasta k=13 ambig=toss outm=SRR8156056.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=SRR8156056_trimmed.fastq, trimreaddescription=t, t=20, ref=../../reference_sequences/ecolibw25113.fasta, k=13, ambig=toss, outm=SRR8156056.sam]
+Version 38.79
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Ignoring reference file because it already appears to have been processed.
+NOTE:	If you wish to regenerate the index, please manually delete ref/genome/1/summary.txt
+Set genome to 1
+
+Loaded Reference:	0.158 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	1.287 seconds.
+Analyzed Index:   	3.121 seconds.
+Started output stream:	0.029 seconds.
+Cleared Memory:    	1.384 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
+Detecting finished threads: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	36693293	(1833089249 bases)
+
+Mapping:          	830.312 seconds.
+Reads/sec:       	44192.17
+kBases/sec:      	2207.71
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 87.4413% 	 32085100 	 87.5133% 	  1604196020
+unambiguous:     	  6.4485% 	  2366176 	  6.4524% 	   118278729
+ambiguous:       	 80.9928% 	 29718924 	 81.0608% 	  1485917291
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	  0.0002% 	       74 	  0.0001% 	        1553
+semiperfect site:	  0.0002% 	       74 	  0.0001% 	        1553
+
+Match Rate:      	      NA 	       NA 	 52.9040% 	    98394493
+Error Rate:      	  6.4783% 	  2366076 	 47.0951% 	    87590725
+Sub Rate:        	  6.3165% 	  2306997 	  8.4230% 	    15665622
+Del Rate:        	  1.5755% 	   575418 	 36.4048% 	    67708273
+Ins Rate:        	  2.4403% 	   891276 	  2.2673% 	     4216830
+N Rate:          	  0.0047% 	     1729 	  0.0010% 	        1784
+
+Total time:     	836.443 seconds.
+[bam_sort_core] merging from 0 files and 40 in-memory blocks...
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['SRR8156056.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
+minFragmentLength: 0
+verbose: False
+out_file_for_raw_data: None
+numberOfSamples: None
+bedFile: None
+bamFilesList: ['SRR8156056.bam']
+ignoreDuplicates: False
+numberOfProcessors: 20
+samFlag_exclude: None
+save_data: False
+stepSize: 1
+smoothLength: None
+center_read: False
+Offset: [-1]
+filter_strand: None
+defaultFragmentLength: read length
+chrsToSkip: []
+region: None
+maxPairedFragmentLength: 1000
+samFlag_include: None
+binLength: 1
+blackListFileName: None
+maxFragmentLength: 0
+minMappingQuality: None
+zerosToNans: False
