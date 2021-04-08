@@ -1,5 +1,5 @@
 #Summary
-#Generated on	Thu Apr 08 08:05:21 CEST 2021
+#Generated on	Thu Apr 08 08:32:37 CEST 2021
 #Version	5
 chroms	1
 bases	2465151
@@ -8,6 +8,6 @@ undefined	1364800
 contigs	4497
 scaffolds	4497
 interpad	300
-source	/home/jj/Documents/riboseq_experiments/oligopool_02_2021/data/reference_sequences/oligos_cds_with_name.fasta
+source	/home/jakob/oligopool_riboseq/data/reference_sequences/oligos_cds_with_name.fasta
 bytes	1223063
-last modified	1617861729220
+last modified	1617862233000
