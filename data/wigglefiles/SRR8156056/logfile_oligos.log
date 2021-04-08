@@ -1,0 +1,27 @@
+java -ea -Xmx9610m -Xms9610m -cp /bin/bbmap/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 in=SRR8156056_trimmed.fastq trimreaddescription=t t=20 ref=../../reference_sequences/oligos_cds_with_name.fasta k=13 ambig=toss outm=SRR8156056.sam
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, in=SRR8156056_trimmed.fastq, trimreaddescription=t, t=20, ref=../../reference_sequences/oligos_cds_with_name.fasta, k=13, ambig=toss, outm=SRR8156056.sam]
+Version 38.84
+
+Set threads to 20
+Ambiguously mapped reads will be considered unmapped.
+NOTE:	Deleting contents of ref/genome/1 because reference is specified and overwrite=true
+NOTE:	Deleting contents of ref/index/1 because reference is specified and overwrite=true
+Writing reference.
+Executing dna.FastaToChromArrays2 [../../reference_sequences/oligos_cds_with_name.fasta, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=true, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=false]
+
+Set genScaffoldInfo=true
+Writing chunk 1
+Set genome to 1
+
+Loaded Reference:	0.036 seconds.
+Loading index for chunk 1-1, build 1
+No index available; generating from reference genome: /home/jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/SRR8156056/ref/index/1/chr1_index_k13_c9_b1.block
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	0.989 seconds.
+Analyzed Index:   	2.555 seconds.
+Started output stream:	0.028 seconds.
+Cleared Memory:    	0.107 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 20 mapping threads.
