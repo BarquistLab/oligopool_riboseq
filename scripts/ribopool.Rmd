@@ -48,13 +48,44 @@ Now I create a dataframe and plot a stacked barplot of the data:
 ```{r}
 df_rnatypes <- data.frame(rna_type = c(rep("rRNA", length(rrna_totcounts)), rep("tRNA", length(trna_totcounts)),
                           rep("mRNA", length(oligos_totcounts))),
-                          counts = c(rrna_totcounts,  trna_totcounts, oligos_totcounts), samples = rep(names(rrna_totcounts), 3))
+                          counts = c(rrna_totcounts,  trna_totcounts, oligos_totcounts), sample = rep(names(rrna_totcounts), 3))
 
-df_rnatypes$samples <- gsub(".*.rna_align\\.(\\d\\d)_(.+_.+).bam", "\\2_\\1" , df_rnatypes$samples)
-df_rnatypes$conditions <- gsub("\\d\\d_(.+_.+)", "\\1" , df_rnatypes$samples)
-df_rnatypes <- df_rnatypes[order(df_rnatypes$conditions),]
+df_rnatypes$sample <- gsub(".*.rna_align\\.(\\d\\d)_(.+_.+).bam", "\\2_\\1" , df_rnatypes$sample)
+df_rnatypes$condition <- gsub("(.+_.+)_\\d\\d", "\\1" , df_rnatypes$sample)
+df_rnatypes <- df_rnatypes[order(df_rnatypes$sample),]
 rownames(df_rnatypes) <- c()
+df_rnatypes <- df_rnatypes %>% 
+  group_by(sample) %>%  mutate(norm_fac = sum(counts)/1000000) %>% mutate(cpm_counts=counts/norm_fac) 
+write.csv(df_rnatypes, "../analysis/rna_types/final_pool_rna_types.csv")
 ```
+
+
+Now I create a dataframe of the old data: 
+```{r}
+prev_oligos_totcounts <- unlist(read.delim("../../pna_retseq_11_2020/data/rna_align/counttable.txt.summary", 
+                                      row.names = 1)[1,])
+prev_rrna_totcounts <- unlist(read.delim("../../pna_retseq_11_2020/data/rna_align/counttable_rRNAs.txt.summary", 
+                                    row.names = 1)[1,])
+prev_trna_totcounts <- unlist(read.delim("../../pna_retseq_11_2020/data/rna_align/counttable_tRNAs.txt.summary", 
+                                    row.names = 1)[1,])
+oligos_totcounts
+prev_df_rnatypes <- data.frame(rna_type = c(rep("rRNA", length(prev_rrna_totcounts)), 
+                                       rep("tRNA", length(prev_trna_totcounts)),
+                          rep("mRNA", length(prev_oligos_totcounts))),
+                          counts = c(prev_rrna_totcounts,  prev_trna_totcounts, prev_oligos_totcounts), 
+                          sample = rep(names(prev_rrna_totcounts), 3))
+
+prev_df_rnatypes$sample <- gsub(".*\\.rna_align\\.(.+)_L001_R1_001\\.fastq\\.gz\\.bam", 
+                                "\\1" , prev_df_rnatypes$sample)
+prev_df_rnatypes$condition <- gsub(".*((later|beginning|Undetermined).*)_S\\d", "\\1" , prev_df_rnatypes$sample)
+prev_df_rnatypes <- prev_df_rnatypes[order(prev_df_rnatypes$condition),]
+rownames(prev_df_rnatypes) <- c()
+#add cpm:
+prev_df_rnatypes <- prev_df_rnatypes %>% 
+  group_by(sample) %>%  mutate(norm_fac = sum(counts)/1000000) %>% mutate(cpm_counts=counts/norm_fac) 
+write.csv(prev_df_rnatypes, "../analysis/rna_types/reduced_pool_rna_types.csv")
+```
+
 
 ```{r}
 g <- ggplot(df_rnatypes) + aes(x=samples, y=counts, fill = rna_type) + 
@@ -157,6 +188,7 @@ I check how the standard TMM normalization of edgeR performs. I start with calcu
 ```{r, error=FALSE}
 y <- calcNormFactors(y)
 y <- estimateDisp(y, design, robust = T)
+corrplot::corrplot(cor(cpm(y)))
 ```
 
 
@@ -216,6 +248,9 @@ res$PNA15_10pM
 ```{r}
 res$PNA15_500pM$table %>% ggplot() + geom_density(aes(x = PValue))
 ```
+
+
+
 
 
 

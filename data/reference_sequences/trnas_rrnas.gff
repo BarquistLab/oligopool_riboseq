@@ -1,0 +1,111 @@
+NC_000913.3	RefSeq	rRNA	223771	225312	.	+	.	ID=rna3;Parent=gene199;Dbxref=ASAP:ABE-0000677,EcoGene:EG30090,GeneID:944897;gbkey=rRNA;gene=rrsH;product=16S ribosomal RNA of rrnH operon
+NC_000913.3	RefSeq	tRNA	225381	225457	.	+	.	ID=rna4;Parent=gene200;Dbxref=ASAP:ABE-0000679,EcoGene:EG30045,GeneID:944884;Note=anticodon: GAU;gbkey=tRNA;gene=ileV;product=tRNA-Ile
+NC_000913.3	RefSeq	tRNA	225500	225575	.	+	.	ID=rna5;Parent=gene201;Dbxref=ASAP:ABE-0000682,EcoGene:EG30010,GeneID:944890;Note=anticodon: UGC;gbkey=tRNA;gene=alaV;product=tRNA-Ala
+NC_000913.3	RefSeq	rRNA	225759	228662	.	+	.	ID=rna6;Parent=gene202;Dbxref=ASAP:ABE-0000684,EcoGene:EG30083,GeneID:944900;gbkey=rRNA;gene=rrlH;product=23S ribosomal RNA of rrnH operon
+NC_000913.3	RefSeq	rRNA	228756	228875	.	+	.	ID=rna7;Parent=gene203;Dbxref=ASAP:ABE-0000686,EcoGene:EG30076,GeneID:944898;gbkey=rRNA;gene=rrfH;product=5S ribosomal RNA of rrnH operon
+NC_000913.3	RefSeq	tRNA	228928	229004	.	+	.	ID=rna8;Parent=gene204;Dbxref=ASAP:ABE-0000688,EcoGene:EG30024,GeneID:944880;Note=anticodon: GUC;gbkey=tRNA;gene=aspU;product=tRNA-Asp
+NC_000913.3	RefSeq	tRNA	236931	237007	.	+	.	ID=rna9;Parent=gene214;Dbxref=ASAP:ABE-0000724,EcoGene:EG30025,GeneID:947541;Note=anticodon: GUC;gbkey=tRNA;gene=aspV;product=tRNA-Asp
+NC_000913.3	RefSeq	tRNA	262871	262946	.	+	.	ID=rna10;Parent=gene244;Dbxref=ASAP:ABE-0000834,EcoGene:EG30104,GeneID:947202;Note=anticodon: CGU;gbkey=tRNA;gene=thrW;product=tRNA-Thr
+NC_000913.3	RefSeq	tRNA	297206	297254	.	+	.	ID=rna12;Parent=gene289;Dbxref=EcoGene:EG31171,GeneID:5625555;gbkey=tRNA;gene=ptwF;product=tRNA-OTHER;pseudo=true
+NC_000913.3	RefSeq	tRNA	564723	564799	.	+	.	ID=rna15;Parent=gene541;Dbxref=ASAP:ABE-0001840,EcoGene:EG30014,GeneID:945161;Note=anticodon: UCU;gbkey=tRNA;gene=argU;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	586057	586101	.	+	.	ID=rna16;Parent=gene577;Dbxref=EcoGene:EG31172,GeneID:5625561;gbkey=tRNA;gene=pauD;product=tRNA-OTHER;pseudo=true
+NC_000913.3	RefSeq	tRNA	696430	696504	.	-	.	ID=rna18;Parent=gene677;Dbxref=ASAP:ABE-0002272,EcoGene:EG30031,GeneID:945257;Note=anticodon: CUG;gbkey=tRNA;gene=glnX;product=tRNA-Gln
+NC_000913.3	RefSeq	tRNA	696542	696616	.	-	.	ID=rna19;Parent=gene678;Dbxref=ASAP:ABE-0002274,EcoGene:EG30029,GeneID:945255;Note=anticodon: CUG;gbkey=tRNA;gene=glnV;product=tRNA-Gln
+NC_000913.3	RefSeq	tRNA	696664	696740	.	-	.	ID=rna20;Parent=gene679;Dbxref=ASAP:ABE-0002276,EcoGene:EG30059,GeneID:945262;Note=anticodon: CAU;gbkey=tRNA;gene=metU;product=tRNA-Met
+NC_000913.3	RefSeq	tRNA	696756	696830	.	-	.	ID=rna21;Parent=gene680;Dbxref=ASAP:ABE-0002280,EcoGene:EG30030,GeneID:945750;Note=anticodon: UUG;gbkey=tRNA;gene=glnW;product=tRNA-Gln
+NC_000913.3	RefSeq	tRNA	696865	696939	.	-	.	ID=rna22;Parent=gene681;Dbxref=ASAP:ABE-0002284,EcoGene:EG30028,GeneID:945269;Note=anticodon: UUG;gbkey=tRNA;gene=glnU;product=tRNA-Gln
+NC_000913.3	RefSeq	tRNA	696963	697047	.	-	.	ID=rna23;Parent=gene682;Dbxref=ASAP:ABE-0002288,EcoGene:EG30052,GeneID:945264;Note=anticodon: CAA;gbkey=tRNA;gene=leuW;product=tRNA-Leu
+NC_000913.3	RefSeq	tRNA	697057	697133	.	-	.	ID=rna24;Parent=gene683;Dbxref=ASAP:ABE-0002290,EcoGene:EG30058,GeneID:945280;Note=anticodon: CAU;gbkey=tRNA;gene=metT;product=tRNA-Met
+NC_000913.3	RefSeq	tRNA	780554	780629	.	+	.	ID=rna25;Parent=gene756;Dbxref=ASAP:ABE-0002525,EcoGene:EG30055,GeneID:945336;Note=anticodon: UUU;gbkey=tRNA;gene=lysT;product=tRNA-Lys
+NC_000913.3	RefSeq	tRNA	780765	780840	.	+	.	ID=rna26;Parent=gene757;Dbxref=ASAP:ABE-0002527,EcoGene:EG30109,GeneID:945331;Note=anticodon: UAC;gbkey=tRNA;gene=valT;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	780843	780918	.	+	.	ID=rna27;Parent=gene758;Dbxref=ASAP:ABE-0002529,EcoGene:EG30057,GeneID:945338;Note=anticodon: UUU;gbkey=tRNA;gene=lysW;product=tRNA-Lys
+NC_000913.3	RefSeq	tRNA	781068	781143	.	+	.	ID=rna28;Parent=gene759;Dbxref=ASAP:ABE-0002531,EcoGene:EG31125,GeneID:945345;Note=anticodon: UAC;gbkey=tRNA;gene=valZ;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	781147	781222	.	+	.	ID=rna29;Parent=gene760;Dbxref=ASAP:ABE-0002533,EcoGene:EG31123,GeneID:945342;Note=anticodon: UUU;gbkey=tRNA;gene=lysY;product=tRNA-Lys
+NC_000913.3	RefSeq	tRNA	781369	781444	.	+	.	ID=rna30;Parent=gene761;Dbxref=ASAP:ABE-0002535,EcoGene:EG31124,GeneID:945352;Note=anticodon: UUU;gbkey=tRNA;gene=lysZ;product=tRNA-Lys
+NC_000913.3	RefSeq	tRNA	781577	781652	.	+	.	ID=rna31;Parent=gene762;Dbxref=ASAP:ABE-0002537,EcoGene:EG31122,GeneID:945353;Note=anticodon: UUU;gbkey=tRNA;gene=lysQ;product=tRNA-Lys
+NC_000913.3	RefSeq	tRNA	925884	925971	.	-	.	ID=rna33;Parent=gene897;Dbxref=ASAP:ABE-0003003,EcoGene:EG30096,GeneID:945501;Note=anticodon: GGA;gbkey=tRNA;gene=serW;product=tRNA-Ser
+NC_000913.3	RefSeq	tRNA	1031625	1031712	.	-	.	ID=rna34;Parent=gene985;Dbxref=ASAP:ABE-0003283,EcoGene:EG30093,GeneID:944826;Note=anticodon: UGA;gbkey=tRNA;gene=serT;product=tRNA-Ser
+NC_000913.3	RefSeq	tRNA	1097565	1097652	.	-	.	ID=rna35;Parent=gene1046;Dbxref=ASAP:ABE-0003498,EcoGene:EG30097,GeneID:945714;Note=anticodon: GGA;gbkey=tRNA;gene=serX;product=tRNA-Ser
+NC_000913.3	RefSeq	tRNA	1287244	1287328	.	-	.	ID=rna41;Parent=gene1253;Dbxref=ASAP:ABE-0004134,EcoGene:EG30108,GeneID:945811;Note=anticodon: GUA;gbkey=tRNA;gene=tyrV;product=tRNA-Tyr
+NC_000913.3	RefSeq	tRNA	1287538	1287622	.	-	.	ID=rna42;Parent=gene1254;Dbxref=ASAP:ABE-0004136,EcoGene:EG30106,GeneID:945820;Note=anticodon: GUA;gbkey=tRNA;gene=tyrT;product=tRNA-Tyr
+NC_000913.3	RefSeq	tRNA	1746435	1746511	.	+	.	ID=rna50;Parent=gene1706;Dbxref=ASAP:ABE-0005567,EcoGene:EG30111,GeneID:946170;Note=anticodon: GAC;gbkey=tRNA;gene=valV;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	1746516	1746592	.	+	.	ID=rna51;Parent=gene1707;Dbxref=ASAP:ABE-0005569,EcoGene:EG30112,GeneID:949069;Note=anticodon: GAC;gbkey=tRNA;gene=valW;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	1991815	1991901	.	-	.	ID=rna56;Parent=gene1958;Dbxref=ASAP:ABE-0006361,EcoGene:EG30054,GeneID:945662;Note=anticodon: GAG;gbkey=tRNA;gene=leuZ;product=tRNA-Leu
+NC_000913.3	RefSeq	tRNA	1991914	1991987	.	-	.	ID=rna57;Parent=gene1959;Dbxref=ASAP:ABE-0006363,EcoGene:EG30026,GeneID:946414;Note=anticodon: GCA;gbkey=tRNA;gene=cysT;product=tRNA-Cys
+NC_000913.3	RefSeq	tRNA	1992042	1992117	.	-	.	ID=rna58;Parent=gene1960;Dbxref=ASAP:ABE-0006365,EcoGene:EG30039,GeneID:946416;Note=anticodon: GCC;gbkey=tRNA;gene=glyW;product=tRNA-Gly
+NC_000913.3	RefSeq	tRNA	2043468	2043557	.	-	.	ID=rna61;Parent=gene2021;Dbxref=ASAP:ABE-0006554,EcoGene:EG30094,GeneID:946492;Note=anticodon: CGA;gbkey=tRNA;gene=serU;product=tRNA-Ser
+NC_000913.3	RefSeq	tRNA	2044549	2044624	.	+	.	ID=rna62;Parent=gene2023;Dbxref=ASAP:ABE-0006560,EcoGene:EG30020,GeneID:946488;Note=anticodon: GUU;gbkey=tRNA;gene=asnT;product=tRNA-Asn
+NC_000913.3	RefSeq	tRNA	2058027	2058102	.	-	.	ID=rna63;Parent=gene2029;Dbxref=ASAP:ABE-0006584,EcoGene:EG31120,GeneID:946494;Note=anticodon: GUU;gbkey=tRNA;gene=asnW;product=tRNA-Asn
+NC_000913.3	RefSeq	tRNA	2059851	2059926	.	+	.	ID=rna64;Parent=gene2031;Dbxref=ASAP:ABE-0006588,EcoGene:EG30021,GeneID:946503;Note=anticodon: GUU;gbkey=tRNA;gene=asnU;product=tRNA-Asn
+NC_000913.3	RefSeq	tRNA	2062260	2062335	.	+	.	ID=rna65;Parent=gene2034;Dbxref=ASAP:ABE-0006605,EcoGene:EG30022,GeneID:946509;Note=anticodon: GUU;gbkey=tRNA;gene=asnV;product=tRNA-Asn
+NC_000913.3	RefSeq	tRNA	2286211	2286287	.	+	.	ID=rna70;Parent=gene2245;Dbxref=ASAP:ABE-0007242,EcoGene:EG30067,GeneID:946320;Note=anticodon: GGG;gbkey=tRNA;gene=proL;product=tRNA-Pro
+NC_000913.3	RefSeq	tRNA	2466309	2466383	.	+	.	ID=rna72;Parent=gene2404;Dbxref=ASAP:ABE-0007753,EcoGene:EG30016,GeneID:945486;Note=anticodon: CCU;gbkey=tRNA;gene=argW;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	2476584	2476598	.	+	.	ID=rna73;Parent=gene2422;Dbxref=EcoGene:EG31173,GeneID:5625569;gbkey=tRNA;gene=pawZ;product=tRNA-OTHER;pseudo=true
+NC_000913.3	RefSeq	tRNA	2518041	2518116	.	-	.	ID=rna74;Parent=gene2455;Dbxref=ASAP:ABE-0007902,EcoGene:EG30012,GeneID:946859;Note=anticodon: GGC;gbkey=tRNA;gene=alaX;product=tRNA-Ala
+NC_000913.3	RefSeq	tRNA	2518156	2518231	.	-	.	ID=rna75;Parent=gene2456;Dbxref=ASAP:ABE-0007904,EcoGene:EG30011,GeneID:946860;Note=anticodon: GGC;gbkey=tRNA;gene=alaW;product=tRNA-Ala
+NC_000913.3	RefSeq	tRNA	2520931	2521006	.	+	.	ID=rna76;Parent=gene2460;Dbxref=ASAP:ABE-0007914,EcoGene:EG30110,GeneID:946824;Note=anticodon: UAC;gbkey=tRNA;gene=valU;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	2521051	2521126	.	+	.	ID=rna77;Parent=gene2461;Dbxref=ASAP:ABE-0007916,EcoGene:EG30113,GeneID:946817;Note=anticodon: UAC;gbkey=tRNA;gene=valX;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	2521173	2521248	.	+	.	ID=rna78;Parent=gene2462;Dbxref=ASAP:ABE-0007918,EcoGene:EG30114,GeneID:946870;Note=anticodon: UAC;gbkey=tRNA;gene=valY;product=tRNA-Val
+NC_000913.3	RefSeq	tRNA	2521253	2521328	.	+	.	ID=rna79;Parent=gene2463;Dbxref=ASAP:ABE-0007920,EcoGene:EG30056,GeneID:946866;Note=anticodon: UUU;gbkey=tRNA;gene=lysV;product=tRNA-Lys
+NC_000913.3	RefSeq	rRNA	2726069	2726188	.	-	.	ID=rna83;Parent=gene2655;Dbxref=ASAP:ABE-0008519,EcoGene:EG30075,GeneID:947070;gbkey=rRNA;gene=rrfG;product=5S ribosomal RNA of rrnG operon
+NC_000913.3	RefSeq	rRNA	2726281	2729184	.	-	.	ID=rna84;Parent=gene2656;Dbxref=ASAP:ABE-0008521,EcoGene:EG30082,GeneID:947585;gbkey=rRNA;gene=rrlG;product=23S ribosomal RNA of rrnG operon
+NC_000913.3	RefSeq	tRNA	2729369	2729444	.	-	.	ID=rna85;Parent=gene2657;Dbxref=ASAP:ABE-0008523,EcoGene:EG30035,GeneID:947076;Note=anticodon: UUC;gbkey=tRNA;gene=gltW;product=tRNA-Glu
+NC_000913.3	RefSeq	rRNA	2729616	2731157	.	-	.	ID=rna86;Parent=gene2658;Dbxref=ASAP:ABE-0008525,EcoGene:EG30089,GeneID:947071;gbkey=rRNA;gene=rrsG;product=16S ribosomal RNA of rrnG operon
+NC_000913.3	RefSeq	tRNA	2785762	2785837	.	-	.	ID=rna90;Parent=gene2717;Dbxref=ASAP:ABE-0008733,EcoGene:EG31121,GeneID:947163;Note=anticodon: GAU;gbkey=tRNA;gene=ileY;product=tRNA-Ile
+NC_000913.3	RefSeq	tRNA	2817784	2817860	.	-	.	ID=rna92;Parent=gene2751;Dbxref=ASAP:ABE-0008856,EcoGene:EG30013,GeneID:947150;Note=anticodon: ACG;gbkey=tRNA;gene=argQ;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	2818059	2818135	.	-	.	ID=rna93;Parent=gene2752;Dbxref=ASAP:ABE-0008858,EcoGene:EG30019,GeneID:947171;Note=anticodon: ACG;gbkey=tRNA;gene=argZ;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	2818198	2818274	.	-	.	ID=rna94;Parent=gene2753;Dbxref=ASAP:ABE-0008860,EcoGene:EG30018,GeneID:946596;Note=anticodon: ACG;gbkey=tRNA;gene=argY;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	2818473	2818549	.	-	.	ID=rna95;Parent=gene2754;Dbxref=ASAP:ABE-0008862,EcoGene:EG30015,GeneID:947209;Note=anticodon: ACG;gbkey=tRNA;gene=argV;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	2818553	2818645	.	-	.	ID=rna96;Parent=gene2755;Dbxref=ASAP:ABE-0008864,EcoGene:EG30095,GeneID:947173;Note=anticodon: GCU;gbkey=tRNA;gene=serV;product=tRNA-Ser
+NC_000913.3	RefSeq	tRNA	2947387	2947463	.	+	.	ID=rna100;Parent=gene2877;Dbxref=ASAP:ABE-0009232,EcoGene:EG30062,GeneID:947198;Note=anticodon: CAU;gbkey=tRNA;gene=metZ;product=tRNA-Met
+NC_000913.3	RefSeq	tRNA	2947497	2947573	.	+	.	ID=rna101;Parent=gene2878;Dbxref=ASAP:ABE-0009234,EcoGene:EG31117,GeneID:947292;Note=anticodon: CAU;gbkey=tRNA;gene=metW;product=tRNA-Met
+NC_000913.3	RefSeq	tRNA	2947607	2947683	.	+	.	ID=rna102;Parent=gene2879;Dbxref=ASAP:ABE-0009236,EcoGene:EG30060,GeneID:946037;Note=anticodon: CAU;gbkey=tRNA;gene=metV;product=tRNA-Met
+NC_000913.3	RefSeq	tRNA	2998984	2999057	.	-	.	ID=rna105;Parent=gene2927;Dbxref=ASAP:ABE-0009405,EcoGene:EG30037,GeneID:947343;Note=anticodon: CCC;gbkey=tRNA;gene=glyU;product=tRNA-Gly
+NC_000913.3	RefSeq	tRNA	3110366	3110441	.	+	.	ID=rna108;Parent=gene3030;Dbxref=ASAP:ABE-0009738,EcoGene:EG30065,GeneID:947463;Note=anticodon: GAA;gbkey=tRNA;gene=pheV;product=tRNA-Phe
+NC_000913.3	RefSeq	tRNA	3215598	3215673	.	+	.	ID=rna111;Parent=gene3131;Dbxref=ASAP:ABE-0010076,EcoGene:EG30046,GeneID:947558;Note=anticodon: CAU;gbkey=tRNA;gene=ileX;product=tRNA-Ile
+NC_000913.3	RefSeq	tRNA	3318213	3318289	.	-	.	ID=rna114;Parent=gene3232;Dbxref=ASAP:ABE-0010420,EcoGene:EG30061,GeneID:947678;Note=anticodon: CAU;gbkey=tRNA;gene=metY;product=tRNA-Met
+NC_000913.3	RefSeq	tRNA	3322072	3322158	.	-	.	ID=rna115;Parent=gene3235;Dbxref=ASAP:ABE-0010434,EcoGene:EG30050,GeneID:947505;Note=anticodon: UAG;gbkey=tRNA;gene=leuU;product=tRNA-Leu
+NC_000913.3	RefSeq	rRNA	3423423	3423542	.	-	.	ID=rna117;Parent=gene3334;Dbxref=ASAP:ABE-0010740,EcoGene:EG30091,GeneID:947771;gbkey=rRNA;gene=rrfF;product=5S ribosomal RNA of rrnD operon
+NC_000913.3	RefSeq	tRNA	3423580	3423655	.	-	.	ID=rna118;Parent=gene3335;Dbxref=ASAP:ABE-0010742,EcoGene:EG30103,GeneID:947770;Note=anticodon: GGU;gbkey=tRNA;gene=thrV;product=tRNA-Thr
+NC_000913.3	RefSeq	rRNA	3423668	3423787	.	-	.	ID=rna119;Parent=gene3336;Dbxref=ASAP:ABE-0010744,EcoGene:EG30073,GeneID:947769;gbkey=rRNA;gene=rrfD;product=5S ribosomal RNA of rrnD operon
+NC_000913.3	RefSeq	rRNA	3423880	3426783	.	-	.	ID=rna120;Parent=gene3337;Dbxref=ASAP:ABE-0010746,EcoGene:EG30080,GeneID:947773;gbkey=rRNA;gene=rrlD;product=23S ribosomal RNA of rrnD operon
+NC_000913.3	RefSeq	tRNA	3426958	3427033	.	-	.	ID=rna121;Parent=gene3338;Dbxref=ASAP:ABE-0010748,EcoGene:EG30009,GeneID:947772;Note=anticodon: UGC;gbkey=tRNA;gene=alaU;product=tRNA-Ala
+NC_000913.3	RefSeq	tRNA	3427076	3427152	.	-	.	ID=rna122;Parent=gene3339;Dbxref=ASAP:ABE-0010750,EcoGene:EG30044,GeneID:947778;Note=anticodon: GAU;gbkey=tRNA;gene=ileU;product=tRNA-Ile
+NC_000913.3	RefSeq	rRNA	3427221	3428762	.	-	.	ID=rna123;Parent=gene3340;Dbxref=ASAP:ABE-0010753,EcoGene:EG30087,GeneID:947777;gbkey=rRNA;gene=rrsD;product=16S ribosomal RNA of rrnD operon
+NC_000913.3	RefSeq	tRNA	3708616	3708692	.	-	.	ID=rna130;Parent=gene3613;Dbxref=ASAP:ABE-0011579,EcoGene:EG30066,GeneID:948061;Note=anticodon: CGG~proline tRNA1;gbkey=tRNA;gene=proK;product=tRNA-Pro
+NC_000913.3	RefSeq	tRNA	3836222	3836316	.	+	.	ID=rna132;Parent=gene3737;Dbxref=ASAP:ABE-0011956,EcoGene:EG30092,GeneID:948167;gbkey=tRNA;gene=selC;product=tRNA-Sec
+NC_000913.3	RefSeq	rRNA	3941808	3943349	.	+	.	ID=rna134;Parent=gene3839;Dbxref=ASAP:ABE-0012279,EcoGene:EG30086,GeneID:948270;gbkey=rRNA;gene=rrsC;product=16S ribosomal RNA of rrnC operon
+NC_000913.3	RefSeq	tRNA	3943435	3943510	.	+	.	ID=rna135;Parent=gene3840;Dbxref=ASAP:ABE-0012281,EcoGene:EG30033,GeneID:948271;Note=anticodon: UUC;gbkey=tRNA;gene=gltU;product=tRNA-Glu
+NC_000913.3	RefSeq	rRNA	3943704	3946607	.	+	.	ID=rna136;Parent=gene3841;Dbxref=ASAP:ABE-0012283,EcoGene:EG30079,GeneID:948268;gbkey=rRNA;gene=rrlC;product=23S ribosomal RNA of rrnC operon
+NC_000913.3	RefSeq	rRNA	3946700	3946819	.	+	.	ID=rna137;Parent=gene3842;Dbxref=ASAP:ABE-0012285,EcoGene:EG30072,GeneID:948273;gbkey=rRNA;gene=rrfC;product=5S ribosomal RNA of rrnC operon
+NC_000913.3	RefSeq	tRNA	3946872	3946948	.	+	.	ID=rna138;Parent=gene3843;Dbxref=ASAP:ABE-0012287,EcoGene:EG30023,GeneID:948276;Note=anticodon: GUC;gbkey=tRNA;gene=aspT;product=tRNA-Asp
+NC_000913.3	RefSeq	tRNA	3946957	3947032	.	+	.	ID=rna139;Parent=gene3844;Dbxref=ASAP:ABE-0012289,EcoGene:EG30105,GeneID:948275;Note=anticodon: CCA;gbkey=tRNA;gene=trpT;product=tRNA-Trp
+NC_000913.3	RefSeq	tRNA	3982375	3982451	.	+	.	ID=rna140;Parent=gene3877;Dbxref=ASAP:ABE-0012399,EcoGene:EG30017,GeneID:945107;Note=anticodon: CCG;gbkey=tRNA;gene=argX;product=tRNA-Arg
+NC_000913.3	RefSeq	tRNA	3982509	3982585	.	+	.	ID=rna141;Parent=gene3878;Dbxref=ASAP:ABE-0012401,EcoGene:EG30042,GeneID:948305;Note=anticodon: GUG;gbkey=tRNA;gene=hisR;product=tRNA-His
+NC_000913.3	RefSeq	tRNA	3982606	3982692	.	+	.	ID=rna142;Parent=gene3879;Dbxref=ASAP:ABE-0012403,EcoGene:EG30049,GeneID:948304;Note=anticodon: CAG;gbkey=tRNA;gene=leuT;product=tRNA-Leu
+NC_000913.3	RefSeq	tRNA	3982735	3982811	.	+	.	ID=rna143;Parent=gene3880;Dbxref=ASAP:ABE-0012405,EcoGene:EG30068,GeneID:948303;Note=anticodon: UGG;gbkey=tRNA;gene=proM;product=tRNA-Pro
+NC_000913.3	RefSeq	rRNA	4035531	4037072	.	+	.	ID=rna146;Parent=gene3931;Dbxref=ASAP:ABE-0012579,EcoGene:EG30084,GeneID:948332;gbkey=rRNA;gene=rrsA;product=16S ribosomal RNA of rrnA operon
+NC_000913.3	RefSeq	tRNA	4037141	4037217	.	+	.	ID=rna147;Parent=gene3932;Dbxref=ASAP:ABE-0012581,EcoGene:EG30043,GeneID:948339;Note=anticodon: GAU;gbkey=tRNA;gene=ileT;product=tRNA-Ile
+NC_000913.3	RefSeq	tRNA	4037260	4037335	.	+	.	ID=rna148;Parent=gene3933;Dbxref=ASAP:ABE-0012584,EcoGene:EG30008,GeneID:948337;Note=anticodon: UGC;gbkey=tRNA;gene=alaT;product=tRNA-Ala
+NC_000913.3	RefSeq	rRNA	4037519	4040423	.	+	.	ID=rna149;Parent=gene3934;Dbxref=ASAP:ABE-0012586,EcoGene:EG30077,GeneID:948341;gbkey=rRNA;gene=rrlA;product=23S ribosomal RNA of rrnA operon
+NC_000913.3	RefSeq	rRNA	4040517	4040636	.	+	.	ID=rna150;Parent=gene3935;Dbxref=ASAP:ABE-0012588,EcoGene:EG30070,GeneID:948345;gbkey=rRNA;gene=rrfA;product=5S ribosomal RNA of rrnA operon
+NC_000913.3	RefSeq	rRNA	4166659	4168200	.	+	.	ID=rna154;Parent=gene4049;Dbxref=ASAP:ABE-0012991,EcoGene:EG30085,GeneID:948466;gbkey=rRNA;gene=rrsB;product=16S ribosomal RNA of rrnB operon
+NC_000913.3	RefSeq	tRNA	4168372	4168447	.	+	.	ID=rna155;Parent=gene4050;Dbxref=ASAP:ABE-0012993,EcoGene:EG30032,GeneID:948465;Note=anticodon: UUC;gbkey=tRNA;gene=gltT;product=tRNA-Glu
+NC_000913.3	RefSeq	rRNA	4168641	4171544	.	+	.	ID=rna156;Parent=gene4051;Dbxref=ASAP:ABE-0012995,EcoGene:EG30078,GeneID:948473;gbkey=rRNA;gene=rrlB;product=23S ribosomal RNA of rrnB operon
+NC_000913.3	RefSeq	rRNA	4171637	4171756	.	+	.	ID=rna157;Parent=gene4052;Dbxref=ASAP:ABE-0012997,EcoGene:EG30071,GeneID:948471;gbkey=rRNA;gene=rrfB;product=5S ribosomal RNA of rrnB operon
+NC_000913.3	RefSeq	tRNA	4175388	4175463	.	+	.	ID=rna158;Parent=gene4056;Dbxref=ASAP:ABE-0013011,EcoGene:EG30102,GeneID:948476;Note=anticodon: UGU;gbkey=tRNA;gene=thrU;product=tRNA-Thr
+NC_000913.3	RefSeq	tRNA	4175472	4175556	.	+	.	ID=rna159;Parent=gene4057;Dbxref=ASAP:ABE-0013013,EcoGene:EG30107,GeneID:948474;Note=anticodon: GUA;gbkey=tRNA;gene=tyrU;product=tRNA-Tyr
+NC_000913.3	RefSeq	tRNA	4175673	4175747	.	+	.	ID=rna160;Parent=gene4058;Dbxref=ASAP:ABE-0013016,EcoGene:EG30036,GeneID:948481;Note=anticodon: UCC;gbkey=tRNA;gene=glyT;product=tRNA-Gly
+NC_000913.3	RefSeq	tRNA	4175754	4175829	.	+	.	ID=rna161;Parent=gene4059;Dbxref=ASAP:ABE-0013018,EcoGene:EG30101,GeneID:948480;Note=anticodon: GGU;gbkey=tRNA;gene=thrT;product=tRNA-Thr
+NC_000913.3	RefSeq	rRNA	4208147	4209688	.	+	.	ID=rna163;Parent=gene4089;Dbxref=ASAP:ABE-0013103,EcoGene:EG30088,GeneID:948511;gbkey=rRNA;gene=rrsE;product=16S ribosomal RNA of rrnE operon
+NC_000913.3	RefSeq	tRNA	4209774	4209849	.	+	.	ID=rna164;Parent=gene4090;Dbxref=ASAP:ABE-0013105,EcoGene:EG30034,GeneID:948510;Note=anticodon: UUC;gbkey=tRNA;gene=gltV;product=tRNA-Glu
+NC_000913.3	RefSeq	rRNA	4210043	4212946	.	+	.	ID=rna165;Parent=gene4091;Dbxref=ASAP:ABE-0013107,EcoGene:EG30081,GeneID:948509;gbkey=rRNA;gene=rrlE;product=23S ribosomal RNA of rrnE operon
+NC_000913.3	RefSeq	rRNA	4213040	4213159	.	+	.	ID=rna166;Parent=gene4092;Dbxref=ASAP:ABE-0013109,EcoGene:EG30074,GeneID:948516;gbkey=rRNA;gene=rrfE;product=5S ribosomal RNA of rrnE operon
+NC_000913.3	RefSeq	tRNA	4362551	4362626	.	-	.	ID=rna168;Parent=gene4222;Dbxref=ASAP:ABE-0013535,EcoGene:EG30064,GeneID:948651;Note=anticodon: GAA;gbkey=tRNA;gene=pheU;product=tRNA-Phe
+NC_000913.3	RefSeq	tRNA	4392360	4392435	.	+	.	ID=rna169;Parent=gene4253;Dbxref=ASAP:ABE-0013635,EcoGene:EG30038,GeneID:948682;Note=anticodon: GCC;gbkey=tRNA;gene=glyV;product=tRNA-Gly
+NC_000913.3	RefSeq	tRNA	4392472	4392547	.	+	.	ID=rna170;Parent=gene4254;Dbxref=ASAP:ABE-0013637,EcoGene:EG30040,GeneID:948681;Note=anticodon: GCC;gbkey=tRNA;gene=glyX;product=tRNA-Gly
+NC_000913.3	RefSeq	tRNA	4392583	4392658	.	+	.	ID=rna171;Parent=gene4255;Dbxref=ASAP:ABE-0013639,EcoGene:EG30041,GeneID:948687;Note=anticodon: GCC;gbkey=tRNA;gene=glyY;product=tRNA-Gly
+NC_000913.3	RefSeq	tRNA	4496405	4496489	.	+	.	ID=rna172;Parent=gene4358;Dbxref=ASAP:ABE-0013986,EcoGene:EG30053,GeneID:948803;Note=anticodon: UAA;gbkey=tRNA;gene=leuX;product=tRNA-Leu
+NC_000913.3	RefSeq	tRNA	4606079	4606165	.	-	.	ID=rna175;Parent=gene4461;Dbxref=ASAP:ABE-0014329,EcoGene:EG30051,GeneID:948873;Note=anticodon: CAG;gbkey=tRNA;gene=leuV;product=tRNA-Leu
+NC_000913.3	RefSeq	tRNA	4606200	4606286	.	-	.	ID=rna176;Parent=gene4462;Dbxref=ASAP:ABE-0014331,EcoGene:EG30047,GeneID:948875;Note=anticodon: CAG;gbkey=tRNA;gene=leuP;product=tRNA-Leu
+NC_000913.3	RefSeq	tRNA	4606315	4606401	.	-	.	ID=rna177;Parent=gene4463;Dbxref=ASAP:ABE-0014333,EcoGene:EG30048,GeneID:948893;Note=anticodon: CAG;gbkey=tRNA;gene=leuQ;product=tRNA-Leu
