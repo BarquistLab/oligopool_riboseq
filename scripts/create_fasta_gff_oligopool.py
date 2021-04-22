@@ -157,11 +157,11 @@ if __name__ == '__main__':
                     f = open("../data/reference_sequences/oligos_cds_new.gff", "a+")
                     if m.group(1).split("_")[3] == "-1":
                         f.write(m.group(1) +
-                                "\tRefSeq\tgene\t1\t242\t.\t-\t.\tlocus_tag={};{}".format(m.group(1).split("_")[0],
+                                "\tRefSeq\tgene\t1\t242\t.\t-\t.\tlocus_tag={};gene={}".format(m.group(1).split("_")[0],
                                                                                           m.group(1).split("_")[1]))
                     else:
                         f.write(m.group(1) +
-                                "\tRefSeq\tgene\t1\t242\t.\t+\t.\tlocus_tag={};{}".format(m.group(1).split("_")[0],
+                                "\tRefSeq\tgene\t1\t242\t.\t+\t.\tlocus_tag={};gene={}".format(m.group(1).split("_")[0],
                                                                                           m.group(1).split("_")[1]))
                     f.write("\n")
                     f.close()
