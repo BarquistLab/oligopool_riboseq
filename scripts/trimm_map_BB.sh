@@ -10,21 +10,21 @@ main(){
     align_rna_reads_genome
     echo "Finished mapping. Start connecting all tab files"
     # here I count reads for sRNA and 
-    featureCounts -T 5 -t gene,sRNA -g locus_tag \
-		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
-		  -o $PROJECT/rna_align/counttable_new.txt \
-		  $PROJECT/rna_align/*.bam
+    #featureCounts -T 5 -t gene,sRNA -g locus_tag \
+#		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
+#		  -o $PROJECT/rna_align/counttable_new.txt \
+#		  $PROJECT/rna_align/*.bam
     
     # Now find nr of rRNAs:
-    featureCounts -T 5 -t rRNA -g gene \
-		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
-		  -o $PROJECT/rna_align/counttable_rRNAs_new.txt \
-		  $PROJECT/rna_align/*.bam
+ #   featureCounts -T 5 -t rRNA -g gene \
+#		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
+#		  -o $PROJECT/rna_align/counttable_rRNAs_new.txt \
+#		  $PROJECT/rna_align/*.bam
     # Now find nr of tRNAs:
-    featureCounts -T 5 -t tRNA -g gene \
-		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
-		  -o $PROJECT/rna_align/counttable_tRNAs_new.txt \
-		  $PROJECT/rna_align/*.bam
+ #   featureCounts -T 5 -t tRNA -g gene \
+#		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
+#		  -o $PROJECT/rna_align/counttable_tRNAs_new.txt \
+#		  $PROJECT/rna_align/*.bam
     
 }
 
@@ -55,16 +55,16 @@ align_rna_reads_genome(){
         NAME=${i##*/}
         NAME=${NAME%_trimmed.fq.gz}
         echo "Starting mapping for sample: $NAME"
-        ~/bin/bbmap/bbmap.sh in=$i trimreaddescription=t  t=20 \
-			     ref=$PROJECT/reference_sequences/oligos_cds_new.fasta \
-			     k=13 ambig=toss outm=$DIR/$NAME.sam
+     #   ~/bin/bbmap/bbmap.sh in=$i trimreaddescription=t  t=20 \
+#			     ref=$PROJECT/reference_sequences/oligos_cds_new.fasta \
+#			     k=13 ambig=toss outm=$DIR/$NAME.sam
         # sort sam file, create BAM file:
-        samtools sort -O BAM -@ 40 $DIR/$NAME.sam > $DIR/$NAME.bam
+ #       samtools sort -O BAM -@ 40 $DIR/$NAME.sam > $DIR/$NAME.bam
         # remove sam file: (not actually needed)
-        rm $DIR/$NAME.sam
-	samtools index $DIR/$NAME.bam
-	bamCoverage -b $DIR/$NAME.bam \
-		    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1
+  #      rm $DIR/$NAME.sam
+#	samtools index $DIR/$NAME.bam
+#	bamCoverage -b $DIR/$NAME.bam \
+#		    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1
 	bamCoverage -b $DIR/$NAME.bam \
 		    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
 		    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
