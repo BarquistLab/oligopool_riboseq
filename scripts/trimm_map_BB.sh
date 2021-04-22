@@ -7,7 +7,7 @@ main(){
     echo "Start trimming"
     #rename_trim_rna_libs
     echo "Trimming done. Start maopping"
-    #align_rna_reads_genome
+    align_rna_reads_genome
     echo "Finished mapping. Start connecting all tab files"
     # here I count reads for sRNA and 
     featureCounts -T 5 -t gene,sRNA -g locus_tag \
@@ -16,15 +16,15 @@ main(){
 		  $PROJECT/rna_align/*.bam
     
     # Now find nr of rRNAs:
- #   featureCounts -T 5 -t rRNA -g gene \
-#		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
-#		  -o $PROJECT/rna_align/counttable_rRNAs_new.txt \
-#		  $PROJECT/rna_align/*.bam
+    featureCounts -T 5 -t rRNA -g gene \
+		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
+		  -o $PROJECT/rna_align/counttable_rRNAs_new.txt \
+		  $PROJECT/rna_align/*.bam
     # Now find nr of tRNAs:
- #   featureCounts -T 5 -t tRNA -g gene \
-#		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
-#		  -o $PROJECT/rna_align/counttable_tRNAs_new.txt \
-#		  $PROJECT/rna_align/*.bam
+    featureCounts -T 5 -t tRNA -g gene \
+		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
+		  -o $PROJECT/rna_align/counttable_tRNAs_new.txt \
+		  $PROJECT/rna_align/*.bam
     
 }
 
@@ -67,7 +67,7 @@ align_rna_reads_genome(){
 		    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1
 	bamCoverage -b $DIR/$NAME.bam \
 		    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
-		    -of bigwig -bs 1 --Offset -1
+		    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
     done
 }
 

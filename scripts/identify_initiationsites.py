@@ -22,7 +22,7 @@ def find_alt_starts(wig_file):
     :rtype: dict
     '''
     data_frame = import_wiggles(wig_file)
-    alternate_sites = pd.DataFrame(columns = ["gene", "position", "count"])
+    alternate_sites = pd.DataFrame(columns=["gene", "position", "count"])
     gene_list = data_frame.gene.unique()
     # loop through genes:
     for gene in gene_list:

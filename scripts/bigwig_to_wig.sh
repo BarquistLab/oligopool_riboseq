@@ -9,12 +9,12 @@ main(){
 }
 
 bigwig_to_wiggle(){
-    for i in $(ls $PROJECT/*_3primeend.bw)
+    for i in $(ls $PROJECT/*_no_PNA.bam_3primeend_new.bw)
     do
         NAME=${i%.*}
         echo $NAME
 	# convert:
-	bigWigToWig $i "$NAME.wig"
+	bigWigToWig "$NAME.bw" "$NAME.wig" 
     done
 }
 
