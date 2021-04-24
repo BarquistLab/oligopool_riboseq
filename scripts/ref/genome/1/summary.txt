@@ -1,5 +1,5 @@
 #Summary
-#Generated on	Wed Apr 21 23:17:44 CEST 2021
+#Generated on	Sat Apr 24 21:40:00 CEST 2021
 #Version	5
 chroms	1
 bases	2465151
@@ -10,4 +10,4 @@ scaffolds	4497
 interpad	300
 source	/home/jakob/oligopool_riboseq/data/reference_sequences/oligos_cds_new.fasta
 bytes	1223072
-last modified	1619038424000
+last modified	1619038424127
