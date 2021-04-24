@@ -9,7 +9,7 @@ main(){
 }
 
 bigwig_to_wiggle(){
-    for i in $(ls $PROJECT/*_no_PNA.bam_3primeend_new.bw)
+    for i in $(ls $PROJECT/*_no_PNA_3primeend_new.bw)
     do
         NAME=${i%.*}
         echo $NAME

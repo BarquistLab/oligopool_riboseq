@@ -8,11 +8,11 @@ directory = '../data/wigglefiles'
 
 for filename in os.listdir(directory):
     path = os.path.join(directory, filename)
-    if path.endswith("_mod.wig"):
+    if path.endswith("new_mod.wig"):
         print(path)
         f = open(path)
-        new_forward = open(path[:-8] + "_new_F.wig", "w")
-        new_reverse = open(path[:-8] + "_new_R.wig", "w")
+        new_forward = open(path[:-12] + "_new_F.wig", "w")
+        new_reverse = open(path[:-12] + "_new_R.wig", "w")
         for line in f:
             line_splitted = line.split("\t")
             lt = line_splitted[0].split("_")[0]
