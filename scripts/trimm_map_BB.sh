@@ -42,7 +42,7 @@ rename_trim_rna_libs(){
 			     out=$PROJECT/libs/${NEWNAME} ktrim=r k=23 mink=11\
 			     hdist=1 qtrim=r trimq=10
 	# add fastqc of reads:
-	fastqc -o ../analysis/fastqc -f $PROJECT/libs/${NEWNAME}
+	#fastqc -o ../analysis/fastqc -f $PROJECT/libs/${NEWNAME}
     done
 }
 
@@ -63,11 +63,11 @@ align_rna_reads_genome(){
         # remove sam file: (not actually needed)
         rm $DIR/$NAME.sam
 	samtools index $DIR/$NAME.bam
-	bamCoverage -b $DIR/$NAME.bam \
-		    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1 --normalizeUsing CPM
-	bamCoverage -b $DIR/$NAME.bam \
-		    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
-		    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
+	#bamCoverage -b $DIR/$NAME.bam \
+	#	    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1 --normalizeUsing CPM
+	#bamCoverage -b $DIR/$NAME.bam \
+	#	    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
+	#	    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
     done
 }
 

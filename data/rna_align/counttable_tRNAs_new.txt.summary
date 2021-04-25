@@ -1,15 +1,15 @@
-Status	../data/rna_align/01_no_PNA.bam	../data/rna_align/02_PNA15_5000pM.bam	../data/rna_align/03_PNA15_500pM.bam	../data/rna_align/04_PNA15_100pM.bam	../data/rna_align/05_PNA15_10pM.bam	../data/rna_align/06_PNA14_5000pM.bam	../data/rna_align/07_no_PNA.bam	../data/rna_align/08_PNA15_5000pM.bam	../data/rna_align/09_PNA15_500pM.bam	../data/rna_align/10_PNA15_100pM.bam	../data/rna_align/11_PNA15_10pM.bam	../data/rna_align/12_PNA14_5000pM.bam	../data/rna_align/13_no_PNA.bam	../data/rna_align/14_PNA15_5000pM.bam	../data/rna_align/15_PNA15_500pM.bam	../data/rna_align/16_PNA15_100pM.bam	../data/rna_align/17_PNA15_10pM.bam	../data/rna_align/18_PNA14_5000pM.bam	../data/rna_align/73_RNA_input_control.bam
-Assigned	891223	1287867	1494436	1238731	1378268	1333403	1067554	742032	882861	655752	744601	841361	1112321	1265992	1351143	1481724	1625157	1456795	134
-Unassigned_Unmapped	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_Read_Type	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_Singleton	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_MappingQuality	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_Chimera	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_FragmentLength	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_Duplicate	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_MultiMapping	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_Secondary	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_NonSplit	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_NoFeatures	7363156	10235919	9068427	9405612	9339554	9232772	8927165	5653871	8976207	6272681	6323766	8980435	8325239	9009440	9998983	9273679	9393422	8609221	10564297
-Unassigned_Overlapping_Length	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
-Unassigned_Ambiguity	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Status	../data/rna_align/01_no_PNA.bam	../data/rna_align/02_PNA15_5000pM.bam	../data/rna_align/03_PNA15_500pM.bam	../data/rna_align/04_PNA15_100pM.bam	../data/rna_align/05_PNA15_10pM.bam	../data/rna_align/06_PNA14_5000pM.bam	../data/rna_align/07_no_PNA.bam	../data/rna_align/08_PNA15_5000pM.bam	../data/rna_align/09_PNA15_500pM.bam	../data/rna_align/10_PNA15_100pM.bam	../data/rna_align/11_PNA15_10pM.bam	../data/rna_align/12_PNA14_5000pM.bam	../data/rna_align/13_no_PNA.bam	../data/rna_align/14_PNA15_5000pM.bam	../data/rna_align/15_PNA15_500pM.bam	../data/rna_align/16_PNA15_100pM.bam	../data/rna_align/17_PNA15_10pM.bam	../data/rna_align/18_PNA14_5000pM.bam	../data/rna_align/73_RNA_input_control.bam	../data/rna_align/74_PNA15_16nM.bam	../data/rna_align/75_PNA15_63nM.bam	../data/rna_align/76_PNA15_250nM.bam	../data/rna_align/77_PNA15_1000nM.bam	../data/rna_align/78_PNA14_1000nM.bam	../data/rna_align/79_no_PNA.bam	../data/rna_align/80_PNA15_16nM.bam	../data/rna_align/81_PNA15_63nM.bam	../data/rna_align/82_PNA15_250nM.bam	../data/rna_align/83_PNA15_1000nM.bam	../data/rna_align/84_PNA14_1000nM.bam	../data/rna_align/85_no_PNA.bam	../data/rna_align/86_PNA15_16nM.bam	../data/rna_align/87_PNA15_63nM.bam	../data/rna_align/88_PNA15_250nM.bam	../data/rna_align/89_PNA15_1000nM.bam	../data/rna_align/90_PNA14_1000nM.bam
+Assigned	891223	1287867	1494436	1238731	1378268	1333403	1067554	742032	882861	655752	744601	841361	1112321	1265992	1351143	1481724	1625157	1456795	134	1122842	910393	775289	886733	995277	1125393	1252479	1021372	519265	741370	952660	831003	884193	1049708	1152765	1049082	1172258
+Unassigned_Unmapped	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Read_Type	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Duplicate	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MultiMapping	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Secondary	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NoFeatures	7363156	10235919	9068427	9405612	9339554	9232772	8927165	5653871	8976207	6272681	6323766	8980435	8325239	9009440	9998983	9273679	9393422	8609221	10564297	4779288	6328335	4522919	6115680	6580572	6849327	6217955	4997297	2654521	4183976	5761201	6219968	5661572	6069552	6291797	5482583	7058403
+Unassigned_Overlapping_Length	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Ambiguity	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
