@@ -20,10 +20,13 @@ library(ggplot2)
 library(dplyr)
 library(hrbrthemes)
 library(viridis)
+library(ggrepel)
 library(tidyr)
 library(edgeR)
 library(tidybulk)
 library(ggpubr)
+library(corrplot)
+library(readr)
 ```
 
 
@@ -35,12 +38,13 @@ library(ggpubr)
 Here I show the distribution of different reads (oligos, rRNA, tRNA) to get an idea on how the rRNA depletion worked out.
 First I import total counts per rRNA, mRNA and tRNA and look at the total counts of our ologos:
 ```{r}
-oligos_totcounts <- unlist(read.delim("../data/rna_align/counttable.txt.summary", 
+oligos_totcounts <- unlist(read.delim("../data/rna_align/counttable_new.txt.summary", 
                                       row.names = 1)[1,])
-rrna_totcounts <- unlist(read.delim("../data/rna_align/counttable_rRNAs.txt.summary", 
+rrna_totcounts <- unlist(read.delim("../data/rna_align/counttable_rRNAs_new.txt.summary", 
                                     row.names = 1)[1,])
-trna_totcounts <- unlist(read.delim("../data/rna_align/counttable_tRNAs.txt.summary", 
+trna_totcounts <- unlist(read.delim("../data/rna_align/counttable_tRNAs_new.txt.summary", 
                                     row.names = 1)[1,])
+barplot(oligos_totcounts)
 oligos_totcounts
 ```
 
@@ -88,14 +92,14 @@ write.csv(prev_df_rnatypes, "../analysis/rna_types/reduced_pool_rna_types.csv")
 
 
 ```{r}
-g <- ggplot(df_rnatypes) + aes(x=samples, y=counts, fill = rna_type) + 
+g <- ggplot(df_rnatypes) + aes(x=sample, y=counts, fill = rna_type) + 
   geom_bar(stat = "identity", position = "stack") + # facet_grid(~ conditions)+
-  scale_fill_viridis(discrete = T) + theme_pubr() 
-  theme(axis.text.x = element_text(angle = 90))
+  scale_fill_viridis(discrete = T) + theme_pubr() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 9))
 g
-#svg("../oligopool_03_21/rRNA_tRNA_content.svg")
-#print(g)
-#dev.off()
+svg("../oligopool_03_21/rRNA_tRNA_content.svg")
+print(g)
+dev.off()
 ```
 
 
@@ -130,7 +134,7 @@ I start with importing count data (genewisecounts):
 ```{r}
 # import:
 GenewiseCounts <- read.delim(
-    "../data/rna_align/counttable.txt",
+    "../data/rna_align/counttable_new.txt",
     sep = "\t", header = T, comment.char = "#")
 dim(GenewiseCounts)
 head(GenewiseCounts)
@@ -138,12 +142,17 @@ head(GenewiseCounts)
 
 I move on with adding sample names etc.:
 ```{r}
-gwc <- GenewiseCounts[,c(1,7:length(GenewiseCounts[1,]))]
+gwc <- GenewiseCounts[,c(2,7:length(GenewiseCounts[2,]))]
 pnapat <- ".*.rna_align\\.(\\d\\d_.+_.+).bam"
 colnames (gwc) <- gsub(pnapat,"\\1", colnames(gwc))
 
 head(gwc)
-rownames(gwc) <- gwc$Geneid
+gwc$`73_RNA_input_control` <- NULL
+rownames(gwc) <- gwc$Chr
+gwc <- subset(gwc, select = -c(5,6,7,11,12,13,17,18,19))
+colnames(gwc) <- gsub("500pM", "0.5nM", colnames(gwc))
+colnames(gwc) <- gsub("5000pM", "5nM", colnames(gwc))
+colnames(gwc)
 ```
 ## edgeR normal DE analysis:
 
@@ -151,6 +160,7 @@ rownames(gwc) <- gwc$Geneid
 test <- gsub("\\d\\d_(.*)", "\\1", colnames (gwc)[-1])
 test <- as.factor(test)
 test
+batch <- factor(c(rep(1,9), rep(2,17)))
 ```
 
 Now that I have the read count dataframe with sample names, I import them into the edgeR environment:
@@ -166,10 +176,10 @@ where L is the minimum library size in millions. We delete genes that are below 
 ```{r}
 L <- min(y$samples$lib.size) / 1000000
 cutoff <- 10/L
-keep <- rowSums(cpm(y) > cutoff) >= 2 
+keep <- rowSums(cpm(y) > cutoff) >= 3
 table(keep)
 ```
-I retain only the unfiltered genes,and delete 519 genes below the threshold:
+I retain only the unfiltered genes,and delete 150 genes below the threshold:
 ```{r}
 y <- y[keep, , keep.lib.sizes=FALSE]
 ```
@@ -178,7 +188,7 @@ y <- y[keep, , keep.lib.sizes=FALSE]
 I create a design matrix for the samples:
 ```{r}
 design <- model.matrix(~0+test)
-colnames(design) <- levels(test)
+colnames(design) <- c(levels(test))#,"batch")
 rownames(design) <- colnames(y$counts)
 design[1:5,]
 ```
@@ -189,39 +199,56 @@ I check how the standard TMM normalization of edgeR performs. I start with calcu
 y <- calcNormFactors(y)
 y <- estimateDisp(y, design, robust = T)
 corrplot::corrplot(cor(cpm(y)))
+cont_reads_cpm <- cpm(y)[,grepl("no_PNA", colnames(cpm(y)))]
+colnames(cont_reads_cpm) <- c("Control_R1", "Control_R2", "Control_R3", "Control_R4", "Control_R5")
+
+
+ctrl_cor <- cor(cont_reads_cpm)
+
+col2 <- colorRampPalette(c("#67001F", "#B2182B", "#D6604D", "#F4A582",
+                           "#FDDBC7", "#FFFFFF", "#D1E5F0", "#92C5DE",
+                           "#4393C3", "#2166AC", "#053061"))
+col_fun = colorRampPalette(rep(rev(viridis_pal()(200)), 2))
+corrplot(ctrl_cor, col=col_fun(200), cl.lim = c(0, 1))
+write_csv(data.frame(ctrl_cor), "../analysis/correlations_controls.csv")
+write.csv(data.frame(ctrl_cor), "../analysis/correlations_controls.csv")
+pairs(log(cont_reads_cpm))
 ```
 
 
 ```{r}
-cols = rep(c("white", "green","darkblue","blue","red","blue","red"), 3)
+colors <- c(c("black", "grey", "blue", "#5facc9", "red", 
+              "green", "orange", "#91c497"))
 testpca = rep(c(21,22,23,24,25,26), 3)
 
-plotPCA(cpm(y[,1:dim(y)[2]-1]),col="black", bg=cols,pch = 21, labels=F,  cex=3)
-legend("bottomright", legend = levels(test)[-length(levels(test))],
-       cex=1.2, col="black",   pt.cex = 2, pt.bg = cols, pch =21)
-plotRLE(cpm(y)[,1:length(y)-1], outline=FALSE)
+plotPCA(cpm(y[,1:dim(y)[2]-1]), bg=colors[test], col=colors[test])
+plotRLE(cpm(y)[,1:length(y)-1], outline=FALSE, col=colors[test], main="RLE")
 ```
+
+
 
 
 Next, I perform differential expression analysis using TMM-normalized dataset:
 ```{r}
-# make a contrast:
-con <- makeContrasts(PNA15_10pM = PNA15_10pM - no_PNA,
-                     PNA15_100pM = PNA15_100pM - no_PNA,
-                     PNA15_500pM = PNA15_500pM - no_PNA, 
-                     PNA15_5000pM = PNA15_5000pM - no_PNA,
-                     PNA14_5000pM = PNA14_5000pM - no_PNA,
-                     PNA15_14 = PNA15_5000pM - PNA14_5000pM,
-                     levels = design)
-
 fit <- glmQLFit(y, design, robust = TRUE)
 
-res <- list(PNA15_10pM = glmQLFTest(fit, contrast = con[,1]), 
-            PNA15_100pM = glmQLFTest(fit, contrast = con[,2]),
-            PNA15_500pM = glmQLFTest(fit, contrast = con[,3]),
-            PNA15_5000pM = glmQLFTest(fit, contrast = con[,4]),
-            PNA14_5000pM = glmQLFTest(fit, contrast = con[,5]),
-            PNA15_14 = glmQLFTest(fit, contrast = con[,6])
+# make a contrast:
+con <- makeContrasts(PNA15_0.5nM = PNA15_0.5nM - no_PNA, 
+                     PNA15_5nM = PNA15_5nM - no_PNA,
+                     PNA15_16nM = PNA15_16nM - no_PNA,
+                     PNA15_63nM = PNA15_63nM - no_PNA,
+                     PNA15_250nM = PNA15_250nM - no_PNA,
+                     PNA15_1000nM = PNA15_1000nM - no_PNA,
+                     PNA14_1000nM = PNA14_1000nM - no_PNA,
+                     levels = design)
+
+res <- list(PNA15_0.5nM = glmQLFTest(fit, contrast = con[,1]),
+            PNA15_5nM = glmQLFTest(fit, contrast = con[,2]),
+            PNA15_16nM = glmQLFTest(fit, contrast = con[,3]),
+            PNA15_63nM = glmQLFTest(fit, contrast = con[,4]),
+            PNA15_250nM = glmQLFTest(fit, contrast = con[,5]),
+            PNA15_1000nM = glmQLFTest(fit, contrast = con[,6]),
+            PNA14_1000nM = glmQLFTest(fit, contrast = con[,7])
             )
 ```
 
@@ -233,29 +260,398 @@ genenames <- ifelse(gn %in% names_mapping$V2,
                     names_mapping[gn,]$V1, gn )
 
 
-for (i in names(res)) {
-  res[[i]]$table$FDR <- "> 0.5"
-  res[[i]]$table <- cbind(genenames, res[[i]]$table)
-  res[[i]]$table <- res[[i]]$table[order(res[[i]]$table$PValue),]
-  write.csv(res[[i]]$table, paste("../oligopool_03_21/edgeR_DE/", i, "_vs_control.csv"))
-  print(res[[i]]$table)
-}
-res$PNA15_10pM
-
+#for (i in names(res)) {
+#  res[[i]]$table$FDR <- "> 0.5"
+#  res[[i]]$table <- cbind(genenames, res[[i]]$table)
+#  res[[i]]$table <- res[[i]]$table[order(res[[i]]$table$PValue),]
+#  write.csv(res[[i]]$table, paste("../oligopool_03_21/edgeR_DE/", i, "_vs_control.csv"))
+#  print(res[[i]]$table)
+#}
+topTags(res$PNA15_1000nM)
 ```
 
+
+
+
+
+
+Now I create a function which makes nice volcano-plots and run it on all the results (all PNA-samples are compared to water control for DE):
+```{r}
+do_volcano <- function(restab, targetgene, pointsize = 2, x_limit = F,y_limit=F, show_sig = F, alpha=0.05, 
+                       minlogfc=1, title = "Volcano", off_target_list = NULL) {
+  rownames(restab) <- gsub("^([^A-Z].+)" , "italic('\\1')" , rownames(restab))
+  off_target_list <- lapply(off_target_list, function(x) gsub("^([^A-Z].+)" , "italic('\\1')", x))
+  
+  g = ggplot(restab) +
+  geom_point(
+    data = restab,
+    aes(x = logFC, y = -log10(FDR)),
+    color = "darkgrey",
+    cex = pointsize
+  ) + theme_bw()+ # change theme to standard black&wite.
+  geom_hline(yintercept = -log10(alpha),
+             color = "black", linetype = 3) +
+  geom_vline(xintercept = c(-minlogfc,minlogfc),
+             color = "black", linetype = 3) +
+  theme(axis.title.x = element_text(size=20),
+        axis.title.y = element_text(size=20),
+        axis.text = element_text(size=15, colour = "black"),
+        panel.background = element_rect(colour = "black"),
+        axis.line = element_line(colour = "black"),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x =  element_blank(),#element_line(colour="lightgrey", size=0.3),
+        panel.grid.major.y = element_blank(),#element_line(colour="lightgrey", size=0.3),
+        plot.title = element_text(hjust = 0.5, size = 23))+
+  ggtitle(title)+
+  xlab(expression("Log"[2]*" fold change")) +
+  ylab("- Log10 P-value (FDR)")+
+  scale_x_continuous(expand = c(0,0),breaks = seq(-6,6,2), limits = c(-x_limit,x_limit)) +
+  scale_y_continuous(expand = c(0, 0),breaks = seq(0,16,2), limits = c(0,y_limit)) 
+
+  
+  if (is.null(off_target_list)) {
+    g <- g + 
+      geom_point(
+        data = restab[restab$FDR<alpha & restab$logFC < -minlogfc,],
+        aes(x = logFC, y = -log10(FDR)),
+        color = "blue", 
+        cex = pointsize) +
+      geom_point(
+        data = restab[restab$FDR<alpha & restab$logFC > minlogfc,],
+        aes(x = logFC, y = -log10(FDR)),
+        color = "red", 
+        cex = pointsize) 
+  } else{
+    # show all mismatches with significant regulation:
+    show <- restab[unlist(off_target_list),]
+    # different colors for different mismatches:
+    g <- g +
+      geom_point(
+        data = restab[unlist(off_target_list[3]),],
+        aes(x = logFC, y = -log10(FDR)),
+        color = "darkblue", 
+        cex = pointsize) +
+      geom_point(
+        data = restab[unlist(off_target_list[2]),],
+        aes(x = logFC, y = -log10(FDR)),
+        color = "blue", 
+        cex = pointsize) +
+    #zero mismatches:
+      geom_point(
+        data = restab[unlist(off_target_list[1]),],
+        aes(x = logFC, y = -log10(FDR)),
+        color = "cyan", 
+        cex = pointsize) #+
+ #   geom_label_repel(
+  #    data = show ,
+  #    aes(x = logFC, y = -log10(FDR), 
+  #        label = rownames(show)),
+  #    hjust = 0.1,
+  #    vjust = 2,
+   #   size = 4, segment.alpha = 0.5,min.segment.length=0, segment.color = "black") 
+  }
+  
+  # show the sign. genes:
+  if(show_sig){
+    range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+    top_up <- restab[ which(restab$FDR < alpha & restab$logFC > minlogfc),]
+    top_down <- restab[ which(restab$FDR < alpha & restab$logFC < -(minlogfc)),]
+    
+    if (length(rownames(top_up)) > 0 && (length(rownames(top_up)) > 10)){
+    logFC.scaled <- range01(top_up$logFC)
+    FDR.scaled <- range01(-log(top_up$FDR))
+    summ <- (logFC.scaled + FDR.scaled)
+    top_up <- top_up[order(-summ),][1:3,]
+    }
+
+    if (length(rownames(top_down))>0 && (length(rownames(top_down))> 10)){
+      logFC.scaled <- range01(-top_down$logFC)
+      FDR.scaled <- range01(-log(top_down$FDR))
+      summ <- (logFC.scaled + FDR.scaled)
+      top_down <- top_down[order(-summ),][1:3,]
+    }
+
+    top_peaks <- rbind(top_up, top_down)
+    top_peaks <- na.omit(top_peaks)
+
+    g <- g + geom_label_repel(
+    data = top_peaks ,
+    aes(x = logFC, y = -log10(FDR), 
+        label = rownames(top_peaks)),
+    hjust = 0.1,
+    #vjust = 2, 
+    size = 5, segment.alpha = 0.5, segment.color = "black", min.segment.length=unit(0, "cm"), parse = T) 
+  }
+  targetgene <- gsub("^([^A-Z].+)" , "italic('\\1')" , targetgene)
+  g <- g + geom_point(
+        data = restab[targetgene,],
+        aes(x = logFC, y = -log10(FDR)),
+        color = "red", 
+        cex = pointsize)
+  g
+}
+```
+
+
+# Off-target analysis:
+```{r}
+ot <- read.delim("../data/mismatches/mismatches_PNA_2.dat")
+```
+
+Now I adjust p-values (FDR), create volcano plots, histograms for the results (and save volcano plots as pdfs): 
+```{r}
+for (resname in names(res)){
+  # adjust p-values FDR
+  res[[resname]]$table$FDR <- p.adjust(res[[resname]]$table$PValue, method = "fdr")
+  restab <- res[[resname]]$table
+  write.csv(restab[order(restab$FDR),], paste0("../analysis/volcanoplots/",resname, "_sv_control.csv"))
+  
+  restab$genes <- rownames(restab)
+  
+  
+  hist(restab$PValue, breaks=100, main=resname)
+  
+  # check for off-targets (with 0 mismatches):
+  targetgene <- ifelse(grepl("PNA15", resname), "acpP_JVpna-15", resname)
+  targetgene <- ifelse(grepl("PNA14", targetgene), "acpP_scrambled_JVpna-14", targetgene)
+  
+  offt_zero_mm <- ot %>% filter(grepl(targetgene, probe_id) & num_mismatch==0) %>% 
+    select(trans_id) %>% unlist
+  offt_one_mm <- ot %>% filter(grepl(targetgene, probe_id) & num_mismatch==1) %>% 
+    select(trans_id) %>% unlist
+  offt_two_mm <- ot %>% filter(grepl(targetgene, probe_id) & num_mismatch==2) %>% 
+    select(trans_id) %>% unlist
+  off_targets <- list(zero = offt_zero_mm, one = offt_one_mm, two = offt_two_mm)
+  
+  
+  off_targets <- lapply(off_targets, function(x) x[x %in% rownames(restab)])
+  off_targets <- lapply(off_targets, function(x) gsub(".*_(.*)_.+_.*", "\\1", x))
+  tgene_lt <- ifelse(grepl("acpP", targetgene) ,"b1094_acpP_1151615_1")
+  
+  # make volcanos:
+  #pdf(paste0("../analysis/volcanoplots/",resname, ".pdf"))
+  restab <-restab[-which(grepl("insA", rownames(restab))),]
+  rownames(restab) <- gsub(".*_(.*)_.+_.*", "\\1", rownames(restab))
+  tgene_lt <- "acpP"
+  print(do_volcano(restab, tgene_lt, title=resname, 
+                   x_limit = 6,
+                   y_limit = 15,
+                   alpha=0.001, pointsize = 3, 
+                   off_target_list = off_targets, show_sig = T))
+  #dev.off()
+  
+  #svg(paste0("../analysis/volcanoplots/",resname, ".svg"))
+  print(do_volcano(restab, tgene_lt, title=resname, 
+                   x_limit = 6,
+                   y_limit = 15,
+                   alpha=0.001, pointsize = 3, 
+                   off_target_list = off_targets, show_sig = T))
+  #dev.off()
+  
+  
+  #pval distributions:
+  #pdf(paste0("../analysis/volcanoplots_bc/",resname, "_pdistr.pdf"))
+  #hist(restab$PValue, breaks=100, main=resname)
+  #dev.off()
+  #save result_table:
+  #dataname <- paste("../analysis/diff_exp_rawdata/", resname, ".csv", sep = "")
+  #write.csv(restab[order(restab$FDR),], dataname)
+}
+```
+
+# Heatmap
+lets create a heatmap clustering all highest DE genes of all contrasts.
+```{r}
+
+for (name in names(res)) {
+  res[[name]]$table$FDR <- p.adjust(res[[name]]$table$PValue, method = "fdr")
+}
+topDEgenes <- unique(unlist(lapply(res, function(x) rownames(x$table[x$table$FDR < 0.01 & 
+                                                                  abs(x$table$logFC)>1,]))))
+hcg <- rownames(res$PNA15_0.5nM$table)[grepl("hcaT", rownames(res$PNA15_0.5nM$table))]
+topDEgenes <- c(hcg, topDEgenes)
+
+logCPM <- cpm(y, prior.count = 2, log = TRUE) 
+logCPM <- logCPM[rownames(logCPM)%in%topDEgenes,]
+logCPM <- t(scale(t(logCPM))) #centered around 0
+
+rownames(logCPM) <- gsub(".*_(.*)_.+_.*", "\\1", rownames(logCPM))
+
+heatmap(logCPM)
+```
 
 ```{r}
-res$PNA15_500pM$table %>% ggplot() + geom_density(aes(x = PValue))
+library(ComplexHeatmap)
+# get log2change, between those and noPNA:
+logchange <- data.frame(lapply(res, function(x) x$table[topDEgenes,]$logFC), 
+                        row.names = topDEgenes)
+
+pvals <- data.frame(lapply(res, function(x) x$table[topDEgenes,]$FDR < 0.01 & abs(x$table[topDEgenes,]$logFC) > 1), 
+                        row.names = topDEgenes)
+
+
+pvals <-sapply(pvals, function(x) ifelse(x, x <- "*",x<-"") )
+rownames(logchange) <- gsub("[^_]+_([^_]+)_.*", "\\1", rownames(logchange))
+
+logchange <- logchange[,c(7,1,2,3,4,5,6)]
+pvals <- pvals[,colnames(logchange)]
+
+c1 <- circlize::colorRamp2(seq(0,-3, length.out = 100), viridis(100))
+
+ht1 <- Heatmap(logchange, col = c1, cluster_rows = F, cluster_columns = F, 
+               name = "Logchange", show_heatmap_legend = F,
+               row_names_gp = gpar(fontsize = 15, fontface = "italic"),
+               column_names_rot = 45,
+               cell_fun = function(j, i, x, y, width, height, fill) {
+                 grid.text(sprintf("%.1s", pvals[i, j]), x, y, gp = gpar(fontsize = 15))
+               },
+               width = unit(8, "cm"), height = unit(6, "cm"),
+               border = TRUE, rect_gp = gpar(col = "black", lwd = 0.2)
+               )
+
+
+
+lgd1 = Legend(col_fun = c1, title = expression("log"[2]*" fold change"), labels_gp = gpar(fontsize = 10),
+             title_gp = gpar(fontsize = 15),border = "black",
+             at = c(-3, -2, -1, 0), legend_width = unit(4, "cm"), grid_width =  unit(0.8, "cm"),
+             labels = c(" -3", " -2"," -1", "  0"), legend_height = unit(5, "cm"),
+             title_position = "leftcenter-rot")
+
+svg("../analysis/pna_efficiency/heatmap.svg", width = 8, height = 5)
+draw(ht1, ht_gap=1)
+draw(lgd1, x = unit(1, "cm"), y = unit(7.5, "cm"), just = c("left", "center"))
+dev.off()
+
+```
+
+Make plots with tibbles:
+```{r}
+norm_counts <- as.data.frame(cpm(y))
+norm_counts <- cbind(transcript = rownames(norm_counts), norm_counts)
+ncounts <- pivot_longer(norm_counts, cols = c(2:length(norm_counts)), names_to = "sample", values_to = "counts") 
+ncounts$cond <- gsub("\\d\\d_(.+_.+)", "\\1" , ncounts$sample)
+
+tt.norm <- ncounts %>% tidybulk(sample, transcript, counts)
+```
+
+Do MDS:
+```{r}
+tt.norm.mds <- tt.norm %>% reduce_dimensions(.abundance = counts, method="MDS", .dims = 3)
+tt.norm.mds %>%
+  pivot_sample() %>%
+  ggplot(aes(x=Dim1, y=Dim2, size = 1, color=cond)) + geom_point() 
+```
+
+SD function: 
+```{r}
+data_summary <- function(data, varname, groupnames){
+  require(plyr)
+  summary_func <- function(x, col){
+    c(mean = mean(x[[col]], na.rm=TRUE),
+      sd = sd(x[[col]], na.rm=TRUE))
+  }
+  data_sum<-ddply(data, groupnames, .fun=summary_func,
+                  varname)
+  data_sum <- rename(data_sum, c("mean" = varname))
+ return(data_sum)
+}
 ```
 
 
+make plot:
+```{r}
+tt.norm$conc_nM <- gsub("no_PNA", "0" , tt.norm$cond)
+tt.norm$conc_nM <- gsub("PNA14_1000nM", "0" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_0.5nM", "0.5" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_1000nM", "1000" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_16nM", "16" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_250nM", "250" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_5nM", "5" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_63nM", "63" , tt.norm$conc_nM)
+tt.norm$conc_nM <- gsub("PNA15_250nM", "250" , tt.norm$conc_nM)
+tt.norm$conc_nM <- as.numeric(tt.norm$conc_nM)
+
+tt.norm$cond <- factor(tt.norm$cond, levels = c("PNA14_1000nM", "no_PNA", "PNA15_0.5nM", "PNA15_5nM", "PNA15_16nM", "PNA15_63nM",
+                                                "PNA15_250nM",
+                                                "PNA15_1000nM"))
+
+tt.norm.plot <- tt.norm %>% filter(grepl("acpP" ,transcript)) 
+tt.norm.plot%>%
+  group_by(cond,sample) %>% 
+  summarise(new = list(mean_se(counts)))
+
+g_nolog <- tt.norm %>% filter(grepl("acpP" ,transcript)) %>%
+  ggplot(aes(x=cond, y=counts),) + geom_bar( position="dodge",stat = "summary", fill="steelblue")+
+  geom_point(aes(x=cond, y=counts)) + scale_fill_viridis(discrete = T) + theme_pubr() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ggtitle("acpP") 
+  
+  #+ scale_y_continuous(trans = "log10")
+g_nolog
+
+g_log <- tt.norm %>% filter(grepl("acpP" ,transcript)) %>%
+  ggplot() + geom_bar(aes(x=cond, y=counts), position="dodge",stat = "summary", fill="steelblue")+
+  geom_point(aes(x=cond, y=counts)) + scale_fill_viridis(discrete = T) + theme_pubr() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ggtitle("acpP") + scale_y_continuous(trans = "log10")
+g_log
+
+svg("../analysis/pna_efficiency/barplot_acpP.svg")
+print(g_nolog)
+dev.off()
+
+svg("../analysis/pna_efficiency/barplot_acpP_log.svg")
+print(g_log)
+dev.off()
+
+# save data cpm:
+write.csv(cbind(gene= gsub("[^_]+_([^_]+)_.*", "\\1", rownames(cpm(y))), cpm(y)), "../analysis/count_tables/counts_normalized.csv")
+write.csv(cbind(gene= gsub("[^_]+_([^_]+)_.*", "\\1", rownames(y$counts)), y$counts), "../analysis/count_tables/counts_raw.csv")
+write.csv(cbind(gene= gsub("[^_]+_([^_]+)_.*", "\\1", rownames(gwc)), gwc), "../analysis/count_tables/counts_raw_unfiltered.csv")
+
+write.csv(cbind(gene= gsub("[^_]+_([^_]+)_.*", "\\1", tt.norm$transcript), tt.norm), "../analysis/count_tables/counts_norm_tibble.csv")
 
 
 
+df3 <- data_summary(tt.norm.plot, varname="counts", 
+                    groupnames=c("cond", "conc_nM"))
+df3$conc_nM <- as.numeric(df3$conc_nM)
+
+g_conc_log <- df3[-which(grepl("14", df3$cond)),] %>%
+  ggplot(aes(x=conc_nM, y=counts)) + geom_errorbar(aes(ymin=counts-sd, ymax=counts+sd), width=.2, colour="darkblue")+ 
+  geom_line(colour="darkblue") + geom_point(colour="darkblue")+ 
+  labs(title="Normalized acpP counts by PNA concentration",x="PNA concentration (nM)", y = "counts (CPM)")+
+   theme_pubr()  + scale_x_continuous(trans = "log10") + scale_y_continuous(trans = "log10")
+g_conc_log
+
+g_conc <- df3[-which(grepl("14", df3$cond)),] %>% 
+  ggplot(aes(x=conc_nM, y=counts)) + geom_errorbar(aes(ymin=counts-sd, ymax=counts+sd), width=.2, colour="darkblue")+ 
+  geom_line(colour="darkblue") + geom_point(colour="darkblue")+ 
+  labs(title="Normalized acpP counts by PNA concentration",x="PNA concentration (nM)", y = "counts (CPM)")+
+   theme_pubr() + scale_x_continuous(trans = "log10")
+g_conc
+
+svg("../analysis/pna_efficiency/lineplot_acpP_log.svg")
+print(g_conc_log)
+dev.off()
+
+svg("../analysis/pna_efficiency/lineplot_acpP.svg")
+print(g_conc)
+dev.off()
 
 
+```
 
+add sd:
+```{r}
+
+df2 <- data_summary(tt.norm %>% filter(grepl("acpP" ,transcript)), varname="counts", 
+                    groupnames=c("cond"))
+ggplot(df2) + geom_bar(aes(x=cond, y=counts), position="dodge",stat = "summary", fill="steelblue")+
+  geom_point(aes(x=cond, y=counts)) + scale_fill_viridis(discrete = T) + theme_pubr() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + ggtitle("acpP") +
+  geom_errorbar(aes(x=cond, y=counts, ymin=counts-sd, ymax=counts+sd), width=.2,
+                 position=position_dodge(.9)) #+ scale_y_continuous(trans = "log10")
+```
 
 
 
@@ -282,7 +678,7 @@ tt.aggr
 
 Now I normalize the counts using TMM (automaticaly ignores lowly abundant transcripts):
 ```{r}
-tt.norm <- tt.aggr %>%  scale_abundance(method = "TMM")#, factor_of_interest = cond) 
+tt.norm <- tt.aggr %>%  keep_abundant(factor_of_interest = cond) %>% scale_abundance(method = "TMM") 
 ```
 Now I create  a plot of count distributions:
 ```{r}
@@ -297,7 +693,8 @@ g <- tt.norm %>%
 g <- g + facet_grid(~Normalisation) +     
   geom_density(aes(count + 1, group=factor(cond), color=cond), size=1) +     
   scale_x_log10() + 
-  scale_color_manual(values=c("red", "green","darkblue","blue","red","blue","black", "brown", "lightblue")) + 
+  scale_color_manual(values=c("red", "green","darkblue","blue","red","blue","black", "brown", "lightblue", "grey",
+                              "purple")) + 
   theme_pubr() 
 g
 # displays as you require
@@ -346,18 +743,17 @@ tt.norm.pca %>%
 
 Now we test for differential expression:
 ```{r}
-tt %>% test_differential_abundance( ~ cond, action = "get")
+tt %>% keep_abundant(factor_of_interest = cond) %>% test_differential_abundance( ~ cond, action = "get")
 ```
 
 
 ```{r}
-tt.norm$cond <- factor(tt.norm$cond,levels = c("no_PNA", "PNA15_10pM","PNA15_100pM", "PNA15_500pM", 
-                                                   "PNA15_5000pM", "PNA14_5000pM","RNA_input_control"))
+tt.norm$cond <- factor(tt.norm$cond)
 
-g <- tt.norm %>% filter(transcript == "b1094") %>%
+g <- tt.norm %>% filter(grepl("acpP" ,transcript)) %>%
   ggplot() + geom_bar(aes(x=cond, y=counts_scaled), position="dodge",stat = "summary", fill="steelblue")+
   geom_point(aes(x=cond, y=counts_scaled)) + scale_fill_viridis(discrete = T) + theme_pubr() +
-  theme(axis.text.x = element_text(angle = 90)) + ggtitle("acpP")
+  theme(axis.text.x = element_text(angle = 90)) + ggtitle("acpP") + scale_y_continuous(trans = "log10")
 g
 
 svg("~/Dropbox/HIRI/presentations/annual_meeting_1/acpP_level.svg")
@@ -400,11 +796,104 @@ write.csv(raw_counts, "../oligopool_03_21/raw_data/raw_counts.csv")
 write.csv(norm_counts, "../oligopool_03_21/raw_data/norm_counts.csv")
 ```
 
+
+Check whether found peaks in vivo are also highly expressed:
 ```{r}
+# get RNASEQ expression data (LB, 37C)
+meng_etal <- readxl::read_xlsx("../analysis/mengetal_counts.xlsx")
+meng_etal_ctrl <- meng_etal %>% select("genename", "total-37-1", "total-37-2") 
+meng_etal_ctrl[,-1] <- apply(meng_etal_ctrl[,-1], 2, function(x){x/(sum(x)/1000000)}) 
+meng_etal_ctrl$mean_CPM <- (meng_etal_ctrl$`total-37-1` + meng_etal_ctrl$`total-37-2`) / 2
+
+# Get our data:
+our_data <- read.csv("../analysis/annotated_sites.csv")
+peaks_found_meydan <- our_data$gene[our_data$peak_found_meydan == "True"] 
+peaks_found_hör <- our_data$gene[our_data$peak_found_Hör == "True"] 
+
+meng_etal_ctrl$found_meydan <- meng_etal_ctrl$genename %in% peaks_found_meydan
+meng_etal_ctrl$found_hör <- meng_etal_ctrl$genename %in% peaks_found_hör
+
+meng_etal_ctrl$peak_size_m <- apply(meng_etal_ctrl , 1, function(x){
+  ifelse(x[["genename"]] %in% our_data[["gene"]], our_data[our_data[["gene"]]==x[["genename"]],][["peak_meydan"]], 0)
+})
+
+meng_etal_ctrl$peak_size_h <- apply(meng_etal_ctrl , 1, function(x){
+  ifelse(x[["genename"]] %in% our_data[["gene"]], our_data[our_data[["gene"]]==x[["genename"]],][["peak_meydan"]], 0)
+})
+
+
+#meng_etal_ctrl %>% group_by_(found_meydan) %>% summarize(Mean = mean(mean_CPM, na.rm=TRUE))
+
+g_barplot <- meng_etal_ctrl %>% group_by(found_meydan) %>%
+  summarize(Median = median(mean_CPM, na.rm=TRUE), SD = sd(mean_CPM, na.rm=TRUE)) %>%
+  ggplot(aes(x = found_meydan, y = Median), fill="steelblue") + 
+  geom_bar(stat="identity", position=position_dodge(), fill="steelblue")+  theme_classic()
+
+g_boxplot_m <- meng_etal_ctrl %>%
+  ggplot(aes(x = found_meydan, y = mean_CPM, fill=found_meydan))+ geom_boxplot() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+  scale_y_continuous(limits = c(0,300))+  theme_classic()
+
+g_boxplot_h <- meng_etal_ctrl %>%
+  ggplot(aes(x = found_hör, y = mean_CPM, fill=found_hör))+ geom_boxplot() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+  scale_y_continuous(limits = c(0,300))+  theme_classic()
+
+dist_m <- meng_etal_ctrl %>% mutate("peak in Meydan et al." = as.factor(ifelse(found_meydan, "yes", "no"))) %>%
+  ggplot(aes(x = mean_CPM, fill=`peak in Meydan et al.`))+ geom_density() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+  scale_x_continuous(limits = c(0,300))+  theme_classic() + 
+  xlab("read count (CPM)")  + theme(legend.position = c(0.8, 0.8))
+
+dist_h <- meng_etal_ctrl %>% mutate("peak in Hör et al." = as.factor(ifelse(found_hör, "yes", "no"))) %>%
+  ggplot(aes(x = mean_CPM, fill=`peak in Hör et al.`))+ geom_density() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+  scale_x_continuous(limits = c(0,300))+  theme_classic() + 
+  xlab("read count (CPM)")  + theme(legend.position = c(0.8, 0.8))
+
+svg("../analysis/mengetal_meydan.svg")
+print(dist_m)
+dev.off()
+svg("../analysis/mengetal_hoer.svg")
+print(dist_h)
+dev.off()
+
+
+g_violin_m <- meng_etal_ctrl %>%
+  ggplot(aes(x = found_meydan, y = mean_CPM, fill=found_meydan))+ geom_violin() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+  scale_y_continuous(limits = c(0,300))+  theme_classic()
+
+g_violin_h <- meng_etal_ctrl %>%
+  ggplot(aes(x = found_hör, y = mean_CPM, fill=found_hör))+ geom_violin() + 
+  scale_fill_viridis(discrete = TRUE, alpha=0.6, option="A") +
+  scale_y_continuous(limits = c(0,300))+  theme_classic()
 
 ```
 
+Do some correlation analysis:
+```{r}
+meng_meydan <- meng_etal_ctrl %>% filter(found_meydan) 
+  
+m <- lm(log10(meng_meydan$mean_CPM+1) ~ log10(meng_meydan$peak_size+1))
+summary(m)$r.squared
 
+cor_scatter_mey <- meng_meydan %>% 
+    ggplot(aes(x = log10(mean_CPM+1), y = log10(peak_size+1))) + 
+  geom_point() + geom_smooth(method=lm) +  
+    theme_classic() 
+
+cor_scatter_hor <- meng_etal_ctrl %>% filter(found_hör) %>% 
+  ggplot(aes(x = log10(mean_CPM+1), y = log10(peak_size+1))) + 
+  geom_point() + geom_smooth(method=lm) +  
+  theme_classic()
+```
+
+Plot Lars suggested:
+```{r}
+meng_etal_ctrl %>% 
+  
+```
 
 
 

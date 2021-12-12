@@ -127,8 +127,6 @@ if __name__ == '__main__':
     # create the fasta file with oligo sequences
     create_oligos(ecoli_gff, ecoli_fa, "../data/oligo_order/oligos_ecoli.tab", 30, 150)
 
-
-
     with open("../data/e_coli_ref_seqs/NC_000913.3.gff", 'r') as gff:
         with open("../data/oligos_cds.gff", 'w') as new_gff:
             for line in gff:

@@ -6,21 +6,32 @@ library(tidyverse)
 
 
 wiggle_R1 <- read.delim(
-  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/01_no_PNA.bam_3primeend_mod.wig",
+  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/01_no_PNA_3primeend_new_mod.wig",
   col.names = c("gene", "start", "end", "depth"))
 wiggle_R1$rep <- "R1"
 
-wiggle_R2 <- wiggle <- read.delim(
-  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/07_no_PNA.bam_3primeend_mod.wig",
+wiggle_R2 <- read.delim(
+  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/07_no_PNA_3primeend_new_mod.wig",
   col.names = c("gene", "start", "end", "depth"))
 wiggle_R2$rep <- "R2"
 
-wiggle_R3 <- wiggle <- read.delim(
-  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/13_no_PNA.bam_3primeend_mod.wig",
+wiggle_R3 <- read.delim(
+  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/13_no_PNA_3primeend_new_mod.wig",
   col.names = c("gene", "start", "end", "depth"))
 wiggle_R3$rep <- "R3"
 
-wiggles <- rbind(wiggle_R1, wiggle_R2, wiggle_R3)
+wiggle_R4 <- read.delim(
+  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/79_no_PNA_3primeend_new_mod.wig",
+  col.names = c("gene", "start", "end", "depth"))
+wiggle_R4$rep <- "R4"
+
+wiggle_R5 <- read.delim(
+  "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/85_no_PNA_3primeend_new_mod.wig",
+  col.names = c("gene", "start", "end", "depth"))
+wiggle_R5$rep <- "R5"
+
+
+wiggles <- rbind(wiggle_R1, wiggle_R2, wiggle_R3, wiggle_R4, wiggle_R5)
   
 wiggles$distance_to_start <- wiggles$start - 58
 
@@ -33,7 +44,7 @@ wiggles %>% group_by(rep, distance_to_start) %>%
   geom_line(size=1.2) + theme() + theme_pubr()
 
 # plot for whole data:
-wiggles$depth_norm <- wiggles$depth_norm/3
+wiggles$depth_norm <- wiggles$depth_norm/5
 wiggles %>% 
   group_by(distance_to_start) %>% 
   summarise(reads_norm = sum(depth_norm)) %>%
@@ -43,7 +54,7 @@ wiggles %>%
   geom_line() + theme_pubr() 
 
 
-  wiggle_paper_F <- read.delim(
+wiggle_paper_F <- read.delim(
   "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/wiggles-papercomparison_2/GSM3455900_RET_BWK_U00096_3_F_new.wig",
   col.names = c("pos", "depth"), skip = 2)
 wiggle_paper_R <- read.delim(
@@ -94,13 +105,13 @@ ours <- wiggles %>%
   summarise(reads_norm = sum(depth_norm)) %>%
   ggplot(aes(x=distance_to_start, y=reads_norm)) + 
   scale_x_continuous(limits = c(-10, 50), breaks = seq(-10, 50, by=5)) +
-  scale_y_continuous(limits = c(0, 0.3))+
+  scale_y_continuous(limits = c(0, 0.4))+
   geom_line(size=1.2) + 
   geom_line() + theme_pubr() + labs(x="distance from start codon (nt)", y = "Normalized footprints")
 
 meydan <- exp_tib %>% ggplot(aes(x=distance_to_start, y=norm_reads)) + 
   scale_x_continuous(limits = c(-10, 50), breaks = seq(-10, 50, by=5)) +
-  scale_y_continuous(limits = c(0, 0.3))+
+  scale_y_continuous(limits = c(0, 0.4))+
   geom_line(size=1.2) + 
   geom_line() + theme_pubr() + labs(x="distance from start codon (nt)", y = "Normalized footprints")
 
@@ -108,15 +119,17 @@ meydan <- exp_tib %>% ggplot(aes(x=distance_to_start, y=norm_reads)) +
 both <- total_df %>% ggplot(aes(x=distance_to_start, y=norm_reads, group=exp, color=exp)) + 
   geom_line(size=1.2) +
   scale_x_continuous(limits = c(-10, 50), breaks = seq(-10, 50, by=5)) +
-  scale_y_continuous(limits = c(0, 0.3))+
+  scale_y_continuous(limits = c(0, 0.4))+
   geom_line() + theme_pubr() + labs(x="distance from start codon (nt)", y = "Normalized footprints")
+
+write_csv(total_df, "../jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/metagene_data_comparison.csv")
 
 
 ours_rep <- wiggles %>% group_by(rep, distance_to_start) %>%
-  summarise(reads_norm = sum(depth_norm)*3) %>%
+  summarise(reads_norm = sum(depth_norm)*5) %>%
   ggplot(aes(x=distance_to_start, y=reads_norm, group=rep, color=rep)) + 
   scale_x_continuous(limits = c(-10, 50), breaks = seq(-10, 50, by=5)) +
-  scale_y_continuous(limits = c(0, 0.3))+
+  scale_y_continuous(limits = c(0, 0.4))+
   geom_line(size=1.2) +  theme_pubr() + labs(x="distance from start codon (nt)", y = "Normalized footprints")
 
 

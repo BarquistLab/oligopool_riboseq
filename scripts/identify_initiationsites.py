@@ -31,7 +31,7 @@ def find_alt_starts(wig_file_in_paths):
     for gene in gene_list:
         dfs = [data_frame[data_frame["gene"] == gene] for data_frame in data_frames]  # make df for each oligo (gene)
         threshold = 5
-        df_ass = [df[(df["count"] > threshold) & df.position.isin(list(range(30, 60)) + list(range(78, 208)))] for df in dfs]
+        df_ass = [df[(df["count"] > threshold) & df.position.isin(list(range(30, 65)) + list(range(78, 208)))] for df in dfs]
         df_ass = [d.reset_index(drop=True) for d in df_ass]  # drop row names
         dfs_new = df_ass.copy()
         # identify high cov. points per sample:
@@ -121,13 +121,16 @@ def compare_to_in_vivo(wig_file_in_paths, fasta_file_in, other_wig_pos, other_wi
 
 
 wiggles_in = ["../data/wigglefiles/01_no_PNA_3primeend_new_mod.wig",
-                "../data/wigglefiles/07_no_PNA_3primeend_new_mod.wig",
-                "../data/wigglefiles/13_no_PNA_3primeend_new_mod.wig"]
+              "../data/wigglefiles/07_no_PNA_3primeend_new_mod.wig",
+              "../data/wigglefiles/13_no_PNA_3primeend_new_mod.wig",
+              "../data/wigglefiles/79_no_PNA_3primeend_new_mod.wig",
+              "../data/wigglefiles/85_no_PNA_3primeend_new_mod.wig"]
+
 data_frames = import_wiggles(wiggles_in)
 
 ss = find_alt_starts(wiggles_in)
 
-sco = check_start_codons("../data/reference_sequences/oligos_cds.fasta", wiggles_in)
+#sco = check_start_codons("../data/reference_sequences/oligos_cds.fasta", wiggles_in)
 
 
 #alt_starts = compare_to_in_vivo("../data/wigglefiles/01_no_PNA_3primeend_mod.wig",
