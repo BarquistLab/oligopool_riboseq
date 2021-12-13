@@ -26,7 +26,6 @@ wiggles_in = ["../data/wigglefiles/01_no_PNA_3primeend_new_mod.wig",
               "../data/wigglefiles/85_no_PNA_3primeend_new_mod.wig"]
 
 
-
 wig_oligos = import_wiggles(wiggles_in)
 all_oligos = set(wig_oligos[0]["gene"])
 wig_invivo_F = "../data/wigglefiles/wiggles-papercomparison_2/GSM3455900_RET_BWK_U00096_3_F_new.wig"
