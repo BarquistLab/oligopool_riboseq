@@ -1,0 +1,1443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.1.1 (1:1.1+202109281949+c3084ef5ed)"
+   sodipodi:docname="Algorithm_figure.svg"
+   inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/Algorithm_figure.png"
+   inkscape:export-xdpi="846.66669"
+   inkscape:export-ydpi="846.66669"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs2">
+    <rect
+       x="105.13566"
+       y="79.347062"
+       width="43.628407"
+       height="28.451586"
+       id="rect90647" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect33575" />
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path30930" />
+    </marker>
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.12998"
+       height="77.964172"
+       id="rect10801" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1072"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="5"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1053"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="5"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect995"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="5"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect986"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="1.4"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect977"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="-1.0190242"
+       scale_y_rel="false"
+       spacing="4.8"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect968"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="2.8"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect949"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="7.8"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1317"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 231.00519,34.856846 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="4.4"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1290"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 231.00519,34.856846 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="4.4"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1244"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 231.00519,34.856846 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="1.4"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1209"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 226.81905,77.45681 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="5"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1095"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 231.00519,34.856846 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1060"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 231.00519,34.856846 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect1015"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m 231.00519,34.856846 h 12.13975 v 7.052848 h -12.13975 z"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="4.4"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect962"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m -29.826036,-79.956627 h 4.938072 v 2.868878 h -4.938072 z"
+       copytype="repeated_stretched"
+       prop_scale="0.11"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect923"
+       is_visible="true"
+       lpeversion="1"
+       pattern="m -8.0665751,4.4848797 h 1"
+       copytype="repeated_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <linearGradient
+       id="linearGradient1202"
+       inkscape:swatch="gradient">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1198" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop1200" />
+    </linearGradient>
+    <rect
+       x="29.687657"
+       y="27.133999"
+       width="40.303075"
+       height="13.256886"
+       id="rect837" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3516">
+      <g
+         id="g3528"
+         style="opacity:0.466526;fill:#ff0000;fill-opacity:1"
+         transform="translate(-8.105403,4.7682619)">
+        <path
+           d="m -127.39079,-30.943617 h 12.17502 l 4.69841,18.221669 4.67799,-18.221669 h 12.134159 v 29.94727285 h -7.558319 V -23.834715 l -5.8628,22.83837085 h -6.84334 l -5.84237,-22.83837085 v 22.83837085 h -7.57875 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.8363px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff0000;fill-opacity:1;stroke-width:1.04591"
+           id="path3518" />
+        <path
+           d="M -69.375603,-5.9398913 H -79.91639 l -1.45038,4.94354715 h -9.458108 L -79.569116,-30.943617 h 10.091373 l 11.255762,29.94727285 h -9.682815 z m -1.940649,-6.4756387 -3.309317,-10.765493 -3.288889,10.765493 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.8363px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff0000;fill-opacity:1;stroke-width:1.04591"
+           id="path3520" />
+        <path
+           d="m -56.87374,-10.903866 8.804417,-0.551553 q 0.28599,2.1449274 1.164389,3.2684608 1.429951,1.8180814 4.085576,1.8180814 1.981504,0 3.043754,-0.9192546 1.082678,-0.9396826 1.082678,-2.1653554 0,-1.1643892 -1.021394,-2.0836442 -1.021394,-0.919254 -4.739268,-1.73637 -6.087509,-1.368668 -8.68185,-3.636162 -2.614769,-2.267495 -2.614769,-5.781091 0,-2.30835 1.327813,-4.351138 1.34824,-2.063216 4.024292,-3.227605 2.69648,-1.184817 7.374465,-1.184817 5.740235,0 8.743133,2.144927 3.023327,2.1245 3.595307,6.782056 l -8.722705,0.510697 q -0.347274,-2.02236 -1.470807,-2.941614 -1.103106,-0.919255 -3.064182,-0.919255 -1.613803,0 -2.430918,0.694548 -0.817116,0.67412 -0.817116,1.654658 0,0.714976 0.674121,1.286957 0.653692,0.592408 3.105037,1.103105 6.067081,1.307385 8.68185,2.655625 2.635196,1.327812 3.820013,3.309317 1.205245,1.981504 1.205245,4.43285 0,2.8803309 -1.593374,5.3112487 -1.593375,2.4309178 -4.453278,3.6974464 -2.859904,1.24610077 -7.211042,1.24610077 -7.640028,0 -10.581642,-2.94161487 -2.941615,-2.9416148 -3.329745,-7.476604 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.8363px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff0000;fill-opacity:1;stroke-width:1.04591"
+           id="path3522" />
+        <path
+           d="m -26.211489,-15.949553 q 0,-7.333609 4.085576,-11.419185 4.085576,-4.085576 11.378329,-4.085576 7.4766047,0 11.52132511,4.024292 4.04472039,4.003865 4.04472039,11.235335 0,5.249965 -1.7772256,8.6205652 -1.7567978,3.3501725 -5.1069702,5.2295375 -3.3297446,1.85893717 -8.3141477,1.85893717 -5.066114,0 -8.395859,-1.61380257 -3.309317,-1.6138026 -5.372532,-5.1069702 -2.063216,-3.4931681 -2.063216,-8.7431331 z m 9.25383,0.04086 q 0,4.534989 1.675086,6.5164938 1.695514,1.9815045 4.596273,1.9815045 2.9824706,0 4.616701,-1.9406487 1.6342305,-1.9406486 1.6342305,-6.9659076 0,-4.228571 -1.715942,-6.16922 -1.6955141,-1.961076 -4.6167015,-1.961076 -2.798619,0 -4.494133,1.981504 -1.695514,1.981505 -1.695514,6.55735 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.8363px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff0000;fill-opacity:1;stroke-width:1.04591"
+           id="path3524" />
+        <path
+           d="m 9.8641437,-30.943617 h 8.6409933 l 11.276191,16.567011 v -16.567011 h 8.722705 V -0.99634415 H 29.781328 L 18.566421,-17.440788 V -0.99634415 H 9.8641437 Z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.8363px;line-height:1.25;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ff0000;fill-opacity:1;stroke-width:1.04591"
+           id="path3526" />
+      </g>
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1263">
+      <ellipse
+         style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.264583"
+         id="ellipse1265"
+         cx="-90.103363"
+         cy="75.153061"
+         rx="9.1937599"
+         ry="9.6055489" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1263-3">
+      <ellipse
+         style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.264583"
+         id="ellipse1265-4"
+         cx="-90.103363"
+         cy="75.153061"
+         rx="9.1937599"
+         ry="9.6055489" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1263-3-4">
+      <ellipse
+         style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.264583"
+         id="ellipse1265-4-5"
+         cx="-90.103363"
+         cy="75.153061"
+         rx="9.1937599"
+         ry="9.6055489" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4874">
+      <rect
+         style="font-variation-settings:normal;opacity:0.644961;vector-effect:none;fill:#501616;fill-opacity:1;fill-rule:evenodd;stroke-width:0.251293;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="rect4876"
+         width="211.16566"
+         height="263.62112"
+         x="-180.17633"
+         y="-9.741951" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5012">
+      <rect
+         style="font-variation-settings:normal;opacity:0.692199;vector-effect:none;fill:#501616;fill-opacity:1;fill-rule:evenodd;stroke-width:1.95618;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+         id="rect5014"
+         width="249.07124"
+         height="306.55847"
+         x="-3.0044257e-05"
+         y="-2.8657032e-06" />
+    </clipPath>
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect31283" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect35665" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect62969" />
+    <rect
+       x="105.13566"
+       y="79.347062"
+       width="43.628407"
+       height="28.451586"
+       id="rect94755" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect112441" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect124332" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.12998"
+       height="77.964172"
+       id="rect130149" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect130151" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect130153" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect130155" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.12998"
+       height="77.964172"
+       id="rect130671" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect130673" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect130675" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect130677" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect146453" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.12998"
+       height="77.964172"
+       id="rect146461" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.12998"
+       height="77.964172"
+       id="rect152121" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect152123" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect152125" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect159715" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="190.77746"
+       height="51.459218"
+       id="rect159735" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect159737" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect159739" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="86.351984"
+       height="47.113606"
+       id="rect167221" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="189.92039"
+       height="66.660787"
+       id="rect167241" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect167243" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect167245" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect180789" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect180797" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="189.92039"
+       height="66.660787"
+       id="rect191459" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect191461" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect191463" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect191465" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect191467" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="189.92039"
+       height="66.660787"
+       id="rect199307" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect199309" />
+    <rect
+       x="302.73441"
+       y="301.78508"
+       width="52.08994"
+       height="24.936017"
+       id="rect199311" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect199313" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="181.9015"
+       height="71.553621"
+       id="rect199315" />
+    <rect
+       x="310.91952"
+       y="186.41024"
+       width="129.82741"
+       height="59.540124"
+       id="rect199828" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.90509668"
+     inkscape:cx="436.96989"
+     inkscape:cy="696.61067"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     showborder="true"
+     inkscape:window-width="1848"
+     inkscape:window-height="1016"
+     inkscape:window-x="72"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:pagecheckerboard="0"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:snap-page="true"
+     inkscape:snap-global="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 71.143085,253.15227 h 8.805958"
+       id="path204770"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 78.656445,21.266323 3e-6,9.969088"
+       id="path123743"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="M 64.195803,52.157231 54.747509,67.758605"
+       id="path31275"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 93.217307,52.157231 9.448283,15.601374"
+       id="path30925"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <circle
+       style="fill:#ff0000;fill-rule:evenodd;stroke-width:0.264583"
+       id="path1292"
+       cx="-156.7878"
+       cy="133.04012"
+       rx="62.454025"
+       ry="34.223251" />
+    <g
+       id="g4562"
+       transform="translate(502.91761,57.965444)"
+       clip-path="url(#clipPath4874)" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afdde9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.242883;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect68"
+       width="48.666645"
+       height="20.92182"
+       x="54.323124"
+       y="31.235411"
+       ry="2.6369109"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-18.748766,-10.274242)"
+       id="text10799"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect10801)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="311.89062"
+         y="200.4611"
+         id="tspan240541"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240539">Is there a peak (&gt;5 CPM) </tspan></tspan><tspan
+         x="324.53125"
+         y="219.69996"
+         id="tspan240545"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240543">between 12 and 18 nt </tspan></tspan><tspan
+         x="312.53125"
+         y="238.93882"
+         id="tspan240549"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240547">inside the coding region?</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afe9c6;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect31277"
+       width="30.64366"
+       height="13.173726"
+       x="39.425678"
+       y="67.758606"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-32.768748,27.04771)"
+       id="text31281"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect31283)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240553"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240551">TIS confirmed</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-11.428699,-14.515262)"
+       id="text33573"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect33575)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240555">yes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,15.904102,-14.515262)"
+       id="text35663"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect35665)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240557">no</tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect62963"
+       width="30.64366"
+       height="13.173726"
+       x="87.343758"
+       y="67.758606"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,21.090486,27.047709)"
+       id="text62967"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect62969)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240561"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240559">No TIS</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f6ffd5;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect112399"
+       width="30.64366"
+       height="13.173726"
+       x="63.334618"
+       y="8.092597"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-5.8190262,-33.003502)"
+       id="text112439"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect112441)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240565"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240563">gene/oligo</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 152.00004,105.73581 v 9.96909"
+       id="path130645"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 137.5394,136.62672 -9.4483,15.60137"
+       id="path130647"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 166.5609,136.62672 9.44828,15.60137"
+       id="path130649"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afdde9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.242883;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect130651"
+       width="48.666645"
+       height="20.92182"
+       x="127.66674"
+       y="115.70489"
+       ry="2.6369109"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,54.59483,74.195245)"
+       id="text130655"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect130671)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="311.89062"
+         y="200.4611"
+         id="tspan240569"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240567">Is there a peak (&gt;5 CPM) </tspan></tspan><tspan
+         x="324.53125"
+         y="219.69996"
+         id="tspan240573"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240571">outside the annotated </tspan></tspan><tspan
+         x="384.66211"
+         y="238.93882"
+         id="tspan240577"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240575">TIS?</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,61.914898,69.954225)"
+       id="text130659"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect130673)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240579">yes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,89.2477,69.954225)"
+       id="text130663"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect130675)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240581">no</tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f6ffd5;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect130665"
+       width="30.64366"
+       height="13.173726"
+       x="136.67821"
+       y="92.56208"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,67.52457,51.465985)"
+       id="text130669"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect130677)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240585"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240583">gene/oligo</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect146447"
+       width="30.64366"
+       height="13.173726"
+       x="160.68733"
+       y="152.22812"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,94.43408,111.51719)"
+       id="text146451"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect146453)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240589"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240587">No TIS</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 113.63046,167.69097 -9.4483,15.60138"
+       id="path152103"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 142.65196,167.69097 9.44829,15.60138"
+       id="path152105"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afdde9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.242883;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect152107"
+       width="48.666645"
+       height="15.462864"
+       x="103.75778"
+       y="152.22812"
+       ry="2.6369109"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,30.570615,109.91646)"
+       id="text152111"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect152121)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="323.65234"
+         y="200.4611"
+         id="tspan240593"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240591">Does the peak have a </tspan></tspan><tspan
+         x="321.21875"
+         y="219.69996"
+         id="tspan240597"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240595">relative intensity &gt;10%</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,38.005958,101.01847)"
+       id="text152115"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect152123)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240599">yes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,65.338759,101.01847)"
+       id="text152119"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect152125)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240601">no</tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect159709"
+       width="30.64366"
+       height="13.173726"
+       x="136.7784"
+       y="183.29236"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,70.525155,142.58143)"
+       id="text159713"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect159715)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240605"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240603">No TIS</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 89.721519,198.75521 -9.448294,15.60138"
+       id="path159717"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 118.74302,198.75521 9.44829,15.60138"
+       id="path159719"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afdde9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.242883;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect159721"
+       width="48.666645"
+       height="15.462864"
+       x="79.848839"
+       y="183.29236"
+       ry="2.6369109"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,5.467185,140.98639)"
+       id="text159725"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect159735)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="320.03516"
+         y="200.4611"
+         id="tspan240609"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240607">Is there a start codon 15 </tspan></tspan><tspan
+         x="314.47656"
+         y="219.69996"
+         id="tspan240613"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240611">bases (+- 5) before peak?</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,14.097017,132.08271)"
+       id="text159729"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect159737)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240615">yes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,41.429818,132.08271)"
+       id="text159733"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect159739)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240617">no</tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect167215"
+       width="30.64366"
+       height="13.173726"
+       x="112.86948"
+       y="214.3566"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,46.616209,173.64567)"
+       id="text167219"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect167221)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240621"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240619">No TIS</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 65.812581,229.81945 -9.448294,15.60138"
+       id="path167223"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 94.834085,229.81945 9.448285,15.60138"
+       id="path167225"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afdde9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.242883;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect167227"
+       width="48.666645"
+       height="15.462864"
+       x="55.939903"
+       y="214.3566"
+       ry="2.6369109"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-9.8119208,163.14696)"
+       id="text167235"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect167243)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240623">yes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,17.52088,163.14696)"
+       id="text167239"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect167245)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240625">no</tspan></text>
+    <rect
+       style="font-variation-settings:normal;vector-effect:none;fill:#e2e3db;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.200913;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       id="rect167227-6"
+       width="33.271984"
+       height="15.476273"
+       x="39.701687"
+       y="245.41414"
+       ry="2.6391973"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-18.305369,169.70853)"
+       id="text191437"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect191459)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="320.50488"
+         y="200.4611"
+         id="tspan240629"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240627">Are there more peaks in </tspan></tspan><tspan
+         x="320.96582"
+         y="219.69996"
+         id="tspan240633"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240631">clise proximity (distance </tspan></tspan><tspan
+         x="365.40723"
+         y="238.93882"
+         id="tspan240637"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240635">up to 5 nt)?</tspan></tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 89.82172,260.88368 -9.448292,15.60138"
+       id="path199277"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.242883px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 118.84322,260.88368 9.44829,15.60138"
+       id="path199279"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afdde9;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.242883;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect199281"
+       width="48.666645"
+       height="15.462864"
+       x="79.949043"
+       y="245.42085"
+       ry="2.6369109"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,5.5737905,201.15891)"
+       id="text199285"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect199307)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="331.16504"
+         y="200.4611"
+         id="tspan240641"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240639">Is there a stop codon </tspan></tspan><tspan
+         x="314.69629"
+         y="219.69996"
+         id="tspan240645"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240643">before the annotated stop </tspan></tspan><tspan
+         x="379.63379"
+         y="238.93882"
+         id="tspan240649"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240647">codon?</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,14.197221,194.21118)"
+       id="text199289"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect199309)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240651">yes</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,41.530022,194.21118)"
+       id="text199293"
+       style="font-style:italic;font-size:16px;line-height:0;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect199311)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="302.73438"
+         y="306.2361"
+         id="tspan240653">no</tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afe9c6;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect199295"
+       width="30.64366"
+       height="13.173726"
+       x="65.051605"
+       y="276.48508"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-2.8733948,235.7751)"
+       id="text199299"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect199313)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240657"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240655">OOF TIS</tspan></tspan></text>
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#afe9c6;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.152935;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000;stop-opacity:1"
+       id="rect199301"
+       width="30.64366"
+       height="13.173726"
+       x="112.96969"
+       y="276.48508"
+       ry="6.586863"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,46.900467,235.77415)"
+       id="text199305"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';white-space:pre;shape-inside:url(#rect199315)"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="310.91992"
+         y="200.4611"
+         id="tspan240661"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240659">IF TIS</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.24288329,0,0,0.24288329,-34.99901,203.15569)"
+       id="text199826"
+       style="font-style:italic;font-size:16px;line-height:1.2;font-family:Arial;-inkscape-font-specification:'Arial Italic';text-align:center;white-space:pre;shape-inside:url(#rect199828)"
+       x="0.22265625"
+       y="0"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         x="325.5791"
+         y="200.4611"
+         id="tspan240665"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240663">Select highest </tspan></tspan><tspan
+         x="313.57129"
+         y="219.69996"
+         id="tspan240669"><tspan
+           style="font-style:normal;-inkscape-font-specification:Arial"
+           id="tspan240667">peak, drop others</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;line-height:0;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="11.011471"
+       y="17.754728"
+       id="text213081"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         sodipodi:role="line"
+         id="tspan213079"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+         x="11.011471"
+         y="17.754728">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;line-height:0;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="11.011471"
+       y="99.7621"
+       id="text223317"
+       inkscape:export-filename="/home/jj/Documents/riboseq_experiments/oligopool_02_2021/analysis/algo_plot.png"
+       inkscape:export-xdpi="703.97498"
+       inkscape:export-ydpi="703.97498"><tspan
+         sodipodi:role="line"
+         id="tspan223315"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+         x="11.011471"
+         y="99.7621">B</tspan></text>
+  </g>
+</svg>

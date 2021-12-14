@@ -16,6 +16,7 @@ def import_wiggles(wig_file_in_paths):
     return wigfiles
 
 
+# import files:
 in_gff = "../data/reference_sequences/NC_000913.3.gff"
 in_fasta = "../data/reference_sequences/NC_000913.3.fasta"
 in_oligos_fasta = "../data/reference_sequences/oligos_cds_new.fasta"
@@ -26,27 +27,30 @@ wiggles_in = ["../data/wigglefiles/01_no_PNA_3primeend_new_mod.wig",
               "../data/wigglefiles/85_no_PNA_3primeend_new_mod.wig"]
 
 
+# import the wiggle files:
 wig_oligos = import_wiggles(wiggles_in)
 all_oligos = set(wig_oligos[0]["gene"])
 wig_invivo_F = "../data/wigglefiles/wiggles-papercomparison_2/GSM3455900_RET_BWK_U00096_3_F_new.wig"
 wig_invivo_R = "../data/wigglefiles/wiggles-papercomparison_2/GSM3455900_RET_BWK_U00096_3_R_new.wig"
-threshold = 5
+threshold = 5   # threshold above which a peak is called
 
 df_invivo_F = pd.read_table(wig_invivo_F, skiprows=2, index_col=None, names=["position", "count"])
 df_invivo_R = pd.read_table(wig_invivo_R, skiprows=2, index_col=None, names=["position", "count"])
 df_invivo_R[1] = df_invivo_R["count"] * (-1)
 
 
-#out_tsv = open("../analysis/check_ann_ss.tsv", "w")
-#out_tsv.write("\t".join(["locus_tag", "gene", "start_position", "strand", "peak_R1", "peak_R2", "peak_R3", "peak_R4",
+# out_tsv = open("../analysis/check_ann_ss.tsv", "w")
+# out_tsv.write("\t".join(["locus_tag", "gene", "start_position", "strand", "peak_R1", "peak_R2", "peak_R3", "peak_R4",
 #                         "peak_R5", "peak_found_Hör", "peak_wmeydan" "peak_found_meydan"]) + "\n")
+
+# output dataframeis created, capturing all peaks
 out_df = pd.DataFrame(columns=["locus_tag", "gene", "start_position", "start_codon", "strand", "peak_R1", "peak_R2",
                                "peak_R3", "peak_R4", "peak_R5", "peak_found_Hör", "peak_meydan", "peak_found_meydan"])
 
-
+# go through all oligos and check for annotated TIS
 for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
     if oligo.id.startswith("b"):
-        start_codon = oligo.seq[58:61]
+        start_codon = oligo.seq[58:61]  # extract start codon
         id = oligo.id
         strand = id.split("_")[3]
         locus_tag = id.split("_")[0]
@@ -56,9 +60,11 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
         newline = [locus_tag, gene, start_pos, str(start_codon), strand, 0, 0, 0, 0, 0, False, 0, False]
         dfs = [data_frame[data_frame["gene"] == id] for data_frame in wig_oligos]
 
-        # check for known start sites:
+        # check for known start sites (at position 15+-3):
         df_kss = [df[(df["count"] > threshold) & df.position.isin(list(range(70, 77)))] for df in dfs]
         rec_peaks = 0
+
+        # loop through 5 dfs and check whether theres a peak per replicate:
         for df in range(len(df_kss)):
             if len(df_kss[df]) > 0:
                 df_kss[df]["position"] = df_kss[df]["position"] - 58
@@ -66,10 +72,11 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
                 peak_pos = df_kss[df].loc[df_kss[df]["count"].idxmax()]["position"]
                 newline[df+5] = peak_int
                 rec_peaks += 1
+        # check whether there are 2 or more peaks -> validate TIS:
         if rec_peaks > 1:
             newline[10] = True
             print(peak_int, gene, peak_pos)
-
+        # check in vivo dataframes to get whether it was also detected in their dataset:
         if strand == "1":
             start_seq = start_pos - 58
             end_seq = start_pos + 184
@@ -82,7 +89,7 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
             d = df_invivo_R[df_invivo_R.iloc[:, 0].isin(list(range(start_seq, end_seq)))]
             newcol = (d.iloc[:, 0] - start_pos) * (-1)
             d.iloc[:, 0] = newcol
-
+        # check for peaks above threshold:
         df_invivo_kss = d[(d["count"] > threshold) & d.position.isin(list(range(12, 19)))]
         if len(df_invivo_kss) > 0:
             peak_int = df_invivo_kss.loc[df_invivo_kss["count"].idxmax()]["count"]
@@ -101,6 +108,7 @@ out_df.to_csv("../analysis/annotated_sites.csv")
 
 print("done with first comp.")
 
+# now we want to identify alt. TIS:
 tot_length = len(out_df)
 found_in_our_ds = sum(out_df["peak_found_Hör"])
 found_in_other_ds = sum(out_df["peak_found_meydan"])
@@ -109,10 +117,12 @@ start_codons = ["ATG", "GTG", "TTG", "CTG", "ATC", "ATT"]
 stop_codons = ["TGA", "TAA", "TAG"]
 sc_re = r"(ATG)|(GTG)|(TTG)|(CTG)|(ATC)|(ATT)"
 
+# initiate DF for identification of novel TIS:
 out_df_ss = pd.DataFrame(columns=["locus_tag", "gene", "start_position", "start_codon", "pos_from_annot_start",
                                   "in_frame", "strand", "peak", "nr_peaks_Hör", "peak_found_Hör", "peak_meydan",
                                   "peak_found_meydan"])
 
+# screen for TIS
 for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
     if oligo.id.startswith("b"):
         id = oligo.id
@@ -128,17 +138,17 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
         for n in range(len(dfs)):
             dfs[n]["norm_count"] = dfs[n]["count"] / sum(dfs[n]["count"])
 
-        # check for start sites which have norm_value (rel_density) more than 0.1:
+        # check for start sites which have norm_value (rel_density) more than 0.1 and >5 cpm etc.:
         df_ss = [df[(df["count"] > threshold) & (df["norm_count"] > 0.1) &
                     df.position.isin(list(range(30, 70)) + list(range(79, 210)))] for df in dfs]
         df_ss = [df.reset_index(drop=True) for df in df_ss]
         rec_peaks = 0
-
+        # loop through replicates, get peaks
         for df in range(len(df_ss)):
             df_ss[df]["norm_counts"] = df_ss[df]["count"] / tot_counts[df]
             if len(df_ss[df]) > 0:
                 nr = 1
-                # just get the peaks:
+                # just get the peaks ,if within 5 nt there's another peak, the highest is taken:
                 while nr < len(df_ss[df]):
                     row = df_ss[df].iloc[nr]
                     prev_row = df_ss[df].iloc[nr - 1]
@@ -148,19 +158,20 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
                         df_ss[df].reset_index(drop=True)
                     else:
                         nr += 1
-                # remove if theres no start codon in region before:
                 df_ss[df] = df_ss[df].reset_index(drop=True)
 
         for df in range(len(df_ss)):
             for peak in range(len(df_ss[df])):
                 peakpos = df_ss[df].loc[peak]["position"]
                 region_sc = oligo.seq[peakpos-18:peakpos-11]
+                # remove if there's no start codon in region before:
                 if not any(sc in region_sc for sc in start_codons):
                     df_ss[df] = df_ss[df].drop(peak)
 
             df_ss[df] = df_ss[df].reset_index(drop=True)
             df_ss[df]["position"] = df_ss[df]["position"] - 58
 
+            # write to resulting df (if theres start codon)!
             for peak in range(len(df_ss[df])):
                 peakpos = df_ss[df].loc[peak]["position"]
                 region_sc = oligo.seq[peakpos + 58 - 18:peakpos + 58 - 11]
@@ -201,6 +212,7 @@ while nr < len(reduced_df_ss):
     row = reduced_df_ss.iloc[nr]
     prev_row = reduced_df_ss.iloc[nr - 1]
     if abs(row["pos_from_annot_start"] - prev_row["pos_from_annot_start"]) < 5 and row["locus_tag"] == prev_row["locus_tag"]:
+        # drop lower one:
         index_del = reduced_df_ss.iloc[nr - 1:nr + 1]["peak"].idxmin()
         index_max = reduced_df_ss.iloc[nr - 1:nr + 1]["peak"].idxmax()
         reduced_df_ss = reduced_df_ss.drop(index_del)
