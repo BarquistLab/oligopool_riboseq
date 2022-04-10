@@ -1,21 +1,20 @@
+# fastq
+
+Here, I store all the raw fastq files, which are used for mapping. sha5sums were created using:
+
+```bash
+sh5sum *.fq.gz >> README.md
+```
+
 721f450afdce4a3b055c66f0dd3f0fb8  01_no_PNA.fq.gz
 232dee47333b7ea925d57b60ec690150  02_PNA15_5000pM.fq.gz
 3fccfeef56972694568d150ed710d44c  03_PNA15_500pM.fq.gz
-106428da0ef1b6225be50cab0d705a9e  04_PNA15_100pM.fq.gz
-761629b182a2f9448444e9330aa1084f  05_PNA15_10pM.fq.gz
-69071ecd79e02fc55e7df7707d97610a  06_PNA14_5000pM.fq.gz
 5572d8664a4949db7e29af58fc7f855d  07_no_PNA.fq.gz
 6fff0563fa5fc142f966df14a4068784  08_PNA15_5000pM.fq.gz
 26c6fc4220b03646953089bb9c866447  09_PNA15_500pM.fq.gz
-cf50a73968168cd79547846ef45b06a9  10_PNA15_100pM.fq.gz
-59fca542c33deb420591abd1ddf3e56b  11_PNA15_10pM.fq.gz
-1b837790e160cd54ae601859505619c6  12_PNA14_5000pM.fq.gz
 6076f149321fc96186386e08e2cc83cb  13_no_PNA.fq.gz
 9f8eb03b067c78c72b94c038e88694e6  14_PNA15_5000pM.fq.gz
 05032933dcce66a52a8da025b63a65a9  15_PNA15_500pM.fq.gz
-76282a1fc7c86e4490f5836ae8622822  16_PNA15_100pM.fq.gz
-6f61bf39267799e4af457764b2b73a0a  17_PNA15_10pM.fq.gz
-785bdd421c3c753efb5d97ccec83832c  18_PNA14_5000pM.fq.gz
 5a848d75e634ea0703e8641e86f836cb  73_RNA_input_control.fq.gz
 f93aa0d27c665fd6d0398935c8b4a0d5  74_PNA15_16nM.fq.gz
 c2cf01054ee2abbbfbdc619f8112b7c1  75_PNA15_63nM.fq.gz

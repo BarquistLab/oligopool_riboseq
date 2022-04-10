@@ -1,3 +1,4 @@
+import subprocess
 
 from BCBio import GFF
 from make_oligos import chromosomes_parsed, get_seqdict
@@ -5,6 +6,7 @@ from Bio.SeqFeature import FeatureLocation
 from Bio import SeqIO
 import pandas as pd
 import re
+from ushuffle import shuffle, Shuffler
 
 
 def import_wiggles(wig_file_in_paths):
@@ -47,6 +49,7 @@ df_invivo_R[1] = df_invivo_R["count"] * (-1)
 out_df = pd.DataFrame(columns=["locus_tag", "gene", "start_position", "start_codon", "strand", "peak_R1", "peak_R2",
                                "peak_R3", "peak_R4", "peak_R5", "peak_found_Hör", "peak_meydan", "peak_found_meydan"])
 
+
 # go through all oligos and check for annotated TIS
 for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
     if oligo.id.startswith("b"):
@@ -59,6 +62,22 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
 
         newline = [locus_tag, gene, start_pos, str(start_codon), strand, 0, 0, 0, 0, 0, False, 0, False]
         dfs = [data_frame[data_frame["gene"] == id] for data_frame in wig_oligos]
+
+        # calculate sd-binding regions:
+        region_sd = oligo.seq[58 - 25: 58]
+
+        print(region_sd)
+        # calculate sd-binding regions:
+        with open("../data/sd_search/freescan_files_annot_ss/seq" + "_" + locus_tag + ".fasta",
+                  "w") as fasta:
+            fasta.write(">Seq_SD\n")
+            fasta.write(region_sd.__str__())
+        sd_bits = str.encode(region_sd.__str__())
+        for i in range(10):
+            with open("../data/sd_search/freescan_shuffled_sequences_annot/seq" + "_" + locus_tag + "_" + str(i) + ".fasta",
+                      "w") as fasta:
+                fasta.write(">Seq_SD\n")
+                fasta.write(shuffle(sd_bits, 2).decode("utf-8"))
 
         # check for known start sites (at position 15+-3):
         df_kss = [df[(df["count"] > threshold) & df.position.isin(list(range(70, 77)))] for df in dfs]
@@ -121,6 +140,8 @@ sc_re = r"(ATG)|(GTG)|(TTG)|(CTG)|(ATC)|(ATT)"
 out_df_ss = pd.DataFrame(columns=["locus_tag", "gene", "start_position", "start_codon", "pos_from_annot_start",
                                   "in_frame", "strand", "peak", "nr_peaks_Hör", "peak_found_Hör", "peak_meydan",
                                   "peak_found_meydan"])
+# initiate DF for SD search:
+sd_df = pd.DataFrame(columns=["location", "gene", "Gibbs"])
 
 # screen for TIS
 for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
@@ -131,6 +152,7 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
         locus_tag = id.split("_")[0]
         gene = id.split("_")[1]
         start_pos = int(id.split("_")[2])
+
 
         dfs = [data_frame[data_frame["gene"] == id] for data_frame in wig_oligos]
         # get total read counts for relative density:
@@ -175,9 +197,25 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
             for peak in range(len(df_ss[df])):
                 peakpos = df_ss[df].loc[peak]["position"]
                 region_sc = oligo.seq[peakpos + 58 - 18:peakpos + 58 - 11]
-                print(region_sc, gene)
+
                 start_c = re.search(sc_re, str(region_sc))[0]
                 pos_from_peak = re.search(sc_re, str(region_sc)).start() + peakpos - 18
+
+                startsite_pos = peakpos + 58 - 18 + re.search(sc_re, str(region_sc)).start()
+                region_sd = oligo.seq[startsite_pos-25: startsite_pos]
+
+                print(region_sc, gene, peakpos, pos_from_peak, startsite_pos, region_sd)
+                # calculate sd-binding regions:
+                with open("../data/sd_search/freescan_files_alt_ss/seq" + "_" + locus_tag + "_" + str(peakpos) + ".fasta", "w") as fasta:
+                    fasta.write(">Seq_SD\n")
+                    fasta.write(region_sd.__str__())
+                sd_bits = str.encode(region_sd.__str__())
+                for i in range(10):
+                    with open("../data/sd_search/freescan_shuffled_alt/seq" + "_" + locus_tag + "_" + str(
+                            i) + ".fasta",
+                              "w") as fasta:
+                        fasta.write(">Seq_SD\n")
+                        fasta.write(shuffle(sd_bits, 2).decode("utf-8"))
 
                 newline = [locus_tag, gene, start_pos, start_c, 0, "in_frame", strand, 0, 1, False, 0, False]
                 if strand == "1":

@@ -60,7 +60,7 @@ df_rnatypes <- df_rnatypes[order(df_rnatypes$sample),]
 rownames(df_rnatypes) <- c()
 df_rnatypes <- df_rnatypes %>% 
   group_by(sample) %>%  mutate(norm_fac = sum(counts)/1000000) %>% mutate(cpm_counts=counts/norm_fac) 
-write.csv(df_rnatypes, "../analysis/rna_types/final_pool_rna_types.csv")
+  write.csv(df_rnatypes, "../analysis/rna_types/final_pool_rna_types.csv")
 ```
 
 
@@ -154,6 +154,84 @@ colnames(gwc) <- gsub("500pM", "0.5nM", colnames(gwc))
 colnames(gwc) <- gsub("5000pM", "5nM", colnames(gwc))
 colnames(gwc)
 ```
+## check the RNA input, show which genes were inside the pool:
+```{r}
+RNA_input <-  GenewiseCounts[,grepl("RNA_input", colnames(GenewiseCounts))]
+names(RNA_input) <- GenewiseCounts$Chr
+theme<-theme(panel.background = element_blank(),panel.border=element_rect(fill=NA),
+             #panel.grid.major = element_blank(),panel.grid.minor = element_blank(),
+             strip.background=element_blank(),
+             axis.text=element_text(colour="black", size=12),axis.ticks=element_line(colour="black"),
+             axis.title=element_text(colour="black", size=13),
+             plot.margin=unit(c(1,1,1,1),"line"),legend.position = "none")
+
+
+p_mrnainput <- as.data.frame(RNA_input) %>% ggplot(aes(log10(RNA_input+1))) + geom_histogram() +
+  xlab("mRNA read counts (in log10)")+
+  theme_minimal() + theme 
+
+svg("../analysis/rna_input_hist.svg")
+print(p_mrnainput)
+dev.off()
+
+write.csv(as.data.frame(RNA_input), "../analysis/rna_input_raw.csv")
+```
+
+get venn diagram:
+```{r}
+input_mrna <- gsub("^([^_]+).*", "\\1", names((RNA_input[(RNA_input/(sum(RNA_input)/1000000))>5])))
+ctrl_genes <- gwc[,grepl("no_PNA", colnames(gwc))]
+cutoff <- 5
+keep <- rowSums(cpm(ctrl_genes) > cutoff) >= 2
+table(keep)
+detected_riboseqgenes <- gsub("^([^_]+).*", "\\1",names(keep[keep==TRUE]))
+annot_sites <- read.csv("../analysis/annotated_sites.csv")
+novel_sites <- read.csv("../analysis/alt_tis_w_threshold.csv")
+
+annot_sites$unique_lt <- paste0(annot_sites$locus_tag,"_", annot_sites$start_position)
+novel_sites$unique_lt <- paste0(novel_sites$locus_tag,"_", novel_sites$start_position)
+
+head(annot_sites)
+head(novel_sites)
+
+detected_types <- data.frame(unique_lt = annot_sites$unique_lt, 
+                             annot_site_detected = as.logical(toupper(annot_sites$peak_found_Hör)),
+                             alt_site_detected = annot_sites$unique_lt %in% novel_sites$unique_lt[novel_sites$peak_found_Hör=="True"],
+                             riboseq_reads_detected = annot_sites$locus_tag %in% detected_riboseqgenes)
+library(venneuler)
+# only TIS confirmed, no alternative TIS identified:
+as_noalt <- length(detected_types$unique_lt[detected_types$annot_site_detected & !detected_types$alt_site_detected])
+# only alt TIS confirmed, known TIS identified:
+noas_alt <- length(detected_types$unique_lt[!detected_types$annot_site_detected & detected_types$alt_site_detected])
+# neither
+nono <- length(detected_types$unique_lt[!detected_types$annot_site_detected & !detected_types$alt_site_detected &
+                                          detected_types$riboseq_reads_detected])
+# both
+yesyes <- length(detected_types$unique_lt[detected_types$annot_site_detected & detected_types$alt_site_detected])
+plot(venneuler(c("annot_TIS"=as_noalt, "alt_TIS"=noas_alt, `alt_TIS&annot_TIS`=yesyes)))
+library(eulerr)
+# euler annotated vs alternative ss
+p1 <- plot(euler(c("annot. TIS"=as_noalt, "alt. TIS"=noas_alt, "alt. TIS&annot. TIS"=yesyes)), 
+      quantities = c(as.character(as_noalt), as.character(noas_alt),as.character(yesyes)))
+# euler annotated vs alternative ss + tot_detected transcripts
+p2 <- plot(euler(c(">tresh."=nono, ">tresh.&annot. TIS"=as_noalt, ">tresh.&alt. TIS"=noas_alt, 
+             ">tresh.&alt. TIS&annot. TIS"=yesyes)), 
+     quantities = c(as.character(nono), "B","C",as.character(as_noalt),
+                    as.character(noas_alt), "F", as.character(yesyes))
+     )
+
+write.csv(detected_types, "../analysis/analysis_02_2022/table_detected_genes.csv")
+svg("../analysis/analysis_02_2022/eulerplot1.svg")
+p1
+dev.off()
+svg("../analysis/analysis_02_2022/eulerplot2.svg")
+p2
+dev.off()
+```
+
+
+
+
 ## edgeR normal DE analysis:
 
 ```{r}
@@ -179,6 +257,38 @@ cutoff <- 10/L
 keep <- rowSums(cpm(y) > cutoff) >= 3
 table(keep)
 ```
+
+Make a plot/table showing the read depth of libraries:
+```{r}
+y$counts %>% as_tibble() %>% pivot_longer(cols = everything())
+g_depths <- pivot_longer(as.data.frame(y$counts), cols = everything()) %>% 
+  mutate(condition=gsub("^\\d+_", "", name), concentration=gsub("^.+_(.+)nM", "\\1", condition)) %>%
+  mutate(concentration= as.double(gsub("no_PNA", "0", concentration))) %>%
+  mutate(condition = gsub("PNA14_", "scrambled PNA \n", condition)) %>%
+  mutate(condition = gsub("PNA15_", "acpP PNA \n", condition)) %>%
+  mutate(condition = gsub("no_PNA", "no PNA", condition)) %>%
+  mutate(condition =  factor(condition, levels=c("no PNA", "acpP PNA \n0.5nM", "acpP PNA \n5nM", "acpP PNA \n16nM",
+                                                 "acpP PNA \n63nM", "acpP PNA \n250nM", "acpP PNA \n1000nM",
+                                                 "scrambled PNA \n1000nM"))) %>%
+  ggplot(aes(x=condition, y=log10(value+1), group=name, fill=log10(concentration+1))) + geom_violin() + 
+  theme_minimal() + scale_fill_viridis(name = "PNA conc. \n(in log10)") + 
+  ylab("raw counts (in log10)")+ xlab("conditions")  +
+    theme( axis.line = element_line(),
+         axis.title = element_text(size = 14),
+         axis.text = element_text(size = 12),
+         plot.title = element_text(size = 16),
+         legend.title = element_text(size = 11),
+         legend.text = element_text(size = 10),
+         axis.title.x = element_blank())
+
+svg("../analysis/depth_plot.svg", width=13)
+print(g_depths)
+dev.off()
+```
+
+
+
+
 I retain only the unfiltered genes,and delete 150 genes below the threshold:
 ```{r}
 y <- y[keep, , keep.lib.sizes=FALSE]
@@ -198,8 +308,7 @@ I check how the standard TMM normalization of edgeR performs. I start with calcu
 ```{r, error=FALSE}
 y <- calcNormFactors(y)
 y <- estimateDisp(y, design, robust = T)
-corrplot::corrplot(cor(cpm(y)))
-cont_reads_cpm <- cpm(y)[,grepl("no_PNA", colnames(cpm(y)))]
+cont_reads_cpm <- cpm(y, log = TRUE, prior.count = 2)[,grepl("no_PNA", colnames(cpm(y)))]
 colnames(cont_reads_cpm) <- c("Control_R1", "Control_R2", "Control_R3", "Control_R4", "Control_R5")
 
 
@@ -212,7 +321,13 @@ col_fun = colorRampPalette(rep(rev(viridis_pal()(200)), 2))
 corrplot(ctrl_cor, col=col_fun(200), cl.lim = c(0, 1))
 write_csv(data.frame(ctrl_cor), "../analysis/correlations_controls.csv")
 write.csv(data.frame(ctrl_cor), "../analysis/correlations_controls.csv")
-pairs(log(cont_reads_cpm))
+
+
+write.csv(data.frame(cont_reads_cpm), "../analysis/cpm_counts_logtransformed.csv")
+cpmtranscounts <- cpm(y)[,grepl("no_PNA", colnames(cpm(y)))]
+colnames(cpmtranscounts) <- c("Control_R1", "Control_R2", "Control_R3", "Control_R4", "Control_R5")
+write.csv(cpmtranscounts, "../analysis/cpm_counts.csv")
+
 ```
 
 
@@ -888,13 +1003,6 @@ cor_scatter_hor <- meng_etal_ctrl %>% filter(found_hör) %>%
   geom_point() + geom_smooth(method=lm) +  
   theme_classic()
 ```
-
-Plot Lars suggested:
-```{r}
-meng_etal_ctrl %>% 
-  
-```
-
 
 
 

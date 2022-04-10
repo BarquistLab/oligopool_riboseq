@@ -1,0 +1,200 @@
+---
+title: "gibbs_energy"
+author: "Jakob Jung"
+date: "4/10/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Add plot for gibbs energy:
+```{r}
+alt_gtable <- read.delim("../data/sd_search/freescan_files_alt_ss/table_gibbs.tab")[-1]
+alt_gtable <- head(alt_gtable, -1)
+alt_gtable$position <- -25:-7
+alt_gtable_tidy <- alt_gtable %>% pivot_longer(cols=starts_with("seq"))
+alt_gtable_tidy$TIS_type <- "alternative"
+
+
+annot_gtable <- read.delim("../data/sd_search/freescan_files_annot_ss/table_gibbs.tab")[-1]
+annot_gtable <- head(annot_gtable, -1)
+annot_gtable$position <- -25:-7
+annot_gtable_tidy <- annot_gtable %>% pivot_longer(cols=starts_with("seq"))
+annot_gtable_tidy$TIS_type <- "annotated"
+
+gtables <- rbind(annot_gtable_tidy, alt_gtable_tidy)
+
+
+gtables %>% ggplot(aes(x=position, y=-value, colour=TIS_type)) + geom_point()
+
+gtables %>% group_by(name, TIS_type) %>% summarize(max_DG = min(value)) %>% 
+  ggplot(aes(x=max_DG, colour=TIS_type)) + geom_histogram(bins = 50, alpha=0.2, position="identity")
+
+gtables %>% group_by(name, TIS_type) %>% summarize(max_DG = min(value)) %>% 
+  ggplot(aes(x=max_DG, colour=TIS_type)) + geom_density()
+
+gtables %>% group_by(name, TIS_type) %>% summarize(max_DG = min(value)) %>% 
+  ggplot(aes(x=TIS_type, y=max_DG, colour=TIS_type)) + geom_violin()
+```
+
+Add plot for gibbs energy:
+```{r}
+library(MetBrewer)
+library(tidyverse)
+alt_gtable <- read.delim("../data/sd_search/freescan_files_alt_ss/table_gibbs.tab")[-1]
+alt_gtable <- head(alt_gtable, -1)
+alt_gtable$position <- -25:-13
+alt_gtable_tidy <- alt_gtable %>% pivot_longer(cols=starts_with("seq"))
+alt_gtable_tidy$TIS_type <- "alternative"
+
+
+annot_gtable <- read.delim("../data/sd_search/freescan_files_annot_ss/table_gibbs.tab")[-1]
+annot_gtable <- head(annot_gtable, -1)
+annot_gtable$position <- -25:-13
+annot_gtable_tidy <- annot_gtable %>% pivot_longer(cols=starts_with("seq"))
+annot_gtable_tidy$TIS_type <- "annotated"
+
+
+annot_shuffle <- read.delim("../data/sd_search/freescan_shuffled_sequences_annot/table_gibbs.tab")[-1]
+annot_shuffle <- head(annot_shuffle, -1)
+annot_shuffle$position <- -25:-13
+annot_shuffle_tidy <- annot_shuffle %>% pivot_longer(cols=starts_with("seq"))
+annot_shuffle_tidy$TIS_type <- "shuffled annotated"
+
+alt_shuffle <- read.delim("../data/sd_search/freescan_shuffled_alt/table_gibbs.tab")[-1]
+alt_shuffle <- head(alt_shuffle, -1)
+alt_shuffle$position <- -25:-13
+alt_shuffle_tidy <- alt_shuffle %>% pivot_longer(cols=starts_with("seq"))
+alt_shuffle_tidy$TIS_type <- "shuffled alternative"
+
+gtables <- rbind(annot_gtable_tidy, alt_gtable_tidy, annot_shuffle_tidy,alt_shuffle_tidy)
+
+
+
+
+gtables %>% ggplot(aes(x=position, y=-value, colour=TIS_type)) + geom_point()
+
+gtables %>% dplyr::group_by(name, TIS_type) %>% dplyr::summarize(max_DG = min(value)) %>% 
+  ggplot(aes(x=max_DG, colour=TIS_type)) + geom_histogram(bins = 50, alpha=0.2, position="identity")
+
+gtables %>% dplyr::group_by(name, TIS_type) %>% dplyr::summarize(max_DG = min(value)) %>% 
+  ggplot(aes(x=max_DG, colour=TIS_type)) + geom_density()
+
+gtables %>% dplyr::group_by(name, TIS_type) %>% dplyr::summarize(min_DG = min(value)) %>% 
+  ggplot(aes(x=TIS_type, y=min_DG, fill=TIS_type)) + geom_violin() + theme_minimal()+
+  scale_fill_manual(values=met.brewer("Kandinsky"))       # scale_fill_brewer(palette = "PuOr")
+```
+Check ones only found in meydan:
+```{r}
+alt_TIS <- read_delim("../analysis/alt_tis_w_threshold.csv", delim = ",")
+min_FE <- gtables %>% dplyr::group_by(name, TIS_type) %>% dplyr::summarize(min_DG = min(value))
+meydan_found <- alt_TIS %>% filter(peak_found_meydan & peak_found_Hör) %>% select(gene) %>% unlist
+min_FE$gene <- gsub(".*_([^_]+)_.*", "\\1", min_FE$name)
+min_FE$meydan <- min_FE$gene %in% meydan_found
+
+min_FE %>%  ggplot(aes(x=TIS_type, y=min_DG, fill=TIS_type)) + geom_violin() + theme_minimal()+
+  scale_fill_manual(values=met.brewer("Kandinsky"))
+
+min_FE$TIS_type[min_FE$meydan] <- paste0(min_FE$TIS_type[min_FE$meydan],"\nmeydan" )
+
+g <- min_FE %>% 
+  ggplot(aes(x=TIS_type, y=min_DG, fill=TIS_type)) + geom_violin() + theme_minimal()+
+  scale_fill_manual(values=met.brewer("Johnson"))       # scale_fill_brewer(palette = "PuOr")
+
+svg("../data/sd_search/mfe_check.svg")
+print(g)
+dev.off()
+
+png("../data/sd_search/mfe_check.png", width = 500, height = 500)
+print(g)
+dev.off()
+
+print(g)
+
+write_csv(min_FE[,1:4], "../data/sd_search/mfe_check.csv")
+```
+
+```{r}
+notannot_alt <- gsub("_.*", "", detected_types$unique_lt[!detected_types$annot_site_detected & detected_types$alt_site_detected])
+annot_noalt <- gsub("_.*", "",detected_types$unique_lt[detected_types$annot_site_detected & !detected_types$alt_site_detected])
+noalt_noannot <- gsub("_.*", "", detected_types$unique_lt[!detected_types$annot_site_detected & !detected_types$alt_site_detected &                                               detected_types$riboseq_reads_detected])
+annot_and_alt <- gsub("_.*", "",detected_types$unique_lt[detected_types$annot_site_detected & detected_types$alt_site_detected &                                               detected_types$riboseq_reads_detected])
+all_detected <- gsub("_.*", "",detected_types$unique_lt[detected_types$riboseq_reads_detected])
+
+min_FE$locus_tag <- gsub("seq_([^_]+).*", "\\1", min_FE$name)
+
+min_FE$detected <- min_FE$locus_tag %in% all_detected
+
+ann_TIS <- read_delim("../analysis/annotated_sites.csv", delim = ",")
+genes_wo_annot <- ann_TIS$locus_tag[!ann_TIS$peak_found_Hör & !ann_TIS$peak_found_meydan]
+
+min_FE$annot_found <-   ! min_FE$locus_tag %in% genes_wo_annot
+
+min_FE$
+
+min_FE$new_TIS_type <- "Unknown"
+min_FE$new_TIS_type[grepl("annotated", min_FE$TIS_type) & min_FE$locus_tag %in% c(annot_and_alt, annot_noalt)] <- "annotated + recovered in data"  
+min_FE$new_TIS_type[grepl("annotated", min_FE$TIS_type) & !min_FE$locus_tag %in% c(annot_and_alt, annot_noalt)] <- "annotated but not recovered in data" 
+min_FE$new_TIS_type[grepl("alternative", min_FE$TIS_type) & min_FE$locus_tag %in% notannot_alt] <- "alternative but no annotated found"
+min_FE$new_TIS_type[grepl("alternative", min_FE$TIS_type) & min_FE$locus_tag %in% annot_and_alt] <- "alternative + annotated found"
+
+
+min_FE %>%  filter(TIS_type=="annotated") %>%
+  ggplot(aes(x=annot_found, y=min_DG, fill=annot_found)) + geom_violin() + theme_minimal()+
+  scale_fill_manual(values=met.brewer("Kandinsky"))
+
+g_standard <- min_FE %>% filter(! grepl("shuffled", TIS_type)) %>% group_by(locus_tag, TIS_type) %>% slice(which.min(min_DG))%>%
+  filter(! new_TIS_type == "Unknown") %>%
+  ggplot(aes(x=new_TIS_type, y=min_DG, fill=new_TIS_type)) + geom_violin() + theme_minimal()+
+  #scale_fill_manual(values=met.brewer("Kandinsky"))
+  scale_fill_brewer(palette = "Greys") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size=11),
+                                               axis.text.y = element_text( size=11),
+                                               axis.title = element_text( size=12) )
+
+g_shuffled <-min_FE %>% filter(grepl("shuffled", TIS_type)) %>%
+  filter(! new_TIS_type == "Unknown")%>% 
+  ggplot(aes(x=new_TIS_type, y=min_DG, fill=new_TIS_type)) + geom_violin() + theme_minimal()+
+  #scale_fill_manual(values=met.brewer("Greek", type="discrete"))
+  scale_fill_brewer(palette = "Greys") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size=11),
+                                               axis.text.y = element_text( size=11),
+                                               axis.title = element_text( size=12) )
+
+svg("../data/sd_search/gibbs_check.svg", width = 15, height = 10)
+ggarrange(g_standard, g_shuffled, labels = c("Delta G TIRs", "Delta G shuffled TIRs"),
+          common.legend = TRUE, ncol = 2)
+dev.off()
+
+svg("../data/sd_search/gibbs_check_standard.svg")
+print(g_standard)
+dev.off()
+svg("../data/sd_search/gibbs_check_shuffled.svg")
+print(g_shuffled)
+dev.off()
+
+write_csv(min_FE[,c(1,2,3,6,9)], "../data/sd_search/gibbs_check.csv")
+```
+
+
+check which ones do not have annotatted but only alternative:
+```{r}
+ann_TIS <- read_delim("../analysis/annotated_sites.csv", delim = ",")
+genes_wo_annot <- ann_TIS$gene[!ann_TIS$peak_found_Hör & !ann_TIS$peak_found_meydan]
+
+
+gtables$gene <- gsub(".*_([^_]+)_.*", "\\1", gtables$name)
+
+gtables$no_annot_peak_found <- gtables$gene %in% genes_wo_annot
+
+gtables %>% dplyr::group_by(name, no_annot_peak_found, TIS_type) %>% dplyr::summarize(min_DG = min(value)) %>% filter(TIS_type=="alternative") %>%
+  ggplot(aes(x=no_annot_peak_found, y=min_DG, fill=no_annot_peak_found)) + geom_violin() + theme_minimal()+
+  scale_fill_manual(values=met.brewer("Kandinsky"))
+```
+
+
+```{r}
+min_FE_pos <- gtables %>% filter(!grepl("*_\\d", name)) %>% group_by(name, TIS_type) %>% 
+  summarise(min_DG = min(value)) 
+
+```
