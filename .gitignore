@@ -8,3 +8,4 @@
 *.fq.gz
 *.fq
 *.tar
+data/sd_search/freescan_files_annot_ss/*
