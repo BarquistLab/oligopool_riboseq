@@ -1,5 +1,3 @@
-##gff-version 3
-NC_000913.3	RefSeq	region	1	4641652	.	+	.	ID=id0;Dbxref=taxon:511145;Is_circular=true;Name=ANONYMOUS;gbkey=Src;genome=chromosome;mol_type=genomic DNA;strain=K-12;substrain=MG1655
 NC_000913.3	RefSeq	gene	190	255	.	+	.	ID=gene0;Dbxref=EcoGene:EG11277,GeneID:944742;Name=thrL;gbkey=Gene;gene=thrL;gene_biotype=protein_coding;gene_synonym=ECK0001,JW4367;locus_tag=b0001
 NC_000913.3	RefSeq	CDS	190	255	.	+	0	ID=cds0;Parent=gene0;Dbxref=ASAP:ABE-0000006,UniProtKB/Swiss-Prot:P0AD86,Genbank:NP_414542.1,EcoGene:EG11277,GeneID:944742;Name=NP_414542.1;Ontology_term=GO:0009088;gbkey=CDS;gene=thrL;go_process=threonine biosynthetic process|0009088||;product=thr operon leader peptide;protein_id=NP_414542.1;transl_table=11
 NC_000913.3	RefSeq	gene	337	2799	.	+	.	ID=gene1;Dbxref=EcoGene:EG10998,GeneID:945803;Name=thrA;gbkey=Gene;gene=thrA;gene_biotype=protein_coding;gene_synonym=ECK0002,Hs,JW0001,thrA1,thrA2,thrD;locus_tag=b0002

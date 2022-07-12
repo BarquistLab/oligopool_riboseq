@@ -1,0 +1,270 @@
+---
+title: "Heatmap motifs"
+author: "Jakob Jung"
+date: "6/3/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 
+
+```{r}
+library(ComplexHeatmap)
+library(viridis)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(MetBrewer)
+library(ggbeeswarm)
+library("xlsx")
+```
+
+Import datasets:
+```{r}
+annot_df <- read_csv("../analysis/annotated_sites.csv")[-1]
+alt_df <- read_csv("../analysis/alt_tis_w_threshold.csv")[-1]
+
+annot_df$unique_lt <- paste0(annot_df$locus_tag,"_", annot_df$start_position)
+alt_df$unique_lt <- paste0(alt_df$locus_tag,"_", alt_df$start_position)
+
+#detected_types <- data.frame(unique_lt = annot_df$unique_lt, 
+#                             annot_site_detected = as.logical(toupper(annot_df$peak_found_Hör)),
+#                             alt_site_detected = annot_df$unique_lt %in% alt_df$unique_lt[alt_df$peak_found_Hör], alt_site_detected_meydan = annot_df$unique_lt %in% alt_df$unique_lt[alt_df$peak_found_meydan], 
+#                             riboseq_reads_detected = annot_df$locus_tag %in% detected_riboseqgenes)
+#noas_alt <- gsub("(.*)_.*","\\1",detected_types$unique_lt[!detected_types$annot_site_detected & detected_types$alt_site_detected])
+
+```
+
+
+Plot MFE and see whether high binding energy means less translation:
+```{r}
+df_annot <- annot_df %>% select(peak_found_Hör, MFE) %>% mutate(peak_type = ifelse(peak_found_Hör, "annotated peak", "annotated no peak")) %>% select(c(2,3))
+
+df_nonannot <- alt_df %>% select(peak_found_Hör, MFE) %>% filter(peak_found_Hör) %>% mutate(peak_type = "novel TIS") %>% select(c(2,3))
+
+df_random <- read_csv("../analysis/revision_06_2022/random_seqs_MFE.csv")
+
+df_barplots <- bind_rows(df_annot, df_nonannot, df_random)
+df_barplots$peak_type <-  factor(df_barplots$peak_type, 
+                                 levels=c("annotated peak", "annotated no peak", 
+                                          "novel TIS", "random sequence"))
+
+df_barplots$peak_type_2 <-  gsub("annotated.*", "annotated", df_barplots$peak_type )
+
+g <- annot_df %>% ggplot(aes(x = -MFE, fill = peak_found_Hör)) + geom_density(alpha=0.5) + theme_bw() +
+  scale_fill_manual(values=met.brewer("Renoir", 2)) + xlab("negative MFE") + 
+  theme(legend.position="top",
+        axis.title = element_text(size=15),
+        axis.text = element_text(size=13),
+        legend.title  = element_text(size=13),
+        legend.text = element_text(size=13)) + labs(fill = "peak found (Hör et al. 2022)")
+g
+svg("../analysis/revision_06_2022/annot_sites_MFE.svg")
+print(g)
+dev.off()
+
+
+g2 <- df_barplots %>% ggplot(aes(y = MFE, x = peak_type_2, color=peak_type_2)) +
+  geom_jitter(position=position_jitter(0.2), alpha=0.25,  size=1) +
+  geom_boxplot(alpha=0.7, outlier.shape = NA, width=0.4, color="black") + 
+  #geom_violin(alpha=0.7, draw_quantiles = c(0.5), width=0.2) +
+  theme_classic() + ylim(c(-20,0))+
+  scale_color_manual(values=met.brewer("Demuth", 4)) + xlab("peak type") + 
+  labs(y = "MFE (in delta G) at RBS") +
+  theme(legend.position="none",
+        axis.title = element_text(size=15),
+        axis.text = element_text(size=13)) 
+g2
+svg("../analysis/revision_06_2022/MFE_barplot.svg")
+print(g2)
+dev.off()
+
+wilcox.test(df_barplots$MFE[df_barplots$peak_type_2=="annotated"] , df_barplots$MFE[df_barplots$peak_type_2=="novel TIS"])
+
+wilcox.test(df_barplots$MFE[df_barplots$peak_type_2=="annotated"] , df_barplots$MFE[df_barplots$peak_type_2=="random sequence"])
+
+wilcox.test(df_barplots$MFE[df_barplots$peak_type_2=="novel TIS"] , df_barplots$MFE[df_barplots$peak_type_2=="random sequence"])
+
+write.csv(df_barplots, "../analysis/revision_06_2022/MFE_barplot.csv")
+```
+
+Other visualization:
+```{r}
+found <- sum(annot_df[annot_df$MFE < (-5),"peak_found_Hör"]) / dim(annot_df[annot_df$"peak_found_Hör",])[1]
+not_found <- sum(!annot_df[annot_df$MFE < (-5),"peak_found_Hör"]) / dim(annot_df[!annot_df$"peak_found_Hör",])[1]
+df <- data_frame(peak = c("TRUE", "FALSE"), percentage_genes = c(found, not_found))
+
+
+g <- df %>% ggplot(aes(x=peak, y=percentage_genes, fill=peak)) + geom_bar(stat="identity",  alpha=0.6) + 
+  xlab("peak found (Hör et al. 2022)") + ggtitle("Genes with MFE < -5") +
+  labs(title = ) + scale_fill_manual(values=met.brewer("Renoir", 2))+
+  theme_bw() + theme(legend.position="none",
+                    axis.title = element_text(size=15),
+                    axis.text = element_text(size=13),
+                    plot.title = element_text(size=20, hjust = 0.5))
+g
+svg("../analysis/revision_06_2022/annot_sites_MFE_barplot.svg")
+print(g)
+dev.off()
+```
+
+create df for heatmap in annot.
+```{r}
+motifs <- c("ATG", "GTG", "TTG", "CTG", "ATC", "ATT", "AGG", "GGA", "AAA")
+
+motif_df <- data.frame(sapply(motifs, function(x){
+  rep(0, 35)
+}), row.names = 37:3)
+
+
+# for annnotated genes, which we found peaks for:
+motif_df_annot_found <- motif_df
+
+for (seq in annot_df[annot_df$peak_found_Hör,]$upstream_seq) {
+  for (i in 1:35) {
+    cod <- substr(seq, i, i+2)
+    if (cod %in% motifs) {
+      motif_df_annot_found[i,cod] <- motif_df_annot_found[i,cod] + 1
+      cod
+    }
+  }
+}
+
+# no peak found
+motif_df_annot_nopeak <- motif_df
+for (seq in annot_df[!annot_df$peak_found_Hör,]$upstream_seq) {
+  for (i in 1:35) {
+    cod <- substr(seq, i, i+2)
+    if (cod %in% motifs) {
+      motif_df_annot_nopeak[i,cod] <- motif_df_annot_nopeak[i,cod] + 1
+      cod
+    }
+  }
+}
+
+# for alt genes, which we found peaks for:
+motif_df_alt_noannot <- motif_df
+
+for (seq in alt_df[alt_df$peak_found_Hör,]$upstream_seq) {
+  for (i in 1:35) {
+    cod <- substr(seq, i, i+2)
+    if (cod %in% motifs) {
+      motif_df_alt_noannot[i,cod] <- motif_df_alt_noannot[i,cod] + 1
+      cod
+    }
+  }
+}
+```
+
+Make heatmaps:
+```{r}
+library(circlize)
+
+H1 <- Heatmap(t(log2(motif_df_annot_found)), cluster_rows = F, cluster_columns = F, col = viridis(100),
+        column_title = "Position upstream of peak",
+        row_split = c(rep("start codons", 6), rep("SD/A-rich motifs", 3)),
+        column_title_side = "bottom",
+        row_title_side = "right", show_heatmap_legend = F,
+        row_title_gp = gpar(fontsize = 18),
+        column_title_gp = gpar(fontsize = 18),
+        column_names_rot = 0, column_names_gp = gpar(fontsize = 5), 
+        width = unit(30, "cm"))
+
+col_fun <- colorRamp2(seq(0, 10, length.out=100), viridis(100))
+H1_leg <- Legend(col_fun = col_fun, title = "log2 frequency", title_position = "leftcenter-rot", 
+                 title_gp = gpar(fontsize = 15), legend_height = unit(5, "cm"), 
+                 legend_width = unit(2, "cm"))
+
+svg("../analysis/revision_06_2022/heatmap_annotated.svg", width = 15)
+draw(H1)
+draw(H1_leg, x=unit(37, "cm"))
+dev.off()
+
+motif_df_annot_found$pos_from_peak <- rownames(motif_df_annot_found)
+write.xlsx(motif_df_annot_found, "../analysis/revision_06_2022/heatmap_data_motifs.xlsx", 
+           sheetName = "annotated_validated", row.names = F)
+
+H2 <- Heatmap(t(log2(motif_df_alt_noannot)), cluster_rows = F, cluster_columns = F, col = viridis(100),
+        column_title = "Position upstream of peak",
+        row_split = c(rep("start codons", 6), rep("SD/A-rich motifs", 3)),
+        column_title_side = "bottom",
+        row_title_side = "right", show_heatmap_legend = F,
+        row_title_gp = gpar(fontsize = 18),
+        column_title_gp = gpar(fontsize = 18),
+        column_names_rot = 0, column_names_gp = gpar(fontsize = 5), 
+        width = unit(30, "cm"))
+
+col_fun <- colorRamp2(seq(0, 8, length.out=100), viridis(100))
+H2_leg <- Legend(col_fun = col_fun, title = "log2 frequency", title_position = "leftcenter-rot", 
+                 title_gp = gpar(fontsize = 15), legend_height = unit(5, "cm"), 
+                 legend_width = unit(2, "cm"))
+
+svg("../analysis/revision_06_2022/heatmap_novel.svg", width = 15)
+draw(H2)
+draw(H2_leg, x=unit(37, "cm"))
+dev.off()
+
+motif_df_alt_noannot$pos_from_peak <- rownames(motif_df_alt_noannot)
+write.xlsx(motif_df_alt_noannot, "../analysis/revision_06_2022/heatmap_data_motifs.xlsx", 
+           sheetName = "novel_TIS", row.names = F, append = T)
+
+H3 <- Heatmap(t(log2(motif_df_annot_nopeak+1)), cluster_rows = F, cluster_columns = F, col = viridis(100),
+        column_title = "Position upstream of peak",
+        row_split = c(rep("start codons", 6), rep("SD/A-rich motifs", 3)),
+        column_title_side = "bottom",
+        row_title_side = "right", show_heatmap_legend = F,
+        row_title_gp = gpar(fontsize = 18),
+        column_title_gp = gpar(fontsize = 18),
+        column_names_rot = 0, column_names_gp = gpar(fontsize = 5), 
+        width = unit(30, "cm"))
+
+col_fun <- colorRamp2(seq(0, 10, length.out=100), viridis(100))
+H3_leg <- Legend(col_fun = col_fun, title = "log2 frequency", title_position = "leftcenter-rot", 
+                 title_gp = gpar(fontsize = 15), legend_height = unit(5, "cm"), 
+                 legend_width = unit(2, "cm"))
+svg("../analysis/revision_06_2022/heatmap_notfound.svg", width = 15)
+draw(H3)
+draw(H3_leg, x=unit(37, "cm"))
+dev.off()
+
+motif_df_annot_nopeak$pos_from_peak <- rownames(motif_df_annot_nopeak)
+write.xlsx(motif_df_annot_nopeak, "../analysis/revision_06_2022/heatmap_data_motifs.xlsx", 
+           sheetName = "annotated_not_validated", row.names = F, append = T)
+```
+
+
+for alt. sites:
+```{r}
+g <- alt_df %>% ggplot(aes(x = -MFE, fill = peak_found_Hör)) + geom_density(alpha=0.5) + theme_bw() +
+  scale_fill_manual(values=met.brewer("Renoir", 2))
+g
+```
+
+
+
+Get matrix for heatmap:
+```{r}
+motif_data_ann <- read.csv("../data/motif_df.tsv", sep = "\t")[-1]
+rownames(motif_data_ann) <- 37:3
+
+motif_data_alt <- read.csv("../data/motif_df_alt.tsv", sep = "\t")[-1]
+rownames(motif_data_alt) <- 37:3
+
+
+Heatmap(t(motif_data_ann), cluster_rows = F, cluster_columns = F, col = viridis(100),
+        column_title = "position upstream of start codon",
+        row_split = c(rep("start codons", 6), rep("SD motifs", 2)),
+         heatmap_legend_param = list(title = "frequency"))
+```
+
+
+```{r}
+Heatmap(t(motif_data_alt), cluster_rows = F, cluster_columns = F, col = viridis(100),
+        column_title = "position upstream of start codon",
+        row_split = c(rep("start codons", 6), rep("SD motifs", 2)),
+         heatmap_legend_param = list(title = "frequency"))
+```
+

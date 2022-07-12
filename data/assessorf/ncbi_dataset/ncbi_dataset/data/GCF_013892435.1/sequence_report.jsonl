@@ -1,0 +1,3 @@
+{"assemblyUnit":"GCF_013892485.1","assignedMoleculeLocationType":"Chromosome","gcCount":"2293807","genbankAccession":"CP057657.1","length":4584354,"refseqAccession":"NZ_CP057657.1","role":"assembled-molecule","sortOrder":1}
+{"assemblyUnit":"GCF_013892485.1","assignedMoleculeLocationType":"Plasmid","chrName":"pRHB19-C05_2","gcCount":"51157","genbankAccession":"CP057658.1","length":110777,"refseqAccession":"NZ_CP057658.1","role":"assembled-molecule","sortOrder":2}
+{"assemblyUnit":"GCF_013892485.1","assignedMoleculeLocationType":"Plasmid","chrName":"pRHB19-C05_3","gcCount":"44948","genbankAccession":"CP057659.1","length":89313,"refseqAccession":"NZ_CP057659.1","role":"assembled-molecule","sortOrder":3}

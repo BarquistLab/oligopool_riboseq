@@ -9,18 +9,40 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(readr)
+library(MetBrewer)
+library(DECIPHER)
+```
+
+
+Check out the annot start sites:
+```{r}
+alt_gtable <- read.csv("../analysis/annot_sd_sites.csv")[-1]
+s1 = sum (alt_gtable$p_value < 0.11) /dim(alt_gtable)[1]
+hist(alt_gtable$p_value, breaks = 1000)
+
+alt_gtable <- read.csv("../analysis/alt_tis_w_threshold_1.csv")[-1]
+s2 = sum (alt_gtable$p_value < 0.11) /dim(alt_gtable)[1]
+hist(alt_gtable$p_value, breaks = 1000)
+```
+
+
 Add plot for gibbs energy:
 ```{r}
 alt_gtable <- read.delim("../data/sd_search/freescan_files_alt_ss/table_gibbs.tab")[-1]
 alt_gtable <- head(alt_gtable, -1)
-alt_gtable$position <- -25:-7
+#alt_gtable$position <- -25:-7
 alt_gtable_tidy <- alt_gtable %>% pivot_longer(cols=starts_with("seq"))
 alt_gtable_tidy$TIS_type <- "alternative"
 
 
 annot_gtable <- read.delim("../data/sd_search/freescan_files_annot_ss/table_gibbs.tab")[-1]
 annot_gtable <- head(annot_gtable, -1)
-annot_gtable$position <- -25:-7
+#annot_gtable$position <- -25:-7
 annot_gtable_tidy <- annot_gtable %>% pivot_longer(cols=starts_with("seq"))
 annot_gtable_tidy$TIS_type <- "annotated"
 
@@ -95,13 +117,13 @@ min_FE$gene <- gsub(".*_([^_]+)_.*", "\\1", min_FE$name)
 min_FE$meydan <- min_FE$gene %in% meydan_found
 
 min_FE %>%  ggplot(aes(x=TIS_type, y=min_DG, fill=TIS_type)) + geom_violin() + theme_minimal()+
-  scale_fill_manual(values=met.brewer("Kandinsky"))
+  scale_fill_manual(values=met.brewer("Hokusai2")[c(1,5)])
 
 min_FE$TIS_type[min_FE$meydan] <- paste0(min_FE$TIS_type[min_FE$meydan],"\nmeydan" )
 
 g <- min_FE %>% 
   ggplot(aes(x=TIS_type, y=min_DG, fill=TIS_type)) + geom_violin() + theme_minimal()+
-  scale_fill_manual(values=met.brewer("Johnson"))       # scale_fill_brewer(palette = "PuOr")
+  scale_fill_manual(values=met.brewer("Hokusai2")[c(1,5)])       # scale_fill_brewer(palette = "PuOr")
 
 svg("../data/sd_search/mfe_check.svg")
 print(g)
@@ -122,6 +144,7 @@ annot_noalt <- gsub("_.*", "",detected_types$unique_lt[detected_types$annot_site
 noalt_noannot <- gsub("_.*", "", detected_types$unique_lt[!detected_types$annot_site_detected & !detected_types$alt_site_detected &                                               detected_types$riboseq_reads_detected])
 annot_and_alt <- gsub("_.*", "",detected_types$unique_lt[detected_types$annot_site_detected & detected_types$alt_site_detected &                                               detected_types$riboseq_reads_detected])
 all_detected <- gsub("_.*", "",detected_types$unique_lt[detected_types$riboseq_reads_detected])
+notannot_alt_meydan <- gsub("_.*", "", detected_types$unique_lt[!detected_types$annot _site_detected & detected_types$alt_site_detected & detected_types$alt_site_detected_meydan])
 
 min_FE$locus_tag <- gsub("seq_([^_]+).*", "\\1", min_FE$name)
 
@@ -198,3 +221,5 @@ min_FE_pos <- gtables %>% filter(!grepl("*_\\d", name)) %>% group_by(name, TIS_t
   summarise(min_DG = min(value)) 
 
 ```
+
+

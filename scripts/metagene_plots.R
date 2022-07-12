@@ -53,6 +53,42 @@ wiggles %>%
   geom_line(size=1.2) + 
   geom_line() + theme_pubr() 
 
+# plot for only not-identified TIS (first need to run heatmap_motifs code):
+library(MetBrewer)
+
+plot_rev <- wiggles %>% mutate(locus_tag = gsub("([^_]+).*", "\\1", gene)) %>% 
+  mutate(peak_found = ifelse(locus_tag %in% annot_df[annot_df$peak_found_Hör,]$locus_tag,
+                             TRUE, FALSE)) %>% 
+  mutate(depth_norm = ifelse(peak_found, depth_norm/sum(depth_norm[peak_found]),
+                             depth_norm/sum(depth_norm[!peak_found]))) %>%
+  group_by(peak_found, distance_to_start) %>%  
+  summarise(reads_norm = sum(depth_norm)) %>%  
+  ggplot(aes(x=distance_to_start, y=reads_norm, group=peak_found, color=peak_found)) + 
+  scale_x_continuous(limits = c(-30, 200), breaks = seq(-30,180, by=15)) +
+  labs(y="relative RFP density",
+       x= "Distance from start codon") +
+  geom_line(size=1.3) + scale_color_manual(values = c( "steelblue","lightgrey"), 
+                                           name="Peak identified (Hör et al. 2022)")+
+  #scale_colour_viridis(discrete = T)+
+  geom_line() + theme_pubr() +
+  theme(legend.position="top",
+        axis.title = element_text(size=15),
+        axis.text = element_text(size=13))
+plot_rev
+svg("Documents/riboseq_experiments/oligopool_02_2021/analysis/revision_06_2022/metagene_plot.svg")
+print(plot_rev)
+dev.off()
+
+depth_df <- wiggles %>% mutate(locus_tag = gsub("([^_]+).*", "\\1", gene)) %>% 
+  mutate(peak_found = ifelse(locus_tag %in% annot_df[annot_df$peak_found_Hör,]$locus_tag,
+                             TRUE, FALSE)) %>% 
+  mutate(depth_norm = ifelse(peak_found, depth_norm/sum(depth_norm[peak_found]),
+                             depth_norm/sum(depth_norm[!peak_found]))) %>%
+  group_by(peak_found, distance_to_start) %>%  
+  summarise(reads_norm = sum(depth_norm)) 
+write.csv(depth_df, 
+           "Documents/riboseq_experiments/oligopool_02_2021/analysis/revision_06_2022/metagene_plot.xlsx")
+
 
 wiggle_paper_F <- read.delim(
   "../jj/Documents/riboseq_experiments/oligopool_02_2021/data/wigglefiles/wiggles-papercomparison_2/GSM3455900_RET_BWK_U00096_3_F_new.wig",

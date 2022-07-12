@@ -5,8 +5,10 @@ from make_oligos import chromosomes_parsed, get_seqdict
 from Bio.SeqFeature import FeatureLocation
 from Bio import SeqIO
 import pandas as pd
+import numpy as np
 import re
 from ushuffle import shuffle, Shuffler
+import random
 
 
 def import_wiggles(wig_file_in_paths):
@@ -47,8 +49,15 @@ df_invivo_R[1] = df_invivo_R["count"] * (-1)
 
 # output dataframeis created, capturing all peaks
 out_df = pd.DataFrame(columns=["locus_tag", "gene", "start_position", "start_codon", "strand", "peak_R1", "peak_R2",
-                               "peak_R3", "peak_R4", "peak_R5", "peak_found_Hör", "peak_meydan", "peak_found_meydan"])
+                               "peak_R3", "peak_R4", "peak_R5", "peak_found_Hör", "peak_meydan", "peak_found_meydan",
+                               "pred_RBS_region", "p_value", "sequence_start", "upstream_seq", "MFE"])
 
+
+gibbs_df = pd.DataFrame(columns=["locus_tag", "gene", "SD_seq", "pos_from_stc", "shuffled", "delta_G", "p_value"])
+
+# add a table showing enriched start codons/sd motifs:
+motif_df = pd.DataFrame(np.zeros((35, 8)), columns=["ATG", "GTG", "TTG", "CTG", "ATC", "ATT", "AGG", "GGA"])
+re_motiv = r"(ATG)|(GTG)|(TTG)|(CTG)|(ATC)|(ATT)|(AGG)|(GGA)"
 
 # go through all oligos and check for annotated TIS
 for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
@@ -60,24 +69,66 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
         gene = id.split("_")[1]
         start_pos = int(id.split("_")[2])
 
-        newline = [locus_tag, gene, start_pos, str(start_codon), strand, 0, 0, 0, 0, 0, False, 0, False]
+        newline = [locus_tag, gene, start_pos, str(start_codon), strand, 0, 0, 0, 0, 0, False, 0, False, False, False,
+                   False, False, False]
         dfs = [data_frame[data_frame["gene"] == id] for data_frame in wig_oligos]
+
 
         # calculate sd-binding regions:
         region_sd = oligo.seq[58 - 25: 58]
 
         print(region_sd)
         # calculate sd-binding regions:
-        with open("../data/sd_search/freescan_files_annot_ss/seq" + "_" + locus_tag + ".fasta",
-                  "w") as fasta:
+        fasta_pathname = "../data/sd_search/freescan_files_annot_ss/seq" + "_" + locus_tag
+        with open(fasta_pathname + ".fasta", "w") as fasta:
             fasta.write(">Seq_SD\n")
             fasta.write(region_sd.__str__())
         sd_bits = str.encode(region_sd.__str__())
-        for i in range(10):
-            with open("../data/sd_search/freescan_shuffled_sequences_annot/seq" + "_" + locus_tag + "_" + str(i) + ".fasta",
-                      "w") as fasta:
+
+        # freescan determine delta gibbs etc:
+        ASD = "auuccuccacuag"
+        output_freescan = subprocess.run(["free_scan", "-e", ASD, fasta_pathname + ".fasta"], capture_output=True).stdout
+        # get list with all free energies:
+        list_values = output_freescan.decode("utf-8").split("\n")
+        list_values = list_values[:-2]
+        list_values = [float(i) for i in list_values]
+        lowest_val = min(list_values)
+        ind_lowest_val = list_values.index(lowest_val)
+        best_binding_region = region_sd[ind_lowest_val:ind_lowest_val + len(ASD)]
+        print(locus_tag, best_binding_region, lowest_val, ind_lowest_val, "original")
+        with open(fasta_pathname + ".fasta", "w") as fasta:
+            fasta.write(">Seq_SD\n")
+            fasta.write(best_binding_region.__str__())
+
+
+        shuffled_gibbs = np.array([])
+        for i in range(5):
+            bits_best_binding = str.encode(best_binding_region.__str__())
+            shuffled = shuffle(bits_best_binding, 2).decode("utf-8")
+            print(gene, shuffled, "shuffled", i)
+            with open(fasta_pathname + ".fasta", "w") as fasta:
                 fasta.write(">Seq_SD\n")
-                fasta.write(shuffle(sd_bits, 2).decode("utf-8"))
+                fasta.write(shuffled + "\n")
+            output_freescan = subprocess.run(["free_scan", "-e", "auuccuccacuag", fasta_pathname + ".fasta"], capture_output=True).stdout  # freescan
+            print(output_freescan)
+            # get list with all free energies:
+            val = float(output_freescan.decode("utf-8")[:-2])
+            newline_gibbs = [locus_tag, gene, shuffled, ind_lowest_val - 13, True, val]
+            # gibbs_df = pd.concat([gibbs_df, pd.DataFrame(columns=gibbs_df.columns, data=[newline_gibbs])])
+            shuffled_gibbs = np.append(shuffled_gibbs, val)
+        # end freescan determine delta gibbs etc:
+
+        less_eq = np.less_equal(shuffled_gibbs, lowest_val)
+        print(lowest_val)
+        pval = sum(less_eq)/len(shuffled_gibbs)
+        print("pvalue for gene", gene, pval)
+
+        newline_gibbs = [locus_tag, gene, best_binding_region.__str__(), ind_lowest_val - 13, False, lowest_val, pval]
+        gibbs_df = pd.concat([gibbs_df, pd.DataFrame(columns=gibbs_df.columns, data=[newline_gibbs])])
+        newline[13] = best_binding_region.__str__()
+        newline[14] = pval
+        newline[15] = region_sd.__str__()
+
 
         # check for known start sites (at position 15+-3):
         df_kss = [df[(df["count"] > threshold) & df.position.isin(list(range(70, 77)))] for df in dfs]
@@ -94,7 +145,7 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
         # check whether there are 2 or more peaks -> validate TIS:
         if rec_peaks > 1:
             newline[10] = True
-            print(peak_int, gene, peak_pos)
+            print(peak_int, gene, peak_pos, locus_tag)
         # check in vivo dataframes to get whether it was also detected in their dataset:
         if strand == "1":
             start_seq = start_pos - 58
@@ -113,19 +164,42 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
         if len(df_invivo_kss) > 0:
             peak_int = df_invivo_kss.loc[df_invivo_kss["count"].idxmax()]["count"]
             peak_pos = df_invivo_kss.loc[df_invivo_kss["count"].idxmax()]["position"]
-            print(peak_int, gene, peak_pos)
             newline[11] = peak_int
             newline[12] = True
 
+        if newline[10]:
+            upstream_seq = oligo.seq[int(peak_pos) + 58 - 37:int(peak_pos) + 58].__str__()
 
+            for i in range(len(upstream_seq)-2):
+                codon = upstream_seq[i:i+3]
+                found_motif = re.search(re_motiv, codon)
+                if found_motif is not None:
+                    fm = found_motif[0]
+                    motif_df.loc[i, fm] = motif_df.loc[i, fm] + 1
+        else:
+            upstream_seq = oligo.seq[58 + 15 - 37: 58+15].__str__()
+        newline[16] = upstream_seq
+        # calculate MFE of upstream_seq:
+        mfe_seq = oligo.seq[58 - 30: 58 + 15].__str__()
+        cmd = " ".join(["echo", "'" + mfe_seq + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
+                        "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
+        ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        MFE = float(ps.communicate()[0].decode()[:-2].strip())
+        newline[17] = MFE
 
 
         out_df = out_df.append(pd.DataFrame(columns=out_df.columns, data=[newline]))
         #out_tsv.write("\t".join(newline)+"\n")
 
+motif_df_normalized = motif_df / motif_df.sum().sum()
+motif_df.to_csv("../data/motif_df.tsv", sep="\t")
+motif_df_normalized.to_csv("../data/motif_df_normalizd.tsv", sep="\t")
+
+
 out_df.to_csv("../analysis/annotated_sites.csv")
 
 print("done with first comp.")
+
 
 # now we want to identify alt. TIS:
 tot_length = len(out_df)
@@ -139,15 +213,19 @@ sc_re = r"(ATG)|(GTG)|(TTG)|(CTG)|(ATC)|(ATT)"
 # initiate DF for identification of novel TIS:
 out_df_ss = pd.DataFrame(columns=["locus_tag", "gene", "start_position", "start_codon", "pos_from_annot_start",
                                   "in_frame", "strand", "peak", "nr_peaks_Hör", "peak_found_Hör", "peak_meydan",
-                                  "peak_found_meydan"])
+                                  "peak_found_meydan", "pred_RBS_region", "p_value", "sequence_start", "upstream_seq",
+                                  "MFE"])
 # initiate DF for SD search:
 sd_df = pd.DataFrame(columns=["location", "gene", "Gibbs"])
+
+
+# add a table showing enriched start codons/sd motifs in alternative TIS:
+motif_df_alt = pd.DataFrame(np.zeros((35, 8)), columns=["ATG", "GTG", "TTG", "CTG", "ATC", "ATT", "AGG", "GGA"])
 
 # screen for TIS
 for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
     if oligo.id.startswith("b"):
         id = oligo.id
-        print(id)
         strand = id.split("_")[3]
         locus_tag = id.split("_")[0]
         gene = id.split("_")[1]
@@ -203,21 +281,73 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
 
                 startsite_pos = peakpos + 58 - 18 + re.search(sc_re, str(region_sc)).start()
                 region_sd = oligo.seq[startsite_pos-25: startsite_pos]
+                sequence_start = oligo.seq[startsite_pos-20: startsite_pos + 10]
+                upstream_seq = oligo.seq[int(peakpos) + 58 - 37:int(peakpos) + 58].__str__()
+                # calculate MFE of upstream_seq:
+                mfe_seq = oligo.seq[int(peakpos) + 58 - 45:int(peakpos) + 58].__str__()
+                cmd = " ".join(["echo", "'" + mfe_seq + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
+                                "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
+                ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                MFE = float(ps.communicate()[0].decode()[:-2].strip())
 
-                print(region_sc, gene, peakpos, pos_from_peak, startsite_pos, region_sd)
+
+
+
+
                 # calculate sd-binding regions:
-                with open("../data/sd_search/freescan_files_alt_ss/seq" + "_" + locus_tag + "_" + str(peakpos) + ".fasta", "w") as fasta:
+                fasta_pathname = "../data/sd_search/freescan_files_alt_ss/seq" + "_" + locus_tag + "_" + str(peakpos)
+                with open(fasta_pathname + ".fasta", "w") as fasta:
                     fasta.write(">Seq_SD\n")
                     fasta.write(region_sd.__str__())
                 sd_bits = str.encode(region_sd.__str__())
-                for i in range(10):
-                    with open("../data/sd_search/freescan_shuffled_alt/seq" + "_" + locus_tag + "_" + str(
-                            i) + ".fasta",
-                              "w") as fasta:
-                        fasta.write(">Seq_SD\n")
-                        fasta.write(shuffle(sd_bits, 2).decode("utf-8"))
+      #          for i in range(10):
+      #              with open("../data/sd_search/freescan_shuffled_alt/seq" + "_" + locus_tag + "_" + str(
+      #                      i) + ".fasta",
+       #                       "w") as fasta:
+       #                 fasta.write(">Seq_SD\n")
+       #                 fasta.write(shuffle(sd_bits, 2).decode("utf-8"))
 
-                newline = [locus_tag, gene, start_pos, start_c, 0, "in_frame", strand, 0, 1, False, 0, False]
+                # freescan determine delta gibbs etc:
+                ASD = "auuccuccacuag"
+                output_freescan = subprocess.run(["free_scan", "-e", ASD, fasta_pathname + ".fasta"],
+                                                 capture_output=True).stdout
+                # get list with all free energies:
+                list_values = output_freescan.decode("utf-8").split("\n")
+                list_values = list_values[:-2]
+                list_values = [float(i) for i in list_values]
+                lowest_val = min(list_values)
+                ind_lowest_val = list_values.index(lowest_val)
+                best_binding_region = region_sd[ind_lowest_val:ind_lowest_val + len(ASD)]
+                print(locus_tag)
+                with open(fasta_pathname + ".fasta", "w") as fasta:
+                    fasta.write(">Seq_SD\n")
+                    fasta.write(best_binding_region.__str__())
+
+                shuffled_gibbs = np.array([])
+                for i in range(10):
+                    bits_best_binding = str.encode(best_binding_region.__str__())
+                    shuffled = shuffle(bits_best_binding, 2).decode("utf-8")
+                    with open(fasta_pathname + ".fasta", "w") as fasta:
+                        fasta.write(">Seq_SD\n")
+                        fasta.write(shuffled + "\n")
+                    output_freescan = subprocess.run(["free_scan", "-e", "auuccuccacuag", fasta_pathname + ".fasta"],
+                                                     capture_output=True).stdout  # freescan
+                    # get list with all free energies:
+                    val = float(output_freescan.decode("utf-8")[:-2])
+                    newline_gibbs = [locus_tag, gene, shuffled, ind_lowest_val - 13, True, val]
+                    # gibbs_df = pd.concat([gibbs_df, pd.DataFrame(columns=gibbs_df.columns, data=[newline_gibbs])])
+                    shuffled_gibbs = np.append(shuffled_gibbs, val)
+                # end freescan determine delta gibbs etc:
+
+                less_eq = np.less_equal(shuffled_gibbs, lowest_val)
+                pval = sum(less_eq) / len(shuffled_gibbs)
+
+                newline_gibbs = [id, gene, best_binding_region.__str__(), ind_lowest_val - 13, False, lowest_val,
+                                 pval]
+                gibbs_df = pd.concat([gibbs_df, pd.DataFrame(columns=gibbs_df.columns, data=[newline_gibbs])])
+
+                newline = [locus_tag, gene, start_pos, start_c, 0, "in_frame", strand, 0, 1, False, 0, False,
+                best_binding_region.__str__(), pval, sequence_start.__str__(), upstream_seq, MFE]
                 if strand == "1":
                     pos_pg = df_ss[df].loc[peak].position + start_pos
                     iv_d = df_invivo_F[df_invivo_F["position"].isin(list(range(pos_pg - 5, pos_pg + 5)))]
@@ -237,6 +367,18 @@ for oligo in SeqIO.parse(in_oligos_fasta, "fasta"):
                 if any(sc in oligo.seq[peak_pos+58:210] for sc in stop_codons):
                     newline[5] = "out_of_frame"
                 out_df_ss = out_df_ss.append(pd.DataFrame(columns=out_df_ss.columns, data=[newline]))
+
+
+                for i in range(len(upstream_seq) - 2):
+                    codon = upstream_seq[i:i + 3]
+                    found_motif = re.search(re_motiv, codon)
+                    if found_motif is not None:
+                        fm = found_motif[0]
+                        motif_df_alt.loc[i, fm] = motif_df_alt.loc[i, fm] + 1
+
+
+motif_df_alt.to_csv("../data/motif_df_alt.tsv", sep="\t")
+
 
 out_df_ss = out_df_ss.sort_values(["locus_tag", "start_position", "pos_from_annot_start"])
 out_df_ss = out_df_ss.reset_index(drop=True)
@@ -264,10 +406,10 @@ while nr < len(reduced_df_ss):
 reduced_df_ss = reduced_df_ss.reset_index(drop=True)
 
 reduced_df_ss.to_csv("../analysis/alt_tis_w_threshold.csv")
-sum(reduced_df_ss["peak_found_Hör"])
+#sum(reduced_df_ss["peak_found_Hör"])
 
 
-meydan_genes = pd.read_csv("../data/wigglefiles/meydan_alt_tis.csv")
+#meydan_genes = pd.read_csv("../data/wigglefiles/meydan_alt_tis.csv")
 
 
 
@@ -306,3 +448,19 @@ with open(in_gff) as in_handle:
 
 
 comparison_start_sites.close()
+
+
+# create random sequences:
+alphabet = ["A", "U", "G", "C"]
+
+with open("../analysis/revision_06_2022/random_seqs_MFE.csv", "w") as file:
+    file.write("MFE,peak_type\n")
+    for i in range(10000):
+        sequence = ''.join(random.choice(alphabet) for i in range(45))
+        cmd = " ".join(["echo", "'" + sequence + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
+                        "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
+        ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        MFE = float(ps.communicate()[0].decode()[:-2].strip())
+        file.write(str(MFE) + ",random sequence" + "\n")
+
+

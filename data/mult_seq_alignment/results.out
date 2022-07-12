@@ -1,0 +1,85 @@
+BLASTN 2.9.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Database: all_seqs.fasta
+           6 sequences; 15,748,219 total letters
+
+
+
+Query= query_b38888
+
+Length=30
+                                                                      Score        E
+Sequences producing significant alignments:                          (Bits)     Value
+
+FQ312003.1 Salmonella enterica subsp. enterica serovar Typhimuriu...  44.6       6e-06
+CP038008.1 Citrobacter rodentium strain DBS100 chromosome, comple...  41.0       7e-05
+NC_016845.1 Klebsiella pneumoniae subsp. pneumoniae HS11286 chrom...  35.6       0.003
+
+
+>FQ312003.1 Salmonella enterica subsp. enterica serovar Typhimurium 
+SL1344 complete genome
+Length=4878012
+
+ Score = 44.6 bits (48),  Expect = 6e-06
+ Identities = 27/29 (93%), Gaps = 0/29 (0%)
+ Strand=Plus/Plus
+
+Query  2        AACAAGAGAGAGTATCGCTATGTATCACC  30
+                ||||||||||||||  |||||||||||||
+Sbjct  4260112  AACAAGAGAGAGTACGGCTATGTATCACC  4260140
+
+
+>CP038008.1 Citrobacter rodentium strain DBS100 chromosome, complete 
+genome
+Length=5346827
+
+ Score = 41.0 bits (44),  Expect = 7e-05
+ Identities = 25/27 (93%), Gaps = 0/27 (0%)
+ Strand=Plus/Minus
+
+Query  2        AACAAGAGAGAGTATCGCTATGTATCA  28
+                ||||||||||||||  |||||||||||
+Sbjct  3290408  AACAAGAGAGAGTACGGCTATGTATCA  3290382
+
+
+>NC_016845.1 Klebsiella pneumoniae subsp. pneumoniae HS11286 chromosome, 
+complete genome
+Length=5333942
+
+ Score = 35.6 bits (38),  Expect = 0.003
+ Identities = 25/29 (86%), Gaps = 0/29 (0%)
+ Strand=Plus/Plus
+
+Query  2      AACAAGAGAGAGTATCGCTATGTATCACC  30
+              ||||| ||||||||   ||||||||||||
+Sbjct  40856  AACAAAAGAGAGTACGACTATGTATCACC  40884
+
+
+
+Lambda      K        H
+   0.634    0.408    0.912 
+
+Gapped
+Lambda      K        H
+   0.625    0.410    0.780 
+
+Effective search space used: 157480990
+
+
+  Database: all_seqs.fasta
+    Posted date:  May 25, 2022  4:20 PM
+  Number of letters in database: 15,748,219
+  Number of sequences in database:  6
+
+
+
+Matrix: blastn matrix 2 -3
+Gap Penalties: Existence: 5, Extension: 2

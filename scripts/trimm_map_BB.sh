@@ -5,10 +5,11 @@ main(){
     # sequences are stored:
     PROJECT=../data
     echo "Start trimming"
-    rename_trim_rna_libs
+    #rename_trim_rna_libs
     echo "Trimming done. Start maopping"
     align_rna_reads_genome
     echo "Finished mapping. Start connecting all tab files"
+    """
     # here I count reads for sRNA and 
     featureCounts -T 5 -t gene,sRNA -g locus_tag \
 		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
@@ -25,7 +26,7 @@ main(){
 		  -a $PROJECT/reference_sequences/oligos_cds_new.gff \
 		  -o $PROJECT/rna_align/counttable_tRNAs_new.txt \
 		  $PROJECT/rna_align/*.bam
-    
+    """
 }
 
 rename_trim_rna_libs(){
@@ -64,10 +65,12 @@ align_rna_reads_genome(){
         #rm $DIR/$NAME.sam
 	#samtools index $DIR/$NAME.bam
 	#bamCoverage -b $DIR/$NAME.bam \
-	#	    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1 --normalizeUsing CPM
-	bamCoverage -b $DIR/$NAME.bam \
-		    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
-		    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
+	    #	    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1 --normalizeUsing CPM
+	~/bin/bbmap/reformat.sh in=$DIR/$NAME.bam out=$DIR/$NAME_filtered.bam
+
+	#bamCoverage -b $DIR/$NAME.bam \
+	#	    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
+	#	    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
     done
 }
 

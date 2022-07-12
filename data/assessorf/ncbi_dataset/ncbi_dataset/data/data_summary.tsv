@@ -1,0 +1,7 @@
+Organism Scientific Name	Organism Common Name	Organism Qualifier	Taxonomy id	Assembly Name	Assembly Accession	Source	Annotation	Level	Contig N50	Size	Submission Date	Gene Count	BioProject	BioSample
+Escherichia coli str. K-12 substr. MG1655		strain: K-12 substr. MG1655	511145	ASM584v2	GCF_000005845.2	RefSeq	Annotation submitted by Univ. Wisconsin	Complete Genome	4641652	4641652	2013-09-26	4639	PRJNA225	SAMN02604091
+Escherichia coli O157:H7 str. Sakai		strain: Sakai substr. RIMD 0509952	386585	ASM886v2	GCF_000008865.2	RefSeq	Annotation submitted by GIRC	Complete Genome	5498578	5594605	2018-06-08	5417	PRJNA226	SAMN01911278
+Escherichia fergusonii		strain: RHB19-C05	564	ASM1389243v1	GCF_013892435.1	RefSeq	NCBI Prokaryotic Genome Annotation Pipeline (PGAP)	Complete Genome	4584354	4784444	2020-07-29	4664	PRJNA605147	SAMN15148162
+Escherichia albertii		strain: Sample 167	208962	ASM1690475v2	GCF_016904755.1	RefSeq	NCBI Prokaryotic Genome Annotation Pipeline (PGAP)	Complete Genome	4535317	4631903	2021-03-10	4474	PRJNA693666	SAMN17525958
+Escherichia whittamii		strain: C2-3	2762229	ASM2028370v1	GCF_020283705.1	RefSeq	NCBI Prokaryotic Genome Annotation Pipeline (PGAP)	Scaffold	361191	4563680	2021-10-05	4356	PRJNA757375	SAMN20959621
+Escherichia marmotae		strain: H1-003-0086-C-F	1499973	H1-003-0086-C-F.v2	GCF_902709585.1	RefSeq	NCBI Prokaryotic Genome Annotation Pipeline (PGAP)	Contig	198771	4584809	2020-07-20	4421	PRJEB35745	SAMEA6378177

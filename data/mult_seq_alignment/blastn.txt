@@ -1,0 +1,232 @@
+BLASTN 2.9.0+
+
+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro A.
+Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and David J.
+Lipman (1997), "Gapped BLAST and PSI-BLAST: a new generation of
+protein database search programs", Nucleic Acids Res. 25:3389-3402.
+
+
+
+Database: all_seqs.fasta
+           11 sequences; 20,390,120 total letters
+
+
+
+Query= query_b38888
+
+Length=30
+                                                                      Score        E
+Sequences producing significant alignments:                          (Bits)     Value
+
+query_b38888                                                          55.4       4e-09
+NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete g...  55.4       4e-09
+query_b38888                                                          55.4       4e-09
+salmonella                                                            44.6       7e-06
+FQ312003.1 Salmonella enterica subsp. enterica serovar Typhimuriu...  44.6       7e-06
+CP038008.1 Citrobacter rodentium strain DBS100 chromosome, comple...  41.0       9e-05
+klebsiella                                                            35.6       0.004
+NC_016845.1 Klebsiella pneumoniae subsp. pneumoniae HS11286 chrom...  35.6       0.004
+
+
+>query_b38888
+Length=30
+
+ Score = 55.4 bits (60),  Expect = 4e-09
+ Identities = 30/30 (100%), Gaps = 0/30 (0%)
+ Strand=Plus/Plus
+
+Query  1   AAACAAGAGAGAGTATCGCTATGTATCACC  30
+           ||||||||||||||||||||||||||||||
+Sbjct  1   AAACAAGAGAGAGTATCGCTATGTATCACC  30
+
+
+>NC_000913.3 Escherichia coli str. K-12 substr. MG1655, complete 
+genome
+Length=4641652
+
+ Score = 55.4 bits (60),  Expect = 4e-09
+ Identities = 30/30 (100%), Gaps = 0/30 (0%)
+ Strand=Plus/Plus
+
+Query  1        AAACAAGAGAGAGTATCGCTATGTATCACC  30
+                ||||||||||||||||||||||||||||||
+Sbjct  4077477  AAACAAGAGAGAGTATCGCTATGTATCACC  4077506
+
+
+ Score = 26.5 bits (28),  Expect = 1.9
+ Identities = 17/19 (89%), Gaps = 0/19 (0%)
+ Strand=Plus/Minus
+
+Query  11       GAGTATCGCTATGTATCAC  29
+                ||||||||||| | |||||
+Sbjct  4402686  GAGTATCGCTACGAATCAC  4402668
+
+
+ Score = 25.6 bits (27),  Expect = 6.6
+ Identities = 15/16 (94%), Gaps = 0/16 (0%)
+ Strand=Plus/Minus
+
+Query  13       GTATCGCTATGTATCA  28
+                |||| |||||||||||
+Sbjct  1398624  GTATGGCTATGTATCA  1398609
+
+
+>query_b38888
+Length=30
+
+ Score = 55.4 bits (60),  Expect = 4e-09
+ Identities = 30/30 (100%), Gaps = 0/30 (0%)
+ Strand=Plus/Plus
+
+Query  1   AAACAAGAGAGAGTATCGCTATGTATCACC  30
+           ||||||||||||||||||||||||||||||
+Sbjct  1   AAACAAGAGAGAGTATCGCTATGTATCACC  30
+
+
+>salmonella
+Length=111
+
+ Score = 44.6 bits (48),  Expect = 7e-06
+ Identities = 27/29 (93%), Gaps = 0/29 (0%)
+ Strand=Plus/Plus
+
+Query  2   AACAAGAGAGAGTATCGCTATGTATCACC  30
+           ||||||||||||||  |||||||||||||
+Sbjct  28  AACAAGAGAGAGTACGGCTATGTATCACC  56
+
+
+>FQ312003.1 Salmonella enterica subsp. enterica serovar Typhimurium 
+SL1344 complete genome
+Length=4878012
+
+ Score = 44.6 bits (48),  Expect = 7e-06
+ Identities = 27/29 (93%), Gaps = 0/29 (0%)
+ Strand=Plus/Plus
+
+Query  2        AACAAGAGAGAGTATCGCTATGTATCACC  30
+                ||||||||||||||  |||||||||||||
+Sbjct  4260112  AACAAGAGAGAGTACGGCTATGTATCACC  4260140
+
+
+ Score = 25.6 bits (27),  Expect = 6.6
+ Identities = 15/16 (94%), Gaps = 0/16 (0%)
+ Strand=Plus/Plus
+
+Query  13       GTATCGCTATGTATCA  28
+                |||| |||||||||||
+Sbjct  1712128  GTATGGCTATGTATCA  1712143
+
+
+ Score = 24.7 bits (26),  Expect = 6.6
+ Identities = 13/13 (100%), Gaps = 0/13 (0%)
+ Strand=Plus/Plus
+
+Query  18      GCTATGTATCACC  30
+               |||||||||||||
+Sbjct  605573  GCTATGTATCACC  605585
+
+
+ Score = 24.7 bits (26),  Expect = 6.6
+ Identities = 13/13 (100%), Gaps = 0/13 (0%)
+ Strand=Plus/Minus
+
+Query  8        AGAGAGTATCGCT  20
+                |||||||||||||
+Sbjct  3882580  AGAGAGTATCGCT  3882568
+
+
+>CP038008.1 Citrobacter rodentium strain DBS100 chromosome, complete 
+genome
+Length=5346827
+
+ Score = 41.0 bits (44),  Expect = 9e-05
+ Identities = 25/27 (93%), Gaps = 0/27 (0%)
+ Strand=Plus/Minus
+
+Query  2        AACAAGAGAGAGTATCGCTATGTATCA  28
+                ||||||||||||||  |||||||||||
+Sbjct  3290408  AACAAGAGAGAGTACGGCTATGTATCA  3290382
+
+
+ Score = 25.6 bits (27),  Expect = 6.6
+ Identities = 15/16 (94%), Gaps = 0/16 (0%)
+ Strand=Plus/Plus
+
+Query  13      GTATCGCTATGTATCA  28
+               |||| |||||||||||
+Sbjct  992589  GTATGGCTATGTATCA  992604
+
+
+ Score = 24.7 bits (26),  Expect = 6.6
+ Identities = 13/13 (100%), Gaps = 0/13 (0%)
+ Strand=Plus/Minus
+
+Query  11       GAGTATCGCTATG  23
+                |||||||||||||
+Sbjct  3393988  GAGTATCGCTATG  3393976
+
+
+ Score = 24.7 bits (26),  Expect = 6.6
+ Identities = 19/23 (83%), Gaps = 0/23 (0%)
+ Strand=Plus/Plus
+
+Query  1        AAACAAGAGAGAGTATCGCTATG  23
+                ||||||||||||  || | ||||
+Sbjct  4203961  AAACAAGAGAGAAAATTGATATG  4203983
+
+
+>klebsiella
+Length=78
+
+ Score = 35.6 bits (38),  Expect = 0.004
+ Identities = 25/29 (86%), Gaps = 0/29 (0%)
+ Strand=Plus/Plus
+
+Query  2   AACAAGAGAGAGTATCGCTATGTATCACC  30
+           ||||| ||||||||   ||||||||||||
+Sbjct  18  AACAAAAGAGAGTACGACTATGTATCACC  46
+
+
+>NC_016845.1 Klebsiella pneumoniae subsp. pneumoniae HS11286 chromosome, 
+complete genome
+Length=5333942
+
+ Score = 35.6 bits (38),  Expect = 0.004
+ Identities = 25/29 (86%), Gaps = 0/29 (0%)
+ Strand=Plus/Plus
+
+Query  2      AACAAGAGAGAGTATCGCTATGTATCACC  30
+              ||||| ||||||||   ||||||||||||
+Sbjct  40856  AACAAAAGAGAGTACGACTATGTATCACC  40884
+
+
+ Score = 25.6 bits (27),  Expect = 6.6
+ Identities = 15/16 (94%), Gaps = 0/16 (0%)
+ Strand=Plus/Plus
+
+Query  6        AGAGAGAGTATCGCTA  21
+                ||| ||||||||||||
+Sbjct  3295885  AGAAAGAGTATCGCTA  3295900
+
+
+
+Lambda      K        H
+   0.634    0.408    0.912 
+
+Gapped
+Lambda      K        H
+   0.625    0.410    0.780 
+
+Effective search space used: 183509001
+
+
+  Database: all_seqs.fasta
+    Posted date:  May 25, 2022  3:05 PM
+  Number of letters in database: 20,390,120
+  Number of sequences in database:  11
+
+
+
+Matrix: blastn matrix 2 -3
+Gap Penalties: Existence: 5, Extension: 2

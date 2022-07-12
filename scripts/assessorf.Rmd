@@ -1,0 +1,91 @@
+---
+title: "AssessORF script"
+author: "Jakob Jung"
+date: "5/19/2022"
+output: html_document
+---
+Here I am trying to get assessORF to run.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+import libraries:
+```{r}
+library(DECIPHER)
+library(AssessORF)
+library(fs)
+```
+
+
+i start by importing the genomes:
+```{r}
+database_file <- "../data/database.db"
+rel_genomes_file <- "../data/assessorf/enterobacteriaceae.csv"
+other_genomes <- dir_ls("../data/assessorf/", glob = "*.fna")
+
+# get genomes:
+ftps <- genomesTable$GenBank.FTP[1:13]
+ftps <- paste(ftps, paste0(basename(ftps), "_genomic.fna.gz"), sep="/")
+ftps <- ftps[(substring(ftps, 1, 6) == "ftp://")]
+
+# This vector will hold which genomes were succesfully added to the database.
+pass <- logical(length(ftps))
+
+dbConn <- dbConnect(SQLite(), ":memory:")
+for (pIdx in seq_along(pass)) {
+  t <- try(Seqs2DB(ftps[pIdx], "FASTA", database_file, as.character(pIdx),
+                   compressRepeats=TRUE, verbose=TRUE), silent=TRUE)
+  if (!(is(t, "try-error"))) {
+    pass[pIdx] <- TRUE
+  }
+}
+
+dna <- SearchDB(database_file)
+
+#BrowseDB(database_file)
+#BrowseSeqs(dna)
+identifiers <- as.character(which(pass))
+
+myMapObj <- MapAssessmentData(database_file, central_ID = identifiers[1],
+                              related_IDs = identifiers[-1],
+                              speciesName = "E. coli",
+                              useProt = FALSE)
+unlink(database_file)
+```
+
+Now run AssessORF:
+```{r}
+myMapObj <- MapAssessmentData(database_file, central_ID = identifiers[1],
+                              related_IDs = identifiers[-1],
+                              speciesName = "E. coli",
+                              useProt = FALSE)
+
+
+
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(rel_genomes_file, "GenBank", database_file, "E_coli_k12_target")
+Seqs2DB(other_genomes[1], "FASTA", database_file, "E_coli_other")
+Seqs2DB(other_genomes[2], "FASTA", database_file, "E_coli_third")
+dna <- SearchDB(database_file)
+
+BrowseDB(database_file)
+BrowseSeqs(dna)
+identifiers <- c("E_coli_k12_target", "E_coli_other", "E_coli_third")
+```
+
+
+
+
+Assessorf:
+```{r}
+mymapob <- MapAssessmentData(database_file, central_ID = identifiers[1], related_IDs = identifiers[-1],
+                             speciesName = "E. coli K12 MG1655", useProt = FALSE)
+
+```
+
+
+
+
+
+
