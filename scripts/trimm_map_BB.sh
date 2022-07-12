@@ -7,7 +7,8 @@ main(){
     echo "Start trimming"
     #rename_trim_rna_libs
     echo "Trimming done. Start maopping"
-    align_rna_reads_genome
+    #align_rna_reads_genome
+    select_size
     echo "Finished mapping. Start connecting all tab files"
     """
     # here I count reads for sRNA and 
@@ -66,12 +67,23 @@ align_rna_reads_genome(){
 	#samtools index $DIR/$NAME.bam
 	#bamCoverage -b $DIR/$NAME.bam \
 	    #	    -o ../analysis/bamcoverage/"$NAME"_normal_new.bw -of bigwig -bs 1 --normalizeUsing CPM
-	~/bin/bbmap/reformat.sh in=$DIR/$NAME.bam out=$DIR/$NAME_filtered.bam
+	
 
 	#bamCoverage -b $DIR/$NAME.bam \
 	#	    -o ../analysis/bamcoverage/"$NAME"_3primeend_new.bw \
 	#	    -of bigwig -bs 1 --Offset -1 --normalizeUsing CPM
     done
+
 }
 
+
+select_size(){
+    DIR=$PROJECT/rna_align
+    for i in $(ls $DIR/*.bam)
+    do
+        NAME=${i##*/}
+        NAME=${NAME%.bam}
+	/bin/bbmap/reformat.sh in=$DIR/$NAME.bam out=$DIR/$NAME_filtered.bam
+    done
+}
 main  
