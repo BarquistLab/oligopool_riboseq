@@ -453,14 +453,43 @@ comparison_start_sites.close()
 # create random sequences:
 alphabet = ["A", "U", "G", "C"]
 
+
 with open("../analysis/revision_06_2022/random_seqs_MFE.csv", "w") as file:
     file.write("MFE,peak_type\n")
-    for i in range(10000):
-        sequence = ''.join(random.choice(alphabet) for i in range(45))
-        cmd = " ".join(["echo", "'" + sequence + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
-                        "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
-        ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        MFE = float(ps.communicate()[0].decode()[:-2].strip())
-        file.write(str(MFE) + ",random sequence" + "\n")
+    with open("../data/shuffled_seqs_esl.txt") as f_shuff:
+        for line in f_shuff:
+            print(line)
+            cmd = " ".join(["echo", "'" + line + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
+                            "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
+            ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            MFE = float(ps.communicate()[0].decode()[:-2].strip())
+            file.write(str(MFE) + ",random sequence" + "\n")
+
+
+    for oligo in SeqIO.parse("../data/reference_sequences/NC_000913.3.fasta", "fasta"):
+        for i in range(10000):
+            s = oligo.seq.__str__()
+            length = len(s)
+            start_rn = random.randint(0, length-46)
+            ranseq = s[start_rn:start_rn + 45]
+
+            bits_ranseq = str.encode(ranseq.__str__())
+            shuffled = shuffle(bits_ranseq, 2).decode("utf-8")
+            print(ranseq, shuffled, "shuffled")
+            cmd = " ".join(["echo", "'" + shuffled + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
+                            "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
+            ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            MFE = float(ps.communicate()[0].decode()[:-2].strip())
+            file.write(str(MFE) + ",random sequence" + "\n")
+
+
+
+    #for i in range(10000):
+    #    sequence = ''.join(random.choice(alphabet) for i in range(45))
+    #    cmd = " ".join(["echo", "'" + sequence + "'", "|", "RNAfold", "|", "grep", "-Ev", "'A|U|G|C'", "|",
+    #                    "sed", "-E", "'s/.* \\(([^\\)]+).*$/\\1/'"])
+    #    ps = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    #    MFE = float(ps.communicate()[0].decode()[:-2].strip())
+    #    file.write(str(MFE) + ",random sequence" + "\n")
 
 

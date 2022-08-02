@@ -83,7 +83,9 @@ select_size(){
     do
         NAME=${i##*/}
         NAME=${NAME%.bam}
-	/bin/bbmap/reformat.sh in=$DIR/$NAME.bam out=$DIR/$NAME_filtered.bam
+	echo "$NAME"
+	echo $DIR/$NAME"_filtered"
+	/bin/bbmap/reformat.sh in=$i out=$DIR/$NAME"_filtered.bam" minlength=20 maxlength=35 t=4 -Xmx1g
     done
 }
 main  

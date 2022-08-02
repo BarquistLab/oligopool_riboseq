@@ -120,6 +120,7 @@ sampless <- gsub(".*-\\d\\d-(.*)_S\\d.*", "\\1", file.names)
 samples <- gsub("(.*)_S\\d.*", "\\1", sampless)
 samples <- gsub("-", "_", samples)
 
+x <- c()
 for (i in 1:length(file.names.tot)) {
   f <- read.delim(file.names.tot[i], header = F, sep = "\t")
   
@@ -129,7 +130,12 @@ for (i in 1:length(file.names.tot)) {
     scale_y_continuous(name="read counts", labels = scales::comma) +
     ggtitle(samples[i]) + scale_x_continuous(breaks = seq(10, 75, by = 10))
   print(g)
+  print(sum(f[f$readlength %in% 15:45,]$count/ sum(f$count)))
+  x[i] <- sum(f[f$readlength %in% 15:45,]$count/ sum(f$count))
 }
+
+mean(x[-19])
+
 ```
 
 
@@ -149,16 +155,25 @@ gwc_other <-  read.delim(
     sep = "\t", header = T, comment.char = "#")
 ```
 
+
+
 I move on with adding sample names etc.:
 ```{r}
 gwc <- GenewiseCounts[,c(2,7:length(GenewiseCounts[2,]))]
-#gwc <- gwc_other[,c(2,7:length(gwc_other[2,]))]
+gwc_tis <- gwc_other[,c(2,7:length(gwc_other[2,]))]
 pnapat <- ".*.rna_align\\.(\\d\\d_.+_.+).bam"
+
 colnames (gwc) <- gsub(pnapat,"\\1", colnames(gwc))
+colnames (gwc_tis) <- gsub(pnapat,"\\1", colnames(gwc_tis))
 
 head(gwc)
 gwc$`73_RNA_input_control` <- NULL
+
 rownames(gwc) <- gwc$Chr
+rownames(gwc_tis) <- gwc_tis$Chr
+
+#gwc <- gwc_tis
+
 gwc <- subset(gwc, select = -c(5,6,7,11,12,13,17,18,19))
 colnames(gwc) <- gsub("500pM", "0.5nM", colnames(gwc))
 colnames(gwc) <- gsub("5000pM", "5nM", colnames(gwc))
@@ -170,6 +185,10 @@ compare how much % is in start region:
 gwc_starts <- gwc_other[,grepl("no|Chr", colnames(gwc_other))]
 colnames (gwc_starts) <- gsub(pnapat,"\\1", colnames(gwc_starts))
 gwc_all <- gwc[,grepl("no|Chr", colnames(gwc))]
+
+acpP_starts <- gwc_starts %>% filter(grepl("acpP", Chr))
+acpP_all <- gwc_all %>% filter(grepl("acpP", Chr))
+mean(unlist(acpP_starts[-1]/acpP_all[-1]))
 ```
 
 
@@ -208,15 +227,26 @@ annot_sites <- read.csv("../analysis/annotated_sites.csv")
 novel_sites <- read.csv("../analysis/alt_tis_w_threshold.csv")
 
 annot_sites$unique_lt <- paste0(annot_sites$locus_tag,"_", annot_sites$start_position)
-novel_sites$unique_lt <- paste0(novel_sites$locus_tag,"_", novel_sites$start_position)
+novel_sites$unique_lt <- paste0(novel_sites$locus_tag,"_", 
+                                gsub("-", "_",novel_sites$start_position))
+novel_sites$really_unique_lt <- paste0(novel_sites$locus_tag,"_", 
+                                gsub("-", "_",gsub("-", "_", novel_sites$pos_from_annot_start)))
 
 head(annot_sites)
 head(novel_sites)
 
+novel_sites$annot_peak_found_hoer <- novel_sites$locus_tag %in% annot_sites$locus_tag[annot_sites$peak_found_Hör=="True"]
+novel_sites$annot_peak_found_meydan <- novel_sites$locus_tag %in% annot_sites$locus_tag[annot_sites$peak_found_meydan=="True"]
+
 detected_types <- data.frame(unique_lt = annot_sites$unique_lt, 
                              annot_site_detected = as.logical(toupper(annot_sites$peak_found_Hör)),
-                             alt_site_detected = annot_sites$unique_lt %in% novel_sites$unique_lt[novel_sites$peak_found_Hör=="True"], alt_site_detected_meydan = annot_sites$unique_lt %in% novel_sites$unique_lt[novel_sites$peak_found_meydan=="True"], annot_site_detected_meydan = as.logical(toupper(annot_sites$peak_found_meydan)),
+                             alt_site_detected = annot_sites$unique_lt %in% novel_sites$unique_lt[novel_sites$peak_found_Hör=="True"], 
+                             alt_site_detected_meydan = annot_sites$unique_lt %in% novel_sites$unique_lt[novel_sites$peak_found_meydan=="True"], 
+                             annot_site_detected_meydan = as.logical(toupper(annot_sites$peak_found_meydan)),
                              riboseq_reads_detected = annot_sites$locus_tag %in% detected_riboseqgenes)
+
+detected_types[detected_types$unique_lt %in% "b3843_4024988",4] <- FALSE
+
 # only TIS confirmed, no alternative TIS identified:
 as_noalt <- length(detected_types$unique_lt[detected_types$annot_site_detected & !detected_types$alt_site_detected])
 # only alt TIS confirmed, known TIS identified:
@@ -267,6 +297,15 @@ p2
 dev.off()
 ```
 
+check venn mistake
+```{r}
+all = length(novel_sites$locus_tag[novel_sites$peak_found_Hör=="True" & novel_sites$peak_found_meydan=="True" & novel_sites$locus_tag %in% annot_sites$locus_tag[annot_sites$peak_found_Hör=="True"]& novel_sites$locus_tag %in% annot_sites$locus_tag[annot_sites$peak_found_meydan=="True"]])
+
+
+
+```
+
+
 make upset plot:
 ```{r}
 rownames(detected_types) <- detected_types$unique_lt
@@ -275,7 +314,8 @@ m1 <- make_comb_mat(detected_types[-5])
 UpSet(m1)
 eu <- euler(detected_types[-5], shape = "ellipse")
 p1 <- plot(eu, quantities = eu$original.values)
-venn <- plot(venn(detected_types[-5][c(1,4,2,3)]))
+venn <- plot(venn(detected_types[-5][c(1,4,2,3)]), fills=c("#FFFFFF",  "#99DBEF", "#6E6E6E", 
+                                                   "#00A6D6"))
 
 svg("../analysis/revision_06_2022/eulerplot_2.svg")
 p1
@@ -283,6 +323,15 @@ dev.off()
 svg("../analysis/revision_06_2022/venn_2.svg")
 venn
 dev.off()
+
+write.csv(detected_types, "../analysis/revision_06_2022/venndiagram_with_meydan.csv")
+x <- read.csv("../analysis/analysis_02_2022/table_detected_genes.csv")
+sum(x$alt_site_detected & x$alt_site_detected_meydan)
+
+s3 <- xlsx::read.xlsx("~/Downloads/Supplementary Table S3.xlsx", sheetIndex = 1)
+gs3 <- s3$Locus.tag[s3$Peak.identified..this.study.==1 & s3$Peak.identified..Meydan.et.al...Mol.Cell..2019.]
+gnew <- gsub("_.*", "",x$unique_lt[x$alt_site_detected & x$alt_site_detected_meydan & x$riboseq_reads_detected])
+gnew[!gnew %in% gs3]
 ```
 
 Investigate non-identified tis:

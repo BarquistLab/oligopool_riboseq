@@ -91,6 +91,29 @@ wilcox.test(df_barplots$MFE[df_barplots$peak_type_2=="novel TIS"] , df_barplots$
 write.csv(df_barplots, "../analysis/revision_06_2022/MFE_barplot.csv")
 ```
 
+Add plot of mfe for 3'ends mfe:
+```{r}
+mfe_3prime <- read_csv("../data/MFE_3primeends.csv")
+g_trhee <- mfe_3prime %>% ggplot(aes(y = MFE, x = TIS_type, color=TIS_type)) +
+  geom_jitter(position=position_jitter(0.2), alpha=0.25,  size=1) +
+  #geom_boxplot(alpha=0.7, outlier.shape = NA, width=0.4, color="black") + 
+  #geom_violin(alpha=0.7, draw_quantiles = c(0.5), width=0.2) +
+  theme_classic() + ylim(c(-10,0))+
+  scale_color_manual(values=met.brewer("Demuth", 4)) + xlab("peak type") + 
+  labs(y = "MFE (in delta G) at 3' end") +
+  theme(legend.position="none",
+        axis.title = element_text(size=15),
+        axis.text = element_text(size=13)) 
+
+g_trhee
+
+svg("../analysis/revision_06_2022/3primeend_plot.svg")
+print(g_trhee)
+dev.off()
+
+wilcox.test(mfe_3prime$MFE[mfe_3prime$TIS_type=="novel"], mfe_3prime$MFE[mfe_3prime$TIS_type=="annotated"])
+```
+
 Other visualization:
 ```{r}
 found <- sum(annot_df[annot_df$MFE < (-5),"peak_found_Hör"]) / dim(annot_df[annot_df$"peak_found_Hör",])[1]
@@ -267,4 +290,63 @@ Heatmap(t(motif_data_alt), cluster_rows = F, cluster_columns = F, col = viridis(
         row_split = c(rep("start codons", 6), rep("SD motifs", 2)),
          heatmap_legend_param = list(title = "frequency"))
 ```
+add start codon plot:
+```{r}
+mdan <- read.xlsx("../data/meydan_alt_tis.xlsx", sheetIndex = 1)
+colnames(mdan)[3] <- "start_codon"
+
+
+df_hoer <- alt_df %>% filter(peak_found_Hör == TRUE) %>%
+  count(start_codon) %>% mutate("TIS" = "alt. TIS Hör et al. 2022") %>% mutate("percentage" = n/sum(n))
+
+mdan_df <- mdan %>%
+  count(start_codon) %>% 
+  mutate("TIS" = "alt. TIS Meydan et al. 2022") %>% 
+  mutate("percentage" = n/sum(n)) %>% 
+  filter(start_codon %in% df_hoer$start_codon) 
+
+
+
+df_mdan <- alt_df %>% filter(peak_found_meydan == TRUE) %>%
+  count(start_codon) %>% mutate("TIS" = "alt. TIS Meydan et al. 2019") %>% mutate("percentage" = n/sum(n))
+df_mdan$start_codon <- as.character(df_mdan$start_codon)
+
+df_annot <- annot_df %>%
+  count(start_codon) %>%
+  mutate("TIS" = "annotated TIS") %>% mutate("percentage" = n/sum(n)) %>% 
+  filter(start_codon %in% df_hoer$start_codon) 
+
+df <- rbind(df_hoer, df_annot, mdan_df)
+df$start_codon <- gsub("T", "U", df$start_codon)
+df <- df[df$start_codon %in%  c("AUG", "GUG", "UUG","CUG", "AUC", "AUU" ),]
+df$start_codon <- factor(df$start_codon, levels = c("AUG", "GUG", "UUG","CUG", "AUC", "AUU" ))
+df$TIS <- factor(df$TIS, 
+                 levels = c("annotated TIS", "alt. TIS Hör et al. 2022", "alt. TIS Meydan et al. 2022"))
+
+
+gg <- df %>% ggplot(aes(x=start_codon, y=percentage*100, fill=TIS)) + 
+  geom_bar(stat="identity", position=position_dodge())+
+  scale_fill_brewer(palette="Blues")+
+  theme_minimal() + ylim(c(0,100))+
+  #scale_fill_manual(values=met.brewer("Isfahan1", 4)) + 
+  scale_fill_brewer("Blues", direction = -1) + 
+  labs(y = "Percentage", x="Start codons") +
+  theme(#legend.position="right",
+    legend.position=c(.8,.9),
+    legend.box.background=element_rect(colour = "white"),
+        legend.title=element_blank(),
+        legend.text= element_text(size=13),
+        axis.title = element_text(size=15),
+        axis.text = element_text(size=13)) 
+
+gg
+svg("../analysis/revision_06_2022/barplot_scodons.svg")
+print(gg)
+dev.off()
+
+write.csv(df,"../analysis/revision_06_2022/barplot_scodons.csv", row.names = F)
+
+```
+
+
 

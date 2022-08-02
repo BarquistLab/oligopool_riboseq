@@ -114,9 +114,9 @@ metagene_R[is.na(metagene_R)] = 0
 metagene_R = - metagene_R
 
 
-mf_df <- data.frame(distance_to_start=c(seq(-11,-1,1), seq(1,51,1)), metagene_F=colSums(metagene_F),
+mf_df <- data.frame(distance_to_start=c(seq(-11,0,1), seq(1,50,1)), metagene_F=colSums(metagene_F),
                     metagene_R = colSums(metagene_R))
-mf_df$distance_to_start = mf_df$distance_to_start-1
+mf_df$distance_to_start = mf_df$distance_to_start
 mf_df$norm_reads = (mf_df$metagene_F + mf_df$metagene_R) / sum(mf_df$metagene_F + mf_df$metagene_R)
 
 ggplot(mf_df, aes(x=distance_to_start, y=norm_reads)) + 
@@ -135,6 +135,9 @@ exp_ours$exp <- "Oligo pool"
 
 total_df <- bind_rows(exp_tib, exp_ours)
 
+# get correlations:
+df_cor <- total_df[total_df$distance_to_start %in% -11:50,]
+cor(df_cor[df_cor$exp!="Meydan et al.",]$norm_reads, df_cor[df_cor$exp=="Meydan et al.",]$norm_reads)
 
 ours <- wiggles %>% 
   group_by(distance_to_start) %>% 
