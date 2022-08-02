@@ -1,14 +1,22 @@
 # INRI-seq analysis to Hör et al. 2022
 
 - Project name: INRI-seq
+
 - Experiments: Jens Hör, Svetlana D-M
+
 - Supervision: Lars Barquist, Jörg Vogel
+
 - Data analysis: Jakob Jung
+
 - Start: January 2021
+
+  
 
 ## Introduction
 
-This project directory contains the analysis of INRI-Seq manuscript.
+This project directory contains the analysis of INRI-Seq manuscript. Access the manuscript here: 
+
+https://www.biorxiv.org/content/10.1101/2022.04.11.487859v1
 
  
 
@@ -16,9 +24,9 @@ This project directory contains the analysis of INRI-Seq manuscript.
 
 The project is divided in 3 main directories:
 
-- data: contains all raw, intermediate and final data of the project.  
-- analysis: contains analysis files, such as figures, plots, tables, etc. 
-- scripts: contains scripts to process and analyze data from the data directory.
+-  [data](./data]) : contains all raw, intermediate and final data of the project.  
+-  [analysis](analysis]): contains analysis files, such as figures, plots, tables, etc. 
+-  [scripts](scripts]): contains scripts to process and analyze data from the data directory.
 
 Some directories have their own README.md file with information on the respective files. 
 
